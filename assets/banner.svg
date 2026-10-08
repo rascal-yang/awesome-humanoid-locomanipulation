@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" role="img" aria-labelledby="title desc">
+  <title id="title">Awesome Humanoid Loco-Manipulation</title>
+  <desc id="desc">A humanoid carrying a box, connecting demonstrations, motion and interaction.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10233b"/><stop offset="1" stop-color="#163e50"/></linearGradient></defs>
+  <rect width="1200" height="240" rx="18" fill="url(#bg)"/>
+  <path d="M0 222H1200" stroke="#31556a"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="48" y="51" fill="#74d6d0" font-size="13" letter-spacing="3">HUMANOID ROBOT LEARNING</text>
+    <text x="48" y="112" fill="#f5f8fb" font-size="44" font-weight="700">Whole-body skills.</text>
+    <text x="48" y="151" fill="#b7cbd8" font-size="19">From human demonstrations to humanoid interaction.</text>
+    <text x="48" y="201" fill="#74d6d0" font-size="14" letter-spacing="1">DATA  →  MOTION  →  INTERACTION</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M880 201H1142" stroke="#46697b" stroke-width="2"/>
+    <path d="M918 180L939 131L934 91L972 91L976 138L961 188M939 132L914 152L895 184M976 138L1001 164L1019 188" stroke="#74d6d0" stroke-width="12"/>
+    <path d="M940 100L993 113L1038 97M966 98L1007 129L1050 130" stroke="#eef6fb" stroke-width="9"/>
+    <rect x="938" y="45" width="33" height="30" rx="10" stroke="#eef6fb" stroke-width="5"/>
+    <path d="M950 58H959" stroke="#74d6d0" stroke-width="4"/>
+    <path d="M932 76L960 80" stroke="#eef6fb" stroke-width="3"/>
+    <rect x="1038" y="91" width="69" height="56" rx="4" fill="#244c60" stroke="#e3be82" stroke-width="3"/>
+    <path d="M1061 92V112H1084V92M1039 129H1106" stroke="#e3be82" stroke-width="2"/>
+    <path d="M845 69H884M833 99H884M854 129H880" stroke="#46697b" stroke-width="2"/>
+    <circle cx="818" cy="99" r="5" stroke="#74d6d0" stroke-width="2"/>
+  </g>
+</svg>

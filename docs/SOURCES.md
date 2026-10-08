@@ -26,7 +26,9 @@ Dates generally refer to the first version of the linked preprint, while venues 
 
 ## Selection boundaries
 
-The main topic emphasizes data acquisition, reconstruction, retargeting, augmentation, and physics-based interaction refinement. Human-only datasets and avatar control methods are retained as clearly labeled foundations. Pure locomotion and general-purpose motion tracking are not included without a direct interaction-data contribution.
+The homepage uses five broad H2 directions and five illustrative papers: Real2Sim, Harness & Real2Sim2Real, Interaction, Foundations, and RSI (Recursive Self-Improvement). These are editorial categories, not categories claimed by the papers themselves. Each homepage example is listed once. InterMimic is a simulated-human policy foundation; InterMimicGen illustrates execution-guided self-evolving imitation, without implying unrestricted recursive self-improvement.
+
+The [initial 17-entry data-engine reading list](DATA_ENGINE_READING_LIST.md) remains available separately. It emphasizes data acquisition, reconstruction, retargeting, augmentation, and physics-based interaction refinement. Human-only datasets and avatar control methods are clearly distinguished from robot deployment.
 
 ## Related lists
 

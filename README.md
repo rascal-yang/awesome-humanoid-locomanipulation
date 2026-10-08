@@ -23,10 +23,15 @@ Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**
 **Contents**
 
 - [Real2Sim](#real2sim)
+  - [Motion Retargeting & Alignment](#motion-retargeting)
 - [Harness & Real2Sim2Real](#harness-real2sim2real)
+  - [Simulation Data Generation & Policy Transfer](#simulation-policy-transfer)
 - [Interaction](#interaction)
+  - [Human–Object Interaction](#human-object-interaction)
 - [Foundations](#foundations)
+  - [Generalist Whole-Body Control](#generalist-whole-body-control)
 - [RSI](#rsi)
+  - [Self-Evolving Data Engines](#self-evolving-data-engines)
 
 **Table notes.** First release and venue are recorded separately. Official resource links do not imply a complete code or data release. See [source notes](docs/SOURCES.md) for details.
 
@@ -35,6 +40,10 @@ Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**
 ## Real2Sim
 
 Capture real-world demonstrations and reconstruct or retarget them into simulation-ready motion and scene representations.
+
+<a id="motion-retargeting"></a>
+
+### Motion Retargeting & Alignment
 
 | Paper | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
@@ -46,6 +55,10 @@ Capture real-world demonstrations and reconstruct or retarget them into simulati
 
 Simulation task infrastructure, training and evaluation workflows, and policy transfer from simulated demonstrations to real robots.
 
+<a id="simulation-policy-transfer"></a>
+
+### Simulation Data Generation & Policy Transfer
+
 | Paper | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**DemoHLM**](https://arxiv.org/abs/2510.11258)<br><sub>From One Demonstration to Generalizable Humanoid Loco-Manipulation</sub> | 2025-10<br><sub>arXiv</sub> | One simulated demo → synthetic training data | Generates task data from one simulated demonstration and trains visual manipulation policies above a universal whole-body controller for real-robot transfer. | [Paper](https://arxiv.org/abs/2510.11258) · [Project](https://beingbeyond.github.io/DemoHLM/) |
@@ -55,6 +68,10 @@ Simulation task infrastructure, training and evaluation workflows, and policy tr
 ## Interaction
 
 Whole-body interactions with objects and environments, including contact-aware representation and control.
+
+<a id="human-object-interaction"></a>
+
+### Human–Object Interaction
 
 | Paper | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
@@ -66,6 +83,10 @@ Whole-body interactions with objects and environments, including contact-aware r
 
 Reusable models and generalist policies that support downstream whole-body skills. The example below is a simulated-human interaction controller, included as a related policy foundation.
 
+<a id="generalist-whole-body-control"></a>
+
+### Generalist Whole-Body Control
+
 | Paper | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**InterMimic**](https://arxiv.org/abs/2502.20390)<br><sub>Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions</sub> | 2025-02<br><sub>CVPR 2025</sub> | Imperfect HOI MoCap → physics-refined interactions | Refines imperfect interaction motion through teacher policies and distills a scalable simulated-human controller, providing a foundation for physically grounded interaction data. | [Paper](https://arxiv.org/abs/2502.20390) · [Project](https://sirui-xu.github.io/InterMimic/) · [Code](https://github.com/Sirui-Xu/InterMimic) |
@@ -75,6 +96,10 @@ Reusable models and generalist policies that support downstream whole-body skill
 ## RSI
 
 **Recursive Self-Improvement:** feedback loops that use execution results to improve training data and policies. InterMimicGen illustrates self-evolving motion imitation within this direction.
+
+<a id="self-evolving-data-engines"></a>
+
+### Self-Evolving Data Engines
 
 | Paper | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |

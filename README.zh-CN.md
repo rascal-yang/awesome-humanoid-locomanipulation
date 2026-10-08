@@ -23,10 +23,15 @@
 **目录**
 
 - [Real2Sim](#real2sim)
+  - [动作重定向与对齐](#motion-retargeting)
 - [Harness & Real2Sim2Real](#harness-real2sim2real)
+  - [仿真数据生成与策略迁移](#simulation-policy-transfer)
 - [Interaction](#interaction)
+  - [人体与物体交互](#human-object-interaction)
 - [基座](#foundations)
+  - [通用全身控制](#generalist-whole-body-control)
 - [RSI](#rsi)
+  - [自演进数据引擎](#self-evolving-data-engines)
 
 **表格说明。** 首次公开时间与发表信息分开记录；官方资源链接不代表代码或数据已完整发布。详细情况见 [来源说明](docs/SOURCES.md)。
 
@@ -35,6 +40,10 @@
 ## Real2Sim
 
 将真实世界示教重建或重定向为仿真可用的动作与场景表示。
+
+<a id="motion-retargeting"></a>
+
+### 动作重定向与对齐
 
 | 论文 | 首次公开 / 发表 | 数据来源 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -46,6 +55,10 @@
 
 覆盖仿真任务搭建、训练与评测流程，以及从仿真示教到真实机器人的策略迁移。
 
+<a id="simulation-policy-transfer"></a>
+
+### 仿真数据生成与策略迁移
+
 | 论文 | 首次公开 / 发表 | 数据来源 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
 | [**DemoHLM**](https://arxiv.org/abs/2510.11258)<br><sub>From One Demonstration to Generalizable Humanoid Loco-Manipulation</sub> | 2025-10<br><sub>arXiv</sub> | 单条仿真示教 → 合成训练数据 | 从单条仿真示教生成任务数据，在通用全身控制器之上训练视觉操作策略，并迁移到真实人形机器人。 | [论文](https://arxiv.org/abs/2510.11258) · [项目](https://beingbeyond.github.io/DemoHLM/) |
@@ -55,6 +68,10 @@
 ## Interaction
 
 关注人形机器人与物体及环境的全身交互，包括接触表示与控制。
+
+<a id="human-object-interaction"></a>
+
+### 人体与物体交互
 
 | 论文 | 首次公开 / 发表 | 数据来源 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -66,6 +83,10 @@
 
 支撑下游全身技能的可复用模型与通用策略。下例是仿真人体交互控制器，作为相关策略基座收录。
 
+<a id="generalist-whole-body-control"></a>
+
+### 通用全身控制
+
 | 论文 | 首次公开 / 发表 | 数据来源 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
 | [**InterMimic**](https://arxiv.org/abs/2502.20390)<br><sub>Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions</sub> | 2025-02<br><sub>CVPR 2025</sub> | 不完美的人体交互动捕 → 物理修正后的交互 | 用教师策略修正不完美的交互动捕并蒸馏可扩展的仿真人体控制器，为物理约束下的交互数据提供基础。 | [论文](https://arxiv.org/abs/2502.20390) · [项目](https://sirui-xu.github.io/InterMimic/) · [代码](https://github.com/Sirui-Xu/InterMimic) |
@@ -75,6 +96,10 @@
 ## RSI
 
 **Recursive Self-Improvement（递归自我改进）：** 利用执行反馈持续改进训练数据与策略的闭环。InterMimicGen 作为该方向中自演进动作模仿的示例。
+
+<a id="self-evolving-data-engines"></a>
+
+### 自演进数据引擎
 
 | 论文 | 首次公开 / 发表 | 数据来源 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |

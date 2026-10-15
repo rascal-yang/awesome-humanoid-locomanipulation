@@ -1,6 +1,8 @@
 # Humanoid Interaction Locomanipulation Data Engine
 
-The initial 17-entry reading list is preserved here. The main README uses five broad research directions and a small set of examples. / 此处保留初版 17 项资源；首页按五个大方向展示少量示例。
+**Historical snapshot: 2026-10-08.** This initial 17-entry data-engine list is preserved for reference and has not been fully re-audited in the 2026-10-15 update. See the [current core list](../README.md) and [related methods](RELATED_READING.md) for the revised selection.
+
+**历史快照：2026-10-08。** 此处保留初版 17 项数据引擎资源，本轮未逐项重新核查全部发布状态；更新后的筛选见 [核心清单](../README.zh-CN.md) 与 [关联阅读](RELATED_READING.md#中文)。
 
 Source and release details / 来源与发布说明：[SOURCES.md](SOURCES.md).
 

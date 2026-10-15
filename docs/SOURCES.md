@@ -1,8 +1,70 @@
-# Source notes
+# Source notes / 来源与收录说明
 
-Curation date: **2026-10-08**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete release. No third-party images, full abstracts, papers, or datasets are copied into this repository.
+Curation date: **2026-10-15**. The current reading set contains **17 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
-Dates generally refer to the first version of the linked preprint, while venues are recorded separately. Year-only dates are used when only a publication year is verified. Exceptions are explicit below.
+## Selection boundaries / 收录边界
+
+The homepage retains five directions: Real2Sim, Harness & Real2Sim2Real, Interaction, Foundations, and RSI. It prioritizes direct humanoid whole-body relevance and lists each work once by its main contribution. The taxonomy is editorial, not an author-supplied classification.
+
+- **Real2Sim:** preserve geometry and contact when converting human demonstrations into robot references.
+- **Harness & Real2Sim2Real:** build data/transfer pipelines or coordinate perception, memory, skills, and execution.
+- **Interaction:** learn or regulate body–object and body–environment contact, including dexterous hands and force control.
+- **Foundations:** reusable models and controllers directly supporting humanoid whole-body skills.
+- **RSI:** execution changes later data, policies, or executable skills through a persistent feedback loop. Synthetic generation alone, within-rollout correction, and adaptive curriculum sampling are not sufficient evidence of strict recursive self-improvement.
+
+主页强调人形机器人全身操作的直接相关性。机械臂方法、仿真人体研究及通用学习基础放入 [关联阅读](RELATED_READING.md#中文)，并明确适用边界。InterMimic 从主页移至关联基础；原“人体与物体交互”小标题改为“从示教学习全身交互”，增加独立的“接触与力控制”小节。旧目录锚点保留。
+
+## Dates and evidence / 日期与证据
+
+The homepage uses the first arXiv submission month unless another first public release is explicitly documented. Venue is recorded separately and only when supported by an author or conference source. Personal reading dates are not publication dates. A linked preprint is not a claim of peer review. HomeBody is explicitly a project report; Astranomy is an official research report/blog.
+
+首次公开时间、修订时间、会议年份及个人阅读时间分别处理。论文编号的月份也不必等于首次提交月份，例如 λ₀ 的首次提交日期是 2026-09-30。涉及人体角色、仿真机器人和真机的结果分别描述。
+
+## Current core entries
+
+| Entry | Primary sources | Verification and scope notes |
+| :--- | :--- | :--- |
+| OTRetarget | [Paper](https://arxiv.org/abs/2609.36602) | First preprint: 2026-09-29. The paper reports physical G1 transfer; joint object optimization distinguishes it from body-only retargeting. |
+| OmniRetarget | [Paper](https://arxiv.org/abs/2509.26633) · [Project](https://omniretarget.github.io/) · [Code](https://github.com/amazon-far/holosoma) · [Data](https://huggingface.co/datasets/omniretarget/OmniRetarget_Dataset) | Venue is recorded on the official project page. See the archived source note for the distinction between generated and publicly released data. |
+| PRISM | [Paper](https://arxiv.org/abs/2609.38172) | First preprint: 2026-09-29. PRISM is the method name, not the paper title. The reported pipeline includes real-robot transfer. |
+| GRAIL | [Paper](https://arxiv.org/abs/2606.05160) · [Code](https://github.com/NVlabs/GRAIL) | First preprint: 2026-06-03; CoRL 2026 is listed by the official repository. A synthetic-data pipeline is not, by itself, recursive self-improvement. |
+| HumanoidMimicGen | [Paper](https://arxiv.org/abs/2605.27724) · [Project](https://humanoidmimicgen.github.io/) · [Benchmark](https://github.com/NVlabs/humanoidmimicgen) | First preprint: 2026-05-26. The official repository is labeled Benchmark; linking it does not assert that the full generation algorithm is released. |
+| DemoHLM | [Paper](https://arxiv.org/abs/2510.11258) · [Project](https://beingbeyond.github.io/DemoHLM/) | Preprint and official project page support the data-generation and deployment description. |
+| HomeBody | [Report](https://tml.stanford.edu/homebody/) | Official page dated September 2026. A functioning paper/arXiv link was not verified on 2026-10-15; this entry is a project report, not a confirmed arXiv paper. |
+| KPI | [Paper](https://arxiv.org/abs/2609.36151) · [Project](https://kpi-robot.github.io/) | First preprint: 2026-09-28. The contribution is contact control between a trajectory source and an unchanged whole-body tracker. |
+| Weave | [Paper](https://arxiv.org/abs/2609.16683) · [Project](https://xiaohu-art.github.io/Weave/) | First preprint: 2026-09-15. The row describes reference-conditioned interaction learning and makes no unsupported zero-shot real-world claim. |
+| HumanX | [Paper](https://arxiv.org/abs/2602.02473) · [Project](https://wyhuai.github.io/human-x/) | First preprint: 2026-02-02; revised 2026-10-09. CoRL 2026 is verified on the official project page. |
+| HDMI | [Paper](https://arxiv.org/abs/2509.16757) · [Project](https://hdmi-humanoid.github.io/) · [Code](https://github.com/LeCAR-Lab/HDMI) | First preprint: 2025-09-20. Real-robot G1 evaluation is reported in the paper. |
+| λ₀ | [Paper](https://arxiv.org/abs/2610.00438) | First submission: 2026-09-30 despite the 2610 arXiv identifier. λ₀ is the policy name. The abstract promises future releases, so no code/data availability is claimed. |
+| MotionWAM | [Paper](https://arxiv.org/abs/2606.09215) | First preprint: 2026-06-08. Real-world G1 tasks are reported; a video prediction model alone would not meet the homepage scope. |
+| ULTRA | [Paper](https://arxiv.org/abs/2603.03279) | First preprint: 2026-03-03; revision: 2026-09-18. IROS 2026 is recorded in the arXiv comments; September is not the initial release. |
+| HOVER | [Paper](https://arxiv.org/abs/2410.21229) · [Project](https://hover-versatile-humanoid.github.io/) | First preprint: 2024-10-28. ICRA 2025 is stated on the official project page; this is a motor-control foundation rather than a complete autonomous agent. |
+| OmniH2O | [Paper](https://arxiv.org/abs/2406.08858) · [Project](https://omni.human2humanoid.com/) | First preprint: 2024-06-13. CoRL 2024 is stated on the official project page. |
+| InterMimicGen | [Paper](https://arxiv.org/abs/2610.06850) · [Project](https://sirui-xu.github.io/InterMimicGen/) | First preprint: 2026-10-05. This is an execution-filtered motion/data feedback loop, not a claim of unrestricted recursive self-improvement. |
+
+## Related entries
+
+| Entry | Primary source | Scope note |
+| :--- | :--- | :--- |
+| USDCraft | [Paper](https://arxiv.org/abs/2610.11322) | Useful asset infrastructure; does not itself establish whole-body humanoid control. |
+| EgoInfinity | [Paper](https://arxiv.org/abs/2606.17385) | Hand–object and manipulator transfer; not equivalent to body–object contact and bipedal balance. |
+| EgoEngine | [Paper](https://arxiv.org/abs/2606.12604) | A useful video-to-robot data pipeline; whole-body humanoid transfer needs separate evidence. |
+| RoboICL | [Paper](https://arxiv.org/abs/2609.34261) | RoboDojo manipulation evaluation; in-context adaptation is not persistent program or weight evolution. |
+| Recova | [Paper](https://arxiv.org/abs/2610.01178) | Relevant to recovery and data collection; reported manipulation results do not establish humanoid locomotion and balance. |
+| SGS | [Paper](https://arxiv.org/abs/2610.12465) | An adaptive curriculum for simulated RL and transfer; not strict recursive self-improvement or a humanoid-specific method. |
+| Astranomy | [Official report](https://research.nvidia.com/labs/srl/projects/astranomy/) | Official research report/blog; RoboLab DROID-arm simulations do not establish humanoid whole-body control. |
+| InternW0-Δ | [Paper](https://arxiv.org/abs/2609.31394) | Relevant world-action-model architecture; no blanket humanoid loco-manipulation claim. |
+| Diffusion Policy | [Author project](https://diffusion-policy.cs.columbia.edu/) | General imitation-learning method and baseline, rather than a humanoid-specific controller. |
+| Dreamer series | [Author project](https://danijar.com/project/dreamerv3/) | General model-based RL background; task-specific humanoid evidence is still needed. |
+| InterMimic | [Paper](https://arxiv.org/abs/2502.20390) | The original CVPR paper primarily studies simulated human characters; later robot support should be distinguished from that evidence. |
+| PhysEvo | [Paper](https://arxiv.org/abs/2610.08995) | Explicit physical RSI around frozen model weights; real deployment is demonstrated on a PiPER arm. |
+| HarnessPAI | [Paper](https://arxiv.org/abs/2609.29166) | A transferable harness-evolution mechanism; it should not be presented as a humanoid whole-body policy. |
+
+## Historical data-engine list
+
+The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 17 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
+
+历史清单保留于独立文件，标注为 2026-10-08 快照；其资源发布状态不表示在本轮全部重新核查，也不计入当前主页与关联阅读数量。
 
 | Entry | Primary sources | Notes |
 | :--- | :--- | :--- |
@@ -24,15 +86,9 @@ Dates generally refer to the first version of the linked preprint, while venues 
 | CHAIRS | [Paper](https://arxiv.org/abs/2212.10621) · [Project](https://jnnan.github.io/chairs/) · [Code](https://github.com/jnnan/chairs) | First preprint: December 2022; conference: ICCV 2023. |
 | BEHAVE | [Paper](https://openaccess.thecvf.com/content/CVPR2022/html/Bhatnagar_BEHAVE_Dataset_and_Method_for_Tracking_Human_Object_Interactions_CVPR_2022_paper.html) | Year-only date follows CVPR 2022; the original preprint month was not verified in this curation. |
 
-## Selection boundaries
-
-The homepage uses five broad H2 directions and five illustrative papers: Real2Sim, Harness & Real2Sim2Real, Interaction, Foundations, and RSI (Recursive Self-Improvement). These are editorial categories, not categories claimed by the papers themselves. Each homepage example is listed once. InterMimic is a simulated-human policy foundation; InterMimicGen illustrates execution-guided self-evolving imitation, without implying unrestricted recursive self-improvement.
-
-The [initial 17-entry data-engine reading list](DATA_ENGINE_READING_LIST.md) remains available separately. It emphasizes data acquisition, reconstruction, retargeting, augmentation, and physics-based interaction refinement. Human-only datasets and avatar control methods are clearly distinguished from robot deployment.
-
 ## Related lists
 
-- https://github.com/YanjieZe/awesome-humanoid-robot-learning
-- https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation
+- [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning)
+- [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation)
 
-These lists informed discovery and organization. Individual entries are supported by the primary sources above.
+These lists support discovery; individual claims are grounded in the primary sources above. Original curation text follows the repository license; linked research keeps its own license.

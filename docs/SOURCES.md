@@ -1,18 +1,32 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. The current reading set contains **17 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **17 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
 ## Selection boundaries / 收录边界
 
-The homepage retains five directions: Real2Sim, Harness & Real2Sim2Real, Interaction, Foundations, and RSI. It prioritizes direct humanoid whole-body relevance and lists each work once by its main contribution. The taxonomy is editorial, not an author-supplied classification.
+The homepage uses six directions: Motion Retargeting, Data Generation & Policy Learning, Interaction, Foundations, Systems, and Iterative Improvement. It prioritizes direct humanoid whole-body relevance. Each work has a primary table entry and may be cross-linked from other directions; contribution tags describe overlap rather than exclusive membership. The taxonomy is editorial, not an author-supplied classification.
 
-- **Real2Sim:** preserve geometry and contact when converting human demonstrations into robot references.
-- **Harness & Real2Sim2Real:** build data/transfer pipelines or coordinate perception, memory, skills, and execution.
-- **Interaction:** learn or regulate body–object and body–environment contact, including dexterous hands and force control.
-- **Foundations:** reusable models and controllers directly supporting humanoid whole-body skills.
-- **RSI:** execution changes later data, policies, or executable skills through a persistent feedback loop. Synthetic generation alone, within-rollout correction, and adaptive curriculum sampling are not sufficient evidence of strict recursive self-improvement.
+- **Motion Retargeting:** preserve geometry and contact when adapting human demonstrations to robot references.
+- **Data Generation & Policy Learning:** distinguish real-video augmentation and reconstruction (PRISM), virtual synthesis from assets and video priors (GRAIL), and simulation-demonstration expansion (HumanoidMimicGen and DemoHLM).
+- **Interaction:** distinguish learning from human videos, dexterous whole-body interaction from captured demonstrations, and contact/force regulation.
+- **Foundations:** distinguish human-data-pretrained whole-body VLAs, world-model-conditioned policies, and generalist whole-body controllers.
+- **Systems:** coordinate perception, spatial memory, reusable skills, and execution feedback.
+- **Iterative Improvement:** identify persistent execution-driven changes to later data or policies. An iterative data–policy loop is not a claim of unrestricted recursive self-improvement (RSI).
 
-主页强调人形机器人全身操作的直接相关性。机械臂方法、仿真人体研究及通用学习基础放入 [关联阅读](RELATED_READING.md#中文)，并明确适用边界。InterMimic 从主页移至关联基础；原“人体与物体交互”小标题改为“从示教学习全身交互”，增加独立的“接触与力控制”小节。旧目录锚点保留。
+The 2026-10-16 classification review removes the mixed “Harness & Real2Sim2Real” heading and splits its data-generation entries by source and mechanism. It also separates HomeBody's system integration, Weave's dexterous interaction, and the model families represented by λ₀ and MotionWAM. Existing explicit anchors are retained as compatibility links; cross-links describe other contributions without duplicating primary rows.
+
+主页按研究问题与实际数据路径组织，小节可只有一项工作，类别无需互斥。机械臂方法、仿真人体研究及通用学习基础仍放入 [关联阅读](RELATED_READING.md#中文)，并明确适用边界。2026-10-16 的调整拆开原“执行框架与 Real2Sim2Real”混合大类，区分真实视频扩增、全虚拟合成和仿真示教扩增；同时独立呈现系统集成、灵巧交互与不同模型路线，保留旧显式锚点。
+
+## Pipeline evidence for reclassification / 重分类的流程证据
+
+| Entry | Primary evidence | Classification implication |
+| :--- | :--- | :--- |
+| HumanoidMimicGen | [Paper §6.4](https://arxiv.org/html/2605.27724v1#S6.SS4): each real-world task uses one simulation demonstration to generate additional simulation demonstrations, then combines them with real-world demonstrations for policy training. [§7](https://arxiv.org/html/2605.27724v1#S7) describes manually designed co-training simulation environments. | Simulation-demonstration expansion with sim-and-real co-training; the reported training route does not establish a real-scene-to-simulation reconstruction stage. |
+| DemoHLM | [Paper](https://arxiv.org/abs/2510.11258): starts from a single demonstration in simulation and reports transfer to a real G1. | Simulation-demonstration expansion and sim-to-real transfer. |
+| GRAIL | [Paper](https://arxiv.org/abs/2606.05160): begins with specified 3D assets and scenes, synthesizes videos, and remains virtual until deployment. | Asset- and video-prior-based synthesis; reconstruction of generated videos is not real-world video reconstruction. |
+| PRISM | [Paper](https://arxiv.org/abs/2609.38172): explicitly describes a real-to-sim-to-real framework with real-video-driven counterfactual generation and contact-anchored reconstruction. | Video augmentation and Real2Sim2Real. |
+
+HumanoidMimicGen 的真实数据用于和仿真数据共同训练，不应据此推断其存在真实场景重建到仿真的步骤。GRAIL 的 4D 恢复处理已知虚拟场景生成的视频，也应与从真实视频重建的流程区分。
 
 ## Dates and evidence / 日期与证据
 
@@ -28,7 +42,7 @@ The homepage uses the first arXiv submission month unless another first public r
 | OmniRetarget | [Paper](https://arxiv.org/abs/2509.26633) · [Project](https://omniretarget.github.io/) · [Code](https://github.com/amazon-far/holosoma) · [Data](https://huggingface.co/datasets/omniretarget/OmniRetarget_Dataset) | Venue is recorded on the official project page. See the archived source note for the distinction between generated and publicly released data. |
 | PRISM | [Paper](https://arxiv.org/abs/2609.38172) | First preprint: 2026-09-29. PRISM is the method name, not the paper title. The reported pipeline includes real-robot transfer. |
 | GRAIL | [Paper](https://arxiv.org/abs/2606.05160) · [Code](https://github.com/NVlabs/GRAIL) | First preprint: 2026-06-03; CoRL 2026 is listed by the official repository. A synthetic-data pipeline is not, by itself, recursive self-improvement. |
-| HumanoidMimicGen | [Paper](https://arxiv.org/abs/2605.27724) · [Project](https://humanoidmimicgen.github.io/) · [Benchmark](https://github.com/NVlabs/humanoidmimicgen) | First preprint: 2026-05-26. The official repository is labeled Benchmark; linking it does not assert that the full generation algorithm is released. |
+| HumanoidMimicGen | [Paper](https://arxiv.org/abs/2605.27724) · [Project](https://humanoidmimicgen.github.io/) · [Benchmark](https://github.com/NVlabs/humanoidmimicgen) | First preprint: 2026-05-26. Classification reviewed against §6.4 and §7: simulation-demonstration expansion and sim-and-real co-training. The official repository is labeled Benchmark; linking it does not assert that the full generation algorithm is released. |
 | DemoHLM | [Paper](https://arxiv.org/abs/2510.11258) · [Project](https://beingbeyond.github.io/DemoHLM/) | Preprint and official project page support the data-generation and deployment description. |
 | HomeBody | [Report](https://tml.stanford.edu/homebody/) | Official page dated September 2026. A functioning paper/arXiv link was not verified on 2026-10-15; this entry is a project report, not a confirmed arXiv paper. |
 | KPI | [Paper](https://arxiv.org/abs/2609.36151) · [Project](https://kpi-robot.github.io/) | First preprint: 2026-09-28. The contribution is contact control between a trajectory source and an unchanged whole-body tracker. |

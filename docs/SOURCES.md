@@ -4,18 +4,19 @@ Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing r
 
 ## Selection boundaries / 收录边界
 
-The homepage uses six directions: Motion Retargeting, Data Generation & Policy Learning, Interaction, Foundations, Systems, and Iterative Improvement. It prioritizes direct humanoid whole-body relevance. Each work has a primary table entry and may be cross-linked from other directions; contribution tags describe overlap rather than exclusive membership. The taxonomy is editorial, not an author-supplied classification.
+The homepage uses seven H2 directions: Real2Sim, Real2Sim2Real, Sim2Real & Sim–Real Co-Training, Interaction, Foundations, Harness, and Iterative Improvement. H2 headings describe broad research directions, technical routes, or system paradigms; H3 headings describe concrete methods within them. It prioritizes direct humanoid whole-body relevance. Each work has a primary table entry and may be cross-linked from other directions; contribution tags describe overlap rather than exclusive membership. The taxonomy is editorial, not an author-supplied classification.
 
-- **Motion Retargeting:** preserve geometry and contact when adapting human demonstrations to robot references.
-- **Data Generation & Policy Learning:** distinguish real-video augmentation and reconstruction (PRISM), virtual synthesis from assets and video priors (GRAIL), and simulation-demonstration expansion (HumanoidMimicGen and DemoHLM).
+- **Real2Sim:** adapt real demonstrations into robot-compatible simulation references, with contact-preserving motion retargeting as a concrete method.
+- **Real2Sim2Real:** reconstruct simulation references from real inputs, train in simulation, and deploy back to real robots; PRISM uses counterfactual video augmentation within this route.
+- **Sim2Real & Sim–Real Co-Training:** use virtual-source data for real-robot learning and deployment; distinguish asset/video-prior synthesis (GRAIL) from simulation-demonstration expansion (HumanoidMimicGen and DemoHLM), and distinguish transfer from mixed-data training.
 - **Interaction:** distinguish learning from human videos, dexterous whole-body interaction from captured demonstrations, and contact/force regulation.
 - **Foundations:** distinguish human-data-pretrained whole-body VLAs, world-model-conditioned policies, and generalist whole-body controllers.
-- **Systems:** coordinate perception, spatial memory, reusable skills, and execution feedback.
+- **Harness:** coordinate perception, spatial memory, reusable skills, and execution feedback through an execution framework; HomeBody illustrates spatial memory and skill orchestration.
 - **Iterative Improvement:** identify persistent execution-driven changes to later data or policies. An iterative data–policy loop is not a claim of unrestricted recursive self-improvement (RSI).
 
-The 2026-10-16 classification review removes the mixed “Harness & Real2Sim2Real” heading and splits its data-generation entries by source and mechanism. It also separates HomeBody's system integration, Weave's dexterous interaction, and the model families represented by λ₀ and MotionWAM. Existing explicit anchors are retained as compatibility links; cross-links describe other contributions without duplicating primary rows.
+The 2026-10-16 hierarchy revision places Real2Sim, Real2Sim2Real, and Harness at H2. Counterfactual video augmentation, interaction synthesis from assets and video priors, and simulation-demonstration expansion remain H3 methods within their corresponding routes. The broad “Data Generation & Policy Learning” umbrella is split into Real2Sim2Real and Sim2Real & Sim–Real Co-Training, while the former Systems section is named Harness. Prior distinctions among dexterous interaction, human-data-pretrained VLAs, and world-model-conditioned policies remain part of the collection. Existing explicit anchors and cross-links are preserved.
 
-主页按研究问题与实际数据路径组织，小节可只有一项工作，类别无需互斥。机械臂方法、仿真人体研究及通用学习基础仍放入 [关联阅读](RELATED_READING.md#中文)，并明确适用边界。2026-10-16 的调整拆开原“执行框架与 Real2Sim2Real”混合大类，区分真实视频扩增、全虚拟合成和仿真示教扩增；同时独立呈现系统集成、灵巧交互与不同模型路线，保留旧显式锚点。
+主页以 H2 表示宏观研究方向、技术路线或系统范式，以 H3 表示其中的具体方法。Real2Sim、Real2Sim2Real 与 Harness 位于 H2；反事实视频扩增、资产与视频先验驱动的交互合成、仿真示教扩增位于对应路线下的 H3。数据生成与策略学习贯穿多条路线，不再作为这几类方法的统一 H2。仿真迁移和虚实混合训练仍分别说明，保留旧链接与跨方向引用。机械臂、仿真人体及通用学习方法仍放入 [关联阅读](RELATED_READING.md#中文)，并注明适用边界。
 
 ## Pipeline evidence for reclassification / 重分类的流程证据
 

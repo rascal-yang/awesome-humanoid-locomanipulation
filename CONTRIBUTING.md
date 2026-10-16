@@ -19,7 +19,7 @@ Use `YYYY` when only the year is verified. Keep venue and first release separate
 
 ## Add a topic
 
-The homepage currently uses six H2 directions: Motion Retargeting, Data Generation & Policy Learning, Interaction, Foundations, Systems, and Iterative Improvement. Use H3 subgroups for specific research questions or data-generation routes. Create or rename a subgroup when the existing label misrepresents a verified contribution; a useful subgroup may contain a single paper. Broader directions may evolve with the collection. Use [the topic template](docs/TOPIC_TEMPLATE.md) to define a new direction and its boundaries in both languages. Preserve existing explicit anchors when renaming or splitting headings, and link to the new subgroups when an old anchor covers several topics.
+The homepage currently uses seven H2 directions: Real2Sim, Real2Sim2Real, Sim2Real & Sim–Real Co-Training, Interaction, Foundations, Harness, and Iterative Improvement. H2 headings represent broad research directions, technical routes, or system paradigms; H3 headings describe concrete methods within them. For example, Real2Sim2Real is an H2 route, and counterfactual video augmentation is one H3 method within it. Harness is an H2 system paradigm, with spatial memory and skill orchestration at H3. Create or rename a subgroup when the existing label misrepresents a verified contribution; a useful subgroup may contain a single paper. Broader directions may evolve with the collection. Use [the topic template](docs/TOPIC_TEMPLATE.md) to define a new direction and its boundaries in both languages. Preserve existing explicit anchors when renaming or splitting headings, and link to the new subgroups when an old anchor covers several topics.
 
 Give each work a primary table entry for readability, then use cross-links and concise contribution tags for other relevant directions. These are overlapping contributions, not mutually exclusive classes. Distinguish real-video reconstruction, virtual interaction synthesis, and simulation-demonstration expansion. Real-data co-training or real-robot evaluation alone does not establish a Real2Sim stage. For iterative improvement, state what persists and improves across rounds: data, policies, programs, or tools. Do not equate within-rollout feedback, synthetic data generation, or adaptive curriculum sampling with strict recursive self-improvement.
 
@@ -40,6 +40,6 @@ Explain what changed and link the source: title, venue, official code, dataset a
 
 新增论文时请同步中英文 README，保持原始英文题名，写清数据来源与产出，并给出一句客观简介。每个 H3 内按首次公开时间倒序排列；会议年份单独标注。优先引用论文、作者项目页与官方仓库，不猜测代码地址，不把人体仿真结果写成真实机器人结果。
 
-首页当前采用动作重定向、数据生成与策略学习、交互学习与控制、模型与控制基座、系统与技能编排、迭代改进六个 H2 方向，用 H3 表示研究问题或数据生成路径。分类可随收录内容调整，不要求维持固定的大类数量；已有标题不能准确描述论文时，应新建或改名，小节可以只有一篇。新增方向时使用主题模板说明范围，并同步两版目录；改名或拆分时保留已有显式锚点，必要时增加指向新小节的链接。
+首页当前采用 Real2Sim、Real2Sim2Real、Sim2Real & Sim–Real Co-Training、Interaction、Foundations、Harness、Iterative Improvement 七个 H2 方向。H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法。例如 Real2Sim2Real 是 H2 路线，反事实视频扩增是其中的 H3 方法；Harness 是 H2 系统范式，空间记忆与技能编排是其中的 H3 方法。分类可随收录内容调整，不要求维持固定的大类数量；已有标题不能准确描述论文时，应新建或改名，小节可以只有一篇。新增方向时使用主题模板说明范围，并同步两版目录；改名或拆分时保留已有显式锚点，必要时增加指向新小节的链接。
 
 每项工作设一个主表格条目，交叉贡献通过链接和简短标签呈现，不要求互斥归类。真实视频重建、全虚拟交互合成和仿真示教扩增应分别描述；真实数据混合训练或真机评测本身不代表存在 Real2Sim。迭代改进需写清跨轮次保留并改进的对象，不将单次生成、回合内反馈或自适应采样等同于严格 RSI。机械臂、仿真人体与通用方法放入双语关联阅读并说明边界；项目报告与论文分别标注。

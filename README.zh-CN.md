@@ -18,21 +18,22 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按六个研究方向组织 **17 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **17 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-小节按研究问题或数据生成路径组织，可以只有一项工作；标签呈现交叉贡献，不要求一篇论文只属于一个互斥类别。
+H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 **目录**
 
-- [Motion Retargeting｜动作重定向](#retargeting)
-  - [接触保持的重定向](#motion-retargeting)
-- [Data Generation & Policy Learning｜数据生成与策略学习](#data-generation-policy-learning)
-  - [视频扩增与虚实迁移](#video-augmentation-real2sim2real)
-  - [基于资产与视频先验的交互合成](#asset-video-interaction-synthesis)
+- [Real2Sim｜真实数据到仿真参考](#real2sim)
+  - [接触保持的动作重定向](#motion-retargeting)
+- [Real2Sim2Real｜真实到仿真再到真实](#real2sim2real)
+  - [反事实视频扩增](#counterfactual-video-augmentation)
+- [Sim2Real & Sim–Real Co-Training｜仿真迁移与虚实混合训练](#sim2real-co-training)
+  - [资产与视频先验驱动的交互合成](#asset-video-interaction-synthesis)
   - [仿真中的示教扩增](#simulation-demonstration-expansion)
 - [Interaction｜交互学习与控制](#interaction)
   - [从人类视频学习交互](#interaction-learning-from-human-videos)
@@ -42,23 +43,26 @@
   - [全身 VLA 与人类数据预训练](#whole-body-vla-human-pretraining)
   - [世界模型条件化的全身策略](#world-model-conditioned-policies)
   - [通用全身控制](#generalist-whole-body-control)
-- [Systems｜系统与技能编排](#systems)
+- [Harness｜执行框架与技能编排](#harness)
   - [空间记忆与长程技能编排](#spatial-memory-skill-orchestration)
 - [Iterative Improvement｜迭代改进](#iterative-improvement)
   - [执行反馈驱动的数据与策略协同改进](#execution-guided-data-policy-co-improvement)
 
 <a id="retargeting"></a>
+<a id="motion-retargeting动作重定向"></a>
 <a id="real2sim"></a>
 
-## Motion Retargeting｜动作重定向
+## Real2Sim｜真实数据到仿真参考
 
 将人体动作与交互几何适配到机器人形态，为后续学习和控制提供参考轨迹。
 
 <a id="motion-retargeting"></a>
+<a id="contact-preserving-retargeting"></a>
+<a id="接触保持的重定向"></a>
 <a id="contact-preserving-motion-retargeting"></a>
 <a id="接触保持的动作重定向"></a>
 
-### 接触保持的重定向
+### 接触保持的动作重定向
 
 在跨形态适配示教动作时，保持机器人、物体与环境之间的接触关系。
 
@@ -71,20 +75,28 @@
 
 [关联视频重建与资产方法](docs/RELATED_READING.md#real2sim-zh)：EgoInfinity、EgoEngine、USDCraft。
 
+<a id="real2sim2real"></a>
 <a id="data-generation-policy-learning"></a>
+<a id="data-generation--policy-learning"></a>
+<a id="data-generation--policy-learning数据生成与策略学习"></a>
 <a id="harness-real2sim2real"></a>
 <a id="harness--real2sim2real"></a>
 <a id="simulation-policy-transfer"></a>
 <a id="simulation-data-generation--policy-transfer"></a>
 <a id="仿真数据生成与策略迁移"></a>
 
-## Data Generation & Policy Learning｜数据生成与策略学习
+## Real2Sim2Real｜真实到仿真再到真实
 
-按数据来源与生成机制区分真实视频重建、全虚拟合成和仿真示教扩增；训练中使用真实数据本身不代表存在 Real2Sim 步骤。
+从真实示教或观测构建仿真参考，在仿真中训练策略，再部署回真实机器人；数据生成是这条技术路线中的环节。
 
+**其他路线：** 从虚拟数据出发的训练与虚实混合训练见 [Sim2Real & Sim–Real Co-Training](#sim2real-co-training)，执行系统集成见 [Harness](#harness)。
+
+<a id="counterfactual-video-augmentation"></a>
 <a id="video-augmentation-real2sim2real"></a>
+<a id="video-augmentation--real2sim2real"></a>
+<a id="视频扩增与虚实迁移"></a>
 
-### 视频扩增与虚实迁移
+### 反事实视频扩增
 
 从真实交互视频扩增数据，重建机器人可用的参考轨迹，再将训练后的策略部署到真机。
 
@@ -92,9 +104,18 @@
 | :--- | :--- | :--- | :--- | :--- |
 | [**PRISM**](https://arxiv.org/abs/2609.38172)<br><sub>Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | 少量真实视频 → 扩增数据 → 真机策略 | 生成反事实交互视频，重建接触锚定的参考轨迹，并训练可用于真实人形机器人搬运的策略。<br><sub>标签: Video generation · Real2Sim2Real</sub> | [论文](https://arxiv.org/abs/2609.38172) |
 
-<a id="asset-video-interaction-synthesis"></a>
+<a id="sim2real-co-training"></a>
+<a id="sim2real"></a>
 
-### 基于资产与视频先验的交互合成
+## Sim2Real & Sim–Real Co-Training｜仿真迁移与虚实混合训练
+
+利用仿真生成的数据或仿真训练的策略支持真机学习与部署。GRAIL 与 DemoHLM 展示仿真到现实迁移；HumanoidMimicGen 将生成的仿真数据与真实示教共同用于训练。
+
+<a id="asset-video-interaction-synthesis"></a>
+<a id="interaction-synthesis-from-3d-assets--video-priors"></a>
+<a id="基于资产与视频先验的交互合成"></a>
+
+### 资产与视频先验驱动的交互合成
 
 从已知虚拟资产和场景出发，利用视频先验合成用于机器人学习的交互数据。
 
@@ -113,7 +134,7 @@
 | [**HumanoidMimicGen**](https://arxiv.org/abs/2605.27724)<br><sub>HumanoidMimicGen: Data Generation for Loco-Manipulation via Whole-Body Planning</sub> | 2026-05<br><sub>arXiv</sub> | 仿真机器人示教 → 扩增仿真数据 → 虚实混合训练 | 通过技能适配与全身规划扩增仿真示教，真机评测时再与真实示教混合训练策略。<br><sub>标签: Simulation data · Whole-body planning · Sim-and-real co-training</sub> | [论文](https://arxiv.org/abs/2605.27724) · [项目](https://humanoidmimicgen.github.io/) · [基准代码](https://github.com/NVlabs/humanoidmimicgen) |
 | [**DemoHLM**](https://arxiv.org/abs/2510.11258)<br><sub>DemoHLM: From One Demonstration to Generalizable Humanoid Loco-Manipulation</sub> | 2025-10<br><sub>arXiv</sub> | 单条仿真示教 → 合成训练数据 | 从单条仿真示教扩增任务数据，在全身控制器之上学习视觉操作策略并迁移至真机。<br><sub>标签: Simulation data · Demonstration expansion · Sim-to-real</sub> | [论文](https://arxiv.org/abs/2510.11258) · [项目](https://beingbeyond.github.io/DemoHLM/) |
 
-**跨方向阅读：** [HumanX](#interaction-learning-from-human-videos) 也包含交互数据扩增；[InterMimicGen](#execution-guided-data-policy-co-improvement) 则将扩增与多轮执行、跟踪器更新相连。执行系统集成见 [Systems](#systems)。
+**跨方向阅读：** [HumanX](#interaction-learning-from-human-videos) 也包含交互数据扩增；[InterMimicGen](#execution-guided-data-policy-co-improvement) 则将扩增与多轮执行、跟踪器更新相连。执行系统集成见 [Harness](#harness)。
 
 <a id="interaction"></a>
 
@@ -155,7 +176,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | [**KPI**](https://arxiv.org/abs/2609.36151)<br><sub>KPI: A Promptable Kernel for Physical Interaction on Humanoids</sub> | 2026-09<br><sub>arXiv</sub> | 轨迹与交互约束 → 自适应接触控制 | 在保留底层全身跟踪器的基础上，按跟踪、柔顺及力范围要求调整手臂阻抗与参考量。<br><sub>标签: Impedance adaptation · Force regulation</sub> | [论文](https://arxiv.org/abs/2609.36151) · [项目](https://kpi-robot.github.io/) |
 
-**跨方向阅读：** [PRISM](#video-augmentation-real2sim2real) 与 [GRAIL](#asset-video-interaction-synthesis) 也学习交互策略，主条目侧重其数据生成贡献。[KPI](#contact-force-control) 还包含智能体驱动的轨迹与交互约束生成。
+**跨方向阅读：** [PRISM](#counterfactual-video-augmentation) 与 [GRAIL](#asset-video-interaction-synthesis) 也学习交互策略，主条目侧重其数据生成贡献。[KPI](#contact-force-control) 还包含智能体驱动的轨迹与交互约束生成。
 
 <a id="foundations"></a>
 
@@ -201,9 +222,11 @@
 
 [关联模型与学习基础](docs/RELATED_READING.md#foundations-zh)：Astranomy、InternW0-Δ、Diffusion Policy、Dreamer、InterMimic。
 
+<a id="harness"></a>
 <a id="systems"></a>
+<a id="systems系统与技能编排"></a>
 
-## Systems｜系统与技能编排
+## Harness｜执行框架与技能编排
 
 将感知、记忆、可复用技能和执行反馈组织为可运行的人形机器人系统。
 

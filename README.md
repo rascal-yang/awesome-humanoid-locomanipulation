@@ -18,21 +18,22 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **17 core works** across six directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **17 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-Subgroups describe a research question or data-generation route, and may contain a single work. Tags identify overlapping contributions without requiring a paper to fit one exclusive category.
+H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
 **Contents**
 
-- [Motion Retargeting](#retargeting)
-  - [Contact-Preserving Retargeting](#motion-retargeting)
-- [Data Generation & Policy Learning](#data-generation-policy-learning)
-  - [Video Augmentation & Real2Sim2Real](#video-augmentation-real2sim2real)
-  - [Interaction Synthesis from 3D Assets & Video Priors](#asset-video-interaction-synthesis)
+- [Real2Sim](#real2sim)
+  - [Contact-Preserving Motion Retargeting](#motion-retargeting)
+- [Real2Sim2Real](#real2sim2real)
+  - [Counterfactual Video Augmentation](#counterfactual-video-augmentation)
+- [Sim2Real & Sim–Real Co-Training](#sim2real-co-training)
+  - [Asset- and Video-Prior-Based Interaction Synthesis](#asset-video-interaction-synthesis)
   - [Demonstration Expansion in Simulation](#simulation-demonstration-expansion)
 - [Interaction](#interaction)
   - [Interaction Learning from Human Videos](#interaction-learning-from-human-videos)
@@ -42,23 +43,26 @@ Subgroups describe a research question or data-generation route, and may contain
   - [Whole-Body VLA & Human-Data Pretraining](#whole-body-vla-human-pretraining)
   - [World-Model-Conditioned Whole-Body Policies](#world-model-conditioned-policies)
   - [Generalist Whole-Body Control](#generalist-whole-body-control)
-- [Systems](#systems)
+- [Harness](#harness)
   - [Spatial Memory & Long-Horizon Skill Orchestration](#spatial-memory-skill-orchestration)
 - [Iterative Improvement](#iterative-improvement)
   - [Execution-Guided Data–Policy Co-Improvement](#execution-guided-data-policy-co-improvement)
 
 <a id="retargeting"></a>
+<a id="motion-retargeting动作重定向"></a>
 <a id="real2sim"></a>
 
-## Motion Retargeting
+## Real2Sim
 
 Adapt human motion and interaction geometry to robot embodiments, producing references for downstream learning and control.
 
 <a id="motion-retargeting"></a>
+<a id="contact-preserving-retargeting"></a>
+<a id="接触保持的重定向"></a>
 <a id="contact-preserving-motion-retargeting"></a>
 <a id="接触保持的动作重定向"></a>
 
-### Contact-Preserving Retargeting
+### Contact-Preserving Motion Retargeting
 
 Preserve robot–object and environment contacts while adapting demonstrated motion across embodiments.
 
@@ -71,20 +75,28 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 
 [Related video reconstruction and asset methods](docs/RELATED_READING.md#real2sim): EgoInfinity, EgoEngine, USDCraft.
 
+<a id="real2sim2real"></a>
 <a id="data-generation-policy-learning"></a>
+<a id="data-generation--policy-learning"></a>
+<a id="data-generation--policy-learning数据生成与策略学习"></a>
 <a id="harness-real2sim2real"></a>
 <a id="harness--real2sim2real"></a>
 <a id="simulation-policy-transfer"></a>
 <a id="simulation-data-generation--policy-transfer"></a>
 <a id="仿真数据生成与策略迁移"></a>
 
-## Data Generation & Policy Learning
+## Real2Sim2Real
 
-Organize data-generation methods by their source and mechanism. Real-video reconstruction, fully virtual synthesis, and simulation-demonstration expansion are distinct routes; real-data co-training does not by itself imply Real2Sim.
+Use real demonstrations or observations to construct simulation references, train policies in simulation, and deploy them back to real robots. Data generation is a component of this route.
 
+**Other routes:** virtual-source training and mixed-data deployment are under [Sim2Real & Sim–Real Co-Training](#sim2real-co-training); execution-system integration is under [Harness](#harness).
+
+<a id="counterfactual-video-augmentation"></a>
 <a id="video-augmentation-real2sim2real"></a>
+<a id="video-augmentation--real2sim2real"></a>
+<a id="视频扩增与虚实迁移"></a>
 
-### Video Augmentation & Real2Sim2Real
+### Counterfactual Video Augmentation
 
 Expand real interaction videos, reconstruct robot-compatible references, and transfer the resulting policies to real robots.
 
@@ -92,9 +104,18 @@ Expand real interaction videos, reconstruct robot-compatible references, and tra
 | :--- | :--- | :--- | :--- | :--- |
 | [**PRISM**](https://arxiv.org/abs/2609.38172)<br><sub>Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | A few real videos → augmented data → real-robot policy | Generates counterfactual interaction videos, reconstructs contact-anchored references, and trains policies for real humanoid object carrying.<br><sub>Tags: Video generation · Real2Sim2Real</sub> | [Paper](https://arxiv.org/abs/2609.38172) |
 
-<a id="asset-video-interaction-synthesis"></a>
+<a id="sim2real-co-training"></a>
+<a id="sim2real"></a>
 
-### Interaction Synthesis from 3D Assets & Video Priors
+## Sim2Real & Sim–Real Co-Training
+
+Use simulation-generated data or simulation-trained policies for real-robot learning and deployment. GRAIL and DemoHLM report sim-to-real transfer; HumanoidMimicGen combines generated simulation data with real demonstrations for co-training.
+
+<a id="asset-video-interaction-synthesis"></a>
+<a id="interaction-synthesis-from-3d-assets--video-priors"></a>
+<a id="基于资产与视频先验的交互合成"></a>
+
+### Asset- and Video-Prior-Based Interaction Synthesis
 
 Start from specified virtual assets and scenes, then use video priors to synthesize interactions for robot learning.
 
@@ -113,7 +134,7 @@ Adapt a small set of simulated robot demonstrations into larger datasets. Deploy
 | [**HumanoidMimicGen**](https://arxiv.org/abs/2605.27724)<br><sub>HumanoidMimicGen: Data Generation for Loco-Manipulation via Whole-Body Planning</sub> | 2026-05<br><sub>arXiv</sub> | Simulated robot demonstrations → expanded simulation data → sim-and-real co-training | Expands simulated demonstrations through skill adaptation and whole-body planning, then co-trains policies with real demonstrations for real-robot evaluation.<br><sub>Tags: Simulation data · Whole-body planning · Sim-and-real co-training</sub> | [Paper](https://arxiv.org/abs/2605.27724) · [Project](https://humanoidmimicgen.github.io/) · [Benchmark](https://github.com/NVlabs/humanoidmimicgen) |
 | [**DemoHLM**](https://arxiv.org/abs/2510.11258)<br><sub>DemoHLM: From One Demonstration to Generalizable Humanoid Loco-Manipulation</sub> | 2025-10<br><sub>arXiv</sub> | One simulated demonstration → synthetic training data | Expands one simulated demonstration into task data and learns visual manipulation above a whole-body controller for real-robot transfer.<br><sub>Tags: Simulation data · Demonstration expansion · Sim-to-real</sub> | [Paper](https://arxiv.org/abs/2510.11258) · [Project](https://beingbeyond.github.io/DemoHLM/) |
 
-**Across directions:** [HumanX](#interaction-learning-from-human-videos) also augments interaction data; [InterMimicGen](#execution-guided-data-policy-co-improvement) couples augmentation to repeated execution and tracker updates. For execution-system integration, see [Systems](#systems).
+**Across directions:** [HumanX](#interaction-learning-from-human-videos) also augments interaction data; [InterMimicGen](#execution-guided-data-policy-co-improvement) couples augmentation to repeated execution and tracker updates. For execution-system integration, see [Harness](#harness).
 
 <a id="interaction"></a>
 
@@ -155,7 +176,7 @@ Regulate compliance and contact forces during execution, beyond following a moti
 | :--- | :--- | :--- | :--- | :--- |
 | [**KPI**](https://arxiv.org/abs/2609.36151)<br><sub>KPI: A Promptable Kernel for Physical Interaction on Humanoids</sub> | 2026-09<br><sub>arXiv</sub> | Trajectory + interaction contract → adaptive contact control | Adapts arm impedance and references to tracking, compliance, and force-range requests while retaining the underlying whole-body tracker.<br><sub>Tags: Impedance adaptation · Force regulation</sub> | [Paper](https://arxiv.org/abs/2609.36151) · [Project](https://kpi-robot.github.io/) |
 
-**Across directions:** [PRISM](#video-augmentation-real2sim2real) and [GRAIL](#asset-video-interaction-synthesis) also learn interaction policies, with their main entries emphasizing data generation. [KPI](#contact-force-control) includes agent-driven trajectory and interaction-contract generation.
+**Across directions:** [PRISM](#counterfactual-video-augmentation) and [GRAIL](#asset-video-interaction-synthesis) also learn interaction policies, with their main entries emphasizing data generation. [KPI](#contact-force-control) includes agent-driven trajectory and interaction-contract generation.
 
 <a id="foundations"></a>
 
@@ -201,9 +222,11 @@ Provide reusable motor control across command interfaces, teleoperation, or task
 
 [Related models and learning foundations](docs/RELATED_READING.md#foundations): Astranomy, InternW0-Δ, Diffusion Policy, Dreamer, InterMimic.
 
+<a id="harness"></a>
 <a id="systems"></a>
+<a id="systems系统与技能编排"></a>
 
-## Systems
+## Harness
 
 Connect perception, memory, reusable skills, and execution feedback into a working humanoid system.
 

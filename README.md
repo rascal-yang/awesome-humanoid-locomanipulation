@@ -26,6 +26,8 @@ Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
+**Fixed H2 structure:** Keep the names, order, and heading levels of these seven H2 sections unchanged: **Real2Sim**, **Real2Sim2Real**, **Sim2Real & Sim–Real Co-Training**, **Interaction**, **Foundations**, **Harness**, and **Iterative Improvement**. Add or refine H3 subgroups, move paper entries, and use cross-links and tags within this structure. Changes to H2 sections require an explicit maintainer request.
+
 **Contents**
 
 - [Real2Sim](#real2sim)

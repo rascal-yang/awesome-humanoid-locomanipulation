@@ -26,6 +26,8 @@
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
+**固定 H2 结构：** 保持以下七个 H2 的名称、顺序与层级不变：**Real2Sim**、**Real2Sim2Real**、**Sim2Real & Sim–Real Co-Training**、**Interaction**、**Foundations**、**Harness**、**Iterative Improvement**。后续新增或细化 H3、调整论文位置，并用交叉链接与标签呈现重叠贡献；只有维护者明确要求时，才调整 H2。
+
 **目录**
 
 - [Real2Sim｜真实数据到仿真参考](#real2sim)

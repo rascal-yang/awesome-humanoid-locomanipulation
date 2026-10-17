@@ -1,6 +1,8 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **17 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **18 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+
+Latest entry update: **2026-10-17** (PriMoRetarget only; earlier source checks retain their recorded dates).
 
 ## Selection boundaries / 收录边界
 
@@ -55,6 +57,7 @@ The homepage uses the first arXiv submission month unless another first public r
 | ULTRA | [Paper](https://arxiv.org/abs/2603.03279) | First preprint: 2026-03-03; revision: 2026-09-18. IROS 2026 is recorded in the arXiv comments; September is not the initial release. |
 | HOVER | [Paper](https://arxiv.org/abs/2410.21229) · [Project](https://hover-versatile-humanoid.github.io/) | First preprint: 2024-10-28. ICRA 2025 is stated on the official project page; this is a motor-control foundation rather than a complete autonomous agent. |
 | OmniH2O | [Paper](https://arxiv.org/abs/2406.08858) · [Project](https://omni.human2humanoid.com/) | First preprint: 2024-06-13. CoRL 2024 is stated on the official project page. |
+| PriMoRetarget | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) | First arXiv submission: 2026-10-08. Checked 2026-10-17. Prioritized optimization preserves higher-priority motion objectives during lower-priority updates; fits contact-preserving motion retargeting. The author project reports selected G1 hardware demonstrations and labels code “coming soon”; no code or data release is claimed. |
 | InterMimicGen | [Paper](https://arxiv.org/abs/2610.06850) · [Project](https://sirui-xu.github.io/InterMimicGen/) | First preprint: 2026-10-05. This is an execution-filtered motion/data feedback loop, not a claim of unrestricted recursive self-improvement. |
 
 ## Related entries
@@ -77,7 +80,7 @@ The homepage uses the first arXiv submission month unless another first public r
 
 ## Historical data-engine list
 
-The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 17 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
+The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 18 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
 
 历史清单保留于独立文件，标注为 2026-10-08 快照；其资源发布状态不表示在本轮全部重新核查，也不计入当前主页与关联阅读数量。
 

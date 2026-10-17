@@ -14,17 +14,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-19-4263eb?style=flat-square" alt="19 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-26-4263eb?style=flat-square" alt="26 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **19 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **26 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest addition: 2026-10-17 (TTCO).**
+**Latest additions: 2026-10-17 (Contact-UAN, VICAR, Workhorse, and four further works; see source notes).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
@@ -35,12 +35,13 @@ H2 sections describe broad research directions, technical routes, or system para
 - [Real2Sim](#real2sim)
   - [Contact-Preserving Motion Retargeting](#motion-retargeting)
 - [Real2Sim2Real](#real2sim2real)
+  - [Contact-Consistent Actuator Modeling](#contact-consistent-actuator-modeling)
   - [Counterfactual Video Augmentation](#counterfactual-video-augmentation)
 - [Sim2Real & Sim–Real Co-Training](#sim2real-co-training)
   - [Asset- and Video-Prior-Based Interaction Synthesis](#asset-video-interaction-synthesis)
   - [Demonstration Expansion in Simulation](#simulation-demonstration-expansion)
 - [Interaction](#interaction)
-  - [Interaction Learning from Human Videos](#interaction-learning-from-human-videos)
+  - [Interaction Learning from Human Demonstrations](#interaction-learning-from-human-videos)
   - [Dexterous Whole-Body Interaction](#dexterous-whole-body-interaction)
   - [Contact & Force Control](#contact-force-control)
 - [Foundations](#foundations)
@@ -75,6 +76,8 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 | :--- | :--- | :--- | :--- | :--- |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and interaction demonstrations → humanoid reference trajectories | Uses an explicit objective hierarchy and gradient projection to preserve foot placement and interaction contacts while optimizing lower-priority pose objectives.<br><sub>Tags: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) |
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | Human–object demonstrations → joint robot–object references | Transfers surface interactions with optimal transport and jointly optimizes robot and object poses to preserve contacts across embodiments.<br><sub>Tags: Contact preservation · Joint robot–object optimization</sub> | [Paper](https://arxiv.org/abs/2609.36602) |
+| [**HOI-Retarget**](https://arxiv.org/abs/2609.34674)<br><sub>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</sub> | 2026-09<br><sub>arXiv</sub> | HOI motion and object-frame contact labels → humanoid interaction references | Uses windowed trajectory optimization to preserve object-frame contacts under humanoid kinematic limits while balancing body tracking, foot support, and smoothness.<br><sub>Tags: Object-frame contacts · Trajectory optimization · Motion augmentation</sub> | [Paper](https://arxiv.org/abs/2609.34674) · [Project](https://shinben0327.github.io/hoi-retarget/) |
+| [**UMR**](https://arxiv.org/abs/2609.02134)<br><sub>Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence</sub> | 2026-09<br><sub>arXiv</sub> | Human surface motion and contact maps → humanoid reference motion | Learns dense human–robot surface correspondences and reuses them for constrained pose matching and contact-map transfer across motion sources.<br><sub>Tags: Dense correspondence · Surface matching · Contact transfer</sub> | [Paper](https://arxiv.org/abs/2609.02134) |
 | [**OmniRetarget**](https://arxiv.org/abs/2509.26633)<br><sub>OmniRetarget: Interaction-Preserving Data Generation for Humanoid Whole-Body Loco-Manipulation and Scene Interaction</sub> | 2025-09<br><sub>ICRA 2026</sub> | HOI motion capture → interaction-preserving references | Preserves agent–object–terrain relationships with interaction meshes for motion retargeting and augmentation.<br><sub>Tags: Contact preservation · Motion augmentation</sub> | [Paper](https://arxiv.org/abs/2509.26633) · [Project](https://omniretarget.github.io/) · [Code](https://github.com/amazon-far/holosoma) · [Data](https://huggingface.co/datasets/omniretarget/OmniRetarget_Dataset) |
 
 **Across directions:** [HumanX and HDMI](#interaction-learning-from-human-videos) recover interaction references from video; [Weave](#dexterous-whole-body-interaction) and [InterMimicGen](#execution-guided-data-policy-co-improvement) also use contact-aware retargeting.
@@ -93,9 +96,21 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 
 ## Real2Sim2Real
 
-Use real demonstrations or observations to construct simulation references, train policies in simulation, and deploy them back to real robots. Data generation is a component of this route.
+Use real demonstrations or observations to construct simulation references or calibrate simulation dynamics, train policies in simulation, and deploy them back to real robots. Data generation and simulator correction are distinct components of this route.
 
 **Other routes:** virtual-source training and mixed-data deployment are under [Sim2Real & Sim–Real Co-Training](#sim2real-co-training); execution-system integration is under [Harness](#harness).
+
+<a id="contact-consistent-actuator-modeling"></a>
+
+### Contact-Consistent Actuator Modeling
+
+**Scope.** Use real humanoid trajectories to correct contact initialization and actuator dynamics in simulation, then train policies for hardware deployment.
+
+**Reading guide.** Contact-UAN supports force-sensitive control transfer; it is distinct from object-task planning and visual world-action models.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**Contact-UAN**](https://arxiv.org/abs/2610.18991)<br><sub>Contact-UAN: Unsupervised Actuator Networks as a Residual World Model for Humanoid Control</sub> | 2026-10<br><sub>arXiv</sub> | Real G1 proprioceptive trajectories → corrected simulator → deployable control policies | Initializes hardware replay with consistent contacts and learns actuator residuals, then trains policies in the corrected simulator for force-sensitive humanoid control.<br><sub>Tags: Actuator modeling · Contact-consistent replay · Real2Sim2Real</sub> | [Paper](https://arxiv.org/abs/2610.18991) · [Project](https://contact-uan.csail.mit.edu/) |
 
 <a id="counterfactual-video-augmentation"></a>
 <a id="video-augmentation-real2sim2real"></a>
@@ -148,17 +163,21 @@ Adapt a small set of simulated robot demonstrations into larger datasets. Deploy
 
 Learn and control physical interactions between a humanoid, objects, and its environment, including body–hand coordination and force regulation.
 
+<a id="interaction-learning-from-human-demonstrations"></a>
+<a id="从人类视频学习交互"></a>
 <a id="interaction-learning-from-human-videos"></a>
 <a id="human-object-interaction"></a>
 <a id="whole-body-interaction-from-demonstrations"></a>
 <a id="从示教学习全身交互"></a>
 
-### Interaction Learning from Human Videos
+### Interaction Learning from Human Demonstrations
 
-Recover human–object interaction references from video and learn policies that execute those interactions. For captured demonstrations with dexterous hand coordination, see [Dexterous Whole-Body Interaction](#dexterous-whole-body-interaction).
+Learn humanoid interactions from human videos or wearable demonstrations; methods differ in motion recovery, contact annotation, and retargeting requirements. For captured demonstrations with dexterous hand coordination, see [Dexterous Whole-Body Interaction](#dexterous-whole-body-interaction).
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**VICAR**](https://arxiv.org/abs/2610.13079)<br><sub>VICAR: Video Imitation with Contact-Aware Retargeting for Humanoid Interactive Skills</sub> | 2026-10<br><sub>arXiv</sub> | Third-person human video and contact targets → adaptive humanoid interaction skills | Preserves global contact poses, speed, and collision clearance during retargeting, then learns contact-conditioned motions that adapt to moved contact targets.<br><sub>Tags: Video imitation · Contact-aware retargeting · Contact conditioning</sub> | [Paper](https://arxiv.org/abs/2610.13079) |
+| [**Workhorse**](https://arxiv.org/abs/2610.09117)<br><sub>Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data</sub> | 2026-10<br><sub>arXiv</sub> | Wearable human poses and egocentric RGB → visual planner and whole-body tracker | Trains a visual planner and an RL tracker on shared torso, wrist, and foot targets, using mutual error augmentation for contact-rich G1 skills without robot-specific retargeting.<br><sub>Tags: Robot-free demonstrations · Five-link interface · Robust tracking</sub> | [Paper](https://arxiv.org/abs/2610.09117) · [Project](https://hybridrobotics.github.io/workhorse/) |
 | [**HumanX**](https://arxiv.org/abs/2602.02473)<br><sub>HumanX: Toward Agile and Generalizable Humanoid Interaction Skills from Human Videos</sub> | 2026-02<br><sub>CoRL 2026</sub> | Human video → augmented references → interaction skills | Pairs anchor-centric interaction synthesis with interaction-prioritized imitation to learn agile skills that transfer to a G1.<br><sub>Tags: Video reconstruction · Data augmentation · Interaction learning</sub> | [Paper](https://arxiv.org/abs/2602.02473) · [Project](https://wyhuai.github.io/human-x/) |
 | [**HDMI**](https://arxiv.org/abs/2509.16757)<br><sub>HDMI: Learning Interactive Humanoid Whole-Body Control from Human Videos</sub> | 2025-09<br><sub>arXiv</sub> | Monocular RGB video → whole-body interaction policy | Extracts human–object trajectories and learns interaction skills by jointly tracking robot and object states.<br><sub>Tags: Video reconstruction · Interaction imitation · Sim-to-real</sub> | [Paper](https://arxiv.org/abs/2509.16757) · [Project](https://hdmi-humanoid.github.io/) · [Code](https://github.com/LeCAR-Lab/HDMI) |
 
@@ -177,6 +196,8 @@ Coordinate whole-body motion and dexterous hand contacts when learning interacti
 ### Contact & Force Control
 
 Regulate compliance and contact forces during execution, beyond following a motion trajectory.
+
+For actuator-model correction that improves force transfer, see [Contact-UAN](#contact-consistent-actuator-modeling).
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
@@ -216,10 +237,12 @@ Use human experience to pretrain whole-body vision-language-action policies and 
 
 ### World-Model-Conditioned Whole-Body Policies
 
-Condition coordinated whole-body action prediction on learned visual dynamics features.
+Combine predictive visual dynamics and motion priors in world-action models for coordinated whole-body control.
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**WholeBodyWAM**](https://arxiv.org/abs/2609.18197)<br><sub>WholeBodyWAM: Learning Whole-Body World Action Models with Scalable Motion Priors</sub> | 2026-09<br><sub>arXiv</sub> | Human/humanoid motion pretraining and robot demonstrations → whole-body world-action model | Pretrains a motion expert on heterogeneous motion, then couples motion, video, and action experts to generate embodiment-specific whole-body actions.<br><sub>Tags: Motion pretraining · World-action model · Whole-body coordination</sub> | [Paper](https://arxiv.org/abs/2609.18197) · [Project](https://zbzyjya.github.io/WholeBodyWAM/) |
+| [**ω-0**](https://arxiv.org/abs/2608.06375)<br><sub>ω-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation</sub> | 2026-08<br><sub>arXiv</sub> | Visual observations, language, and robot state → predictive latents and whole-body actions | Jointly predicts future visual embeddings and whole-body action latents to support manipulation while moving on a G1 humanoid.<br><sub>Tags: Latent world model · Whole-body actions · Concurrent loco-manipulation</sub> | [Paper](https://arxiv.org/abs/2608.06375) |
 | [**MotionWAM**](https://arxiv.org/abs/2606.09215)<br><sub>MotionWAM: Towards Foundation World Action Models for Real-Time Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | Egocentric video → unified whole-body motion tokens | Conditions a unified whole-body policy on video-world-model features to coordinate locomotion, torso, feet, and hands in real time.<br><sub>Tags: Video world model · Unified whole-body actions</sub> | [Paper](https://arxiv.org/abs/2606.09215) |
 
 <a id="generalist-whole-body-control"></a>

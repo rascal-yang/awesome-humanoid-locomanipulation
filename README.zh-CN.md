@@ -14,17 +14,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-19-4263eb?style=flat-square" alt="19 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-26-4263eb?style=flat-square" alt="26 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **19 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **26 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-17（TTCO）。**
+**最新收录：2026-10-17（Contact-UAN、VICAR、Workhorse 等 7 项补充；见来源说明）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
@@ -35,12 +35,13 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 - [Real2Sim｜真实数据到仿真参考](#real2sim)
   - [接触保持的动作重定向](#motion-retargeting)
 - [Real2Sim2Real｜真实到仿真再到真实](#real2sim2real)
+  - [接触一致的执行器建模](#contact-consistent-actuator-modeling)
   - [反事实视频扩增](#counterfactual-video-augmentation)
 - [Sim2Real & Sim–Real Co-Training｜仿真迁移与虚实混合训练](#sim2real-co-training)
   - [资产与视频先验驱动的交互合成](#asset-video-interaction-synthesis)
   - [仿真中的示教扩增](#simulation-demonstration-expansion)
 - [Interaction｜交互学习与控制](#interaction)
-  - [从人类视频学习交互](#interaction-learning-from-human-videos)
+  - [从人类示教学习交互](#interaction-learning-from-human-videos)
   - [灵巧全身交互](#dexterous-whole-body-interaction)
   - [接触与力控制](#contact-force-control)
 - [Foundations｜模型与控制基座](#foundations)
@@ -75,6 +76,8 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | :--- | :--- | :--- | :--- | :--- |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与交互示教 → 人形机器人参考轨迹 | 通过显式目标优先级与梯度投影，在优化姿态等低优先级目标时保留足部落点和交互接触。<br><sub>标签: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [论文](https://arxiv.org/abs/2610.12642) · [项目](https://nickioan.github.io/primoretarget-page/) |
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体示教 → 机器人与物体联合参考轨迹 | 利用最优传输匹配表面交互，联合优化机器人与物体位姿，在形态变化后保留接触关系。<br><sub>标签: Contact preservation · Joint robot–object optimization</sub> | [论文](https://arxiv.org/abs/2609.36602) |
+| [**HOI-Retarget**](https://arxiv.org/abs/2609.34674)<br><sub>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体交互动作与物体系接触标注 → 人形交互参考轨迹 | 以滑动窗口轨迹优化在人体形态变化与机器人运动学约束下保留物体系接触，同时兼顾身体跟踪、足部支撑和平滑性。<br><sub>标签: Object-frame contacts · Trajectory optimization · Motion augmentation</sub> | [论文](https://arxiv.org/abs/2609.34674) · [项目](https://shinben0327.github.io/hoi-retarget/) |
+| [**UMR**](https://arxiv.org/abs/2609.02134)<br><sub>Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence</sub> | 2026-09<br><sub>arXiv</sub> | 人体表面动作与接触图 → 人形机器人参考动作 | 学习人体与机器人表面的稠密对应，将其用于受约束姿态匹配和接触图迁移，统一处理不同动作来源。<br><sub>标签: Dense correspondence · Surface matching · Contact transfer</sub> | [论文](https://arxiv.org/abs/2609.02134) |
 | [**OmniRetarget**](https://arxiv.org/abs/2509.26633)<br><sub>OmniRetarget: Interaction-Preserving Data Generation for Humanoid Whole-Body Loco-Manipulation and Scene Interaction</sub> | 2025-09<br><sub>ICRA 2026</sub> | 人体交互动捕 → 交互保持的参考轨迹 | 利用交互网格保留主体、物体与地形的关系，支持动作重定向与扩增。<br><sub>标签: Contact preservation · Motion augmentation</sub> | [论文](https://arxiv.org/abs/2509.26633) · [项目](https://omniretarget.github.io/) · [代码](https://github.com/amazon-far/holosoma) · [数据](https://huggingface.co/datasets/omniretarget/OmniRetarget_Dataset) |
 
 **跨方向阅读：** [HumanX 与 HDMI](#interaction-learning-from-human-videos) 从视频恢复交互参考；[Weave](#dexterous-whole-body-interaction) 与 [InterMimicGen](#execution-guided-data-policy-co-improvement) 也包含接触感知重定向。
@@ -93,9 +96,21 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 ## Real2Sim2Real｜真实到仿真再到真实
 
-从真实示教或观测构建仿真参考，在仿真中训练策略，再部署回真实机器人；数据生成是这条技术路线中的环节。
+从真实示教或观测构建仿真参考或校正仿真动态，在仿真中训练策略，再部署回真实机器人；数据生成与仿真器校正是这条路线中的不同环节。
 
 **其他路线：** 从虚拟数据出发的训练与虚实混合训练见 [Sim2Real & Sim–Real Co-Training](#sim2real-co-training)，执行系统集成见 [Harness](#harness)。
+
+<a id="contact-consistent-actuator-modeling"></a>
+
+### 接触一致的执行器建模
+
+**范围.** 从真实人形机器人轨迹校正仿真接触初始化与执行器动态，在校正仿真器中训练策略并部署回真机。
+
+**阅读提示.** Contact-UAN 侧重力敏感控制的迁移，不是物体操作规划器，也不是视觉世界动作模型。
+
+| 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
+| :--- | :--- | :--- | :--- | :--- |
+| [**Contact-UAN**](https://arxiv.org/abs/2610.18991)<br><sub>Contact-UAN: Unsupervised Actuator Networks as a Residual World Model for Humanoid Control</sub> | 2026-10<br><sub>arXiv</sub> | 真实 G1 本体感知轨迹 → 校正仿真器 → 可部署控制策略 | 以接触一致的状态初始化真机轨迹回放并学习执行器残差，再在校正后的仿真器中训练对力敏感的人形控制策略。<br><sub>标签: Actuator modeling · Contact-consistent replay · Real2Sim2Real</sub> | [论文](https://arxiv.org/abs/2610.18991) · [项目](https://contact-uan.csail.mit.edu/) |
 
 <a id="counterfactual-video-augmentation"></a>
 <a id="video-augmentation-real2sim2real"></a>
@@ -148,17 +163,21 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 学习并控制人形机器人与物体、环境的物理交互，覆盖身体与手部协调及接触力调节。
 
+<a id="interaction-learning-from-human-demonstrations"></a>
+<a id="从人类视频学习交互"></a>
 <a id="interaction-learning-from-human-videos"></a>
 <a id="human-object-interaction"></a>
 <a id="whole-body-interaction-from-demonstrations"></a>
 <a id="从示教学习全身交互"></a>
 
-### 从人类视频学习交互
+### 从人类示教学习交互
 
-从视频恢复人体与物体的交互参考，学习能够执行相应交互的机器人策略。基于捕获示教的灵巧手与全身协调见 [灵巧全身交互](#dexterous-whole-body-interaction)。
+从人类视频或可穿戴设备采集的示教中学习人形交互；各方法对动作恢复、接触标注与重定向的要求不同。基于捕获示教的灵巧手与全身协调见 [灵巧全身交互](#dexterous-whole-body-interaction)。
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**VICAR**](https://arxiv.org/abs/2610.13079)<br><sub>VICAR: Video Imitation with Contact-Aware Retargeting for Humanoid Interactive Skills</sub> | 2026-10<br><sub>arXiv</sub> | 第三视角人类视频与接触目标 → 可适配的人形交互技能 | 在重定向时保留全局接触位姿、动作速度和碰撞间距，再学习可适配变化接触目标的条件动作。<br><sub>标签: Video imitation · Contact-aware retargeting · Contact conditioning</sub> | [论文](https://arxiv.org/abs/2610.13079) |
+| [**Workhorse**](https://arxiv.org/abs/2610.09117)<br><sub>Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data</sub> | 2026-10<br><sub>arXiv</sub> | 可穿戴人体位姿与第一视角 RGB → 视觉规划器和全身跟踪器 | 以躯干、双腕和双足目标分别训练视觉规划器与 RL 跟踪器，并模拟彼此误差扩增数据，无需机器人专属重定向即可学习 G1 接触交互技能。<br><sub>标签: Robot-free demonstrations · Five-link interface · Robust tracking</sub> | [论文](https://arxiv.org/abs/2610.09117) · [项目](https://hybridrobotics.github.io/workhorse/) |
 | [**HumanX**](https://arxiv.org/abs/2602.02473)<br><sub>HumanX: Toward Agile and Generalizable Humanoid Interaction Skills from Human Videos</sub> | 2026-02<br><sub>CoRL 2026</sub> | 人类视频 → 扩增参考轨迹 → 交互技能 | 结合以锚点为中心的交互合成与交互优先的模仿学习，获得可迁移至 G1 的敏捷技能。<br><sub>标签: Video reconstruction · Data augmentation · Interaction learning</sub> | [论文](https://arxiv.org/abs/2602.02473) · [项目](https://wyhuai.github.io/human-x/) |
 | [**HDMI**](https://arxiv.org/abs/2509.16757)<br><sub>HDMI: Learning Interactive Humanoid Whole-Body Control from Human Videos</sub> | 2025-09<br><sub>arXiv</sub> | 单目 RGB 视频 → 全身交互策略 | 提取人体与物体轨迹，通过联合跟踪机器人和物体状态学习全身交互技能。<br><sub>标签: Video reconstruction · Interaction imitation · Sim-to-real</sub> | [论文](https://arxiv.org/abs/2509.16757) · [项目](https://hdmi-humanoid.github.io/) · [代码](https://github.com/LeCAR-Lab/HDMI) |
 
@@ -177,6 +196,8 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 ### 接触与力控制
 
 在执行动作轨迹时进一步调节柔顺性与接触力。
+
+接触力迁移所需的执行器仿真校正见 [Contact-UAN](#contact-consistent-actuator-modeling)。
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -216,10 +237,12 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 ### 世界模型条件化的全身策略
 
-以学习到的视觉动态特征为条件，预测协调的全身动作。
+结合视觉动态预测与动作先验，学习用于协调全身控制的世界动作模型。
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**WholeBodyWAM**](https://arxiv.org/abs/2609.18197)<br><sub>WholeBodyWAM: Learning Whole-Body World Action Models with Scalable Motion Priors</sub> | 2026-09<br><sub>arXiv</sub> | 人体及人形动作预训练与机器人示教 → 全身世界动作模型 | 先用异构动作预训练运动专家，再结合运动、视频和动作专家，生成适配目标构型的全身动作。<br><sub>标签: Motion pretraining · World-action model · Whole-body coordination</sub> | [论文](https://arxiv.org/abs/2609.18197) · [项目](https://zbzyjya.github.io/WholeBodyWAM/) |
+| [**ω-0**](https://arxiv.org/abs/2608.06375)<br><sub>ω-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation</sub> | 2026-08<br><sub>arXiv</sub> | 视觉观测、语言与机器人状态 → 预测潜变量及全身动作 | 联合预测未来视觉嵌入与全身动作潜变量，支持 G1 人形机器人在移动过程中执行操作。<br><sub>标签: Latent world model · Whole-body actions · Concurrent loco-manipulation</sub> | [论文](https://arxiv.org/abs/2608.06375) |
 | [**MotionWAM**](https://arxiv.org/abs/2606.09215)<br><sub>MotionWAM: Towards Foundation World Action Models for Real-Time Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | 第一视角视频 → 统一全身动作 token | 利用视频世界模型特征驱动统一全身策略，实时协调移动、躯干、足部与手部动作。<br><sub>标签: Video world model · Unified whole-body actions</sub> | [论文](https://arxiv.org/abs/2606.09215) |
 
 <a id="generalist-whole-body-control"></a>

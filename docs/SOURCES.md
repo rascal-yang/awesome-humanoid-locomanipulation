@@ -1,17 +1,17 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **19 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **26 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
-Latest entry update: **2026-10-17** (TTCO and PriMoRetarget; earlier source checks retain their recorded dates).
+Latest entry update: **2026-10-17** (seven further humanoid works plus the earlier TTCO and PriMoRetarget additions; earlier source checks retain their recorded dates).
 
 ## Selection boundaries / 收录边界
 
 The homepage uses seven H2 directions: Real2Sim, Real2Sim2Real, Sim2Real & Sim–Real Co-Training, Interaction, Foundations, Harness, and Iterative Improvement. H2 headings describe broad research directions, technical routes, or system paradigms; H3 headings describe concrete methods within them. It prioritizes direct humanoid whole-body relevance. Each work has a primary table entry and may be cross-linked from other directions; contribution tags describe overlap rather than exclusive membership. The taxonomy is editorial, not an author-supplied classification.
 
 - **Real2Sim:** adapt real demonstrations into robot-compatible simulation references, with contact-preserving motion retargeting as a concrete method.
-- **Real2Sim2Real:** reconstruct simulation references from real inputs, train in simulation, and deploy back to real robots; PRISM uses counterfactual video augmentation within this route.
+- **Real2Sim2Real:** reconstruct simulation references from real inputs, train in simulation, and deploy back to real robots; PRISM uses counterfactual video augmentation within this route; Contact-UAN instead calibrates actuator dynamics using contact-consistent replay of real trajectories.
 - **Sim2Real & Sim–Real Co-Training:** use virtual-source data for real-robot learning and deployment; distinguish asset/video-prior synthesis (GRAIL) from simulation-demonstration expansion (HumanoidMimicGen and DemoHLM), and distinguish transfer from mixed-data training.
-- **Interaction:** distinguish learning from human videos, dexterous whole-body interaction from captured demonstrations, and contact/force regulation.
+- **Interaction:** distinguish learning from human demonstrations, dexterous whole-body interaction from captured demonstrations, and contact/force regulation.
 - **Foundations:** distinguish test-time command optimization, human-data-pretrained whole-body VLAs, world-model-conditioned policies, and generalist whole-body controllers.
 - **Harness:** coordinate perception, spatial memory, reusable skills, and execution feedback through an execution framework; HomeBody illustrates spatial memory and skill orchestration.
 - **Iterative Improvement:** identify persistent execution-driven changes to later data or policies. An iterative data–policy loop is not a claim of unrestricted recursive self-improvement (RSI).
@@ -61,6 +61,30 @@ The homepage uses the first arXiv submission month unless another first public r
 | PriMoRetarget | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) | First arXiv submission: 2026-10-08. Checked 2026-10-17. Prioritized optimization preserves higher-priority motion objectives during lower-priority updates; fits contact-preserving motion retargeting. The author project reports selected G1 hardware demonstrations and labels code “coming soon”; no code or data release is claimed. |
 | InterMimicGen | [Paper](https://arxiv.org/abs/2610.06850) · [Project](https://sirui-xu.github.io/InterMimicGen/) | First preprint: 2026-10-05. This is an execution-filtered motion/data feedback loop, not a claim of unrestricted recursive self-improvement. |
 
+## Recent discovery pass / 近期检索记录 — 2026-10-17
+
+Target window: **2026-07-19–2026-10-17**, with priority given to first submissions from **2026-09-17** onward. This is a targeted discovery pass, not a complete census. arXiv API, advanced-search and October category-list requests were unavailable through the browsing tool; topic/date searches returned mixed publication dates, which were checked against arXiv version histories. No complete API pagination or category sweep is claimed. Existing entries were deduplicated against main at `a8324a09cfff34f0b422dcb83d0348478e131d80`.
+
+Queries covered humanoid manipulation, loco-manipulation, contact retargeting, whole-body models, force control, and skill/recovery systems, using arXiv-domain searches and 30/90-day discovery filters. Raw month/identifier searches often returned unrelated or old results; these were not used as evidence of recency. New entries were checked against paper methods and platform descriptions. Selection did not use citation, institution, or popularity thresholds. Paper/project links below were opened; omitted code links do not imply that code is unavailable.
+
+本轮仅新增满足人形构型条件且与仓库主题直接相关的条目；不以“可迁移”收录独立双臂、轮式操作平台或虚拟角色。时间按 arXiv 首次提交核实，未把旧论文修订算成新论文。此次检索受入口访问和索引覆盖限制，尤其不能声称完整覆盖 7–8 月。现有历史条目与关联阅读未作全量重审。
+
+| HOI-Retarget | [Paper](https://arxiv.org/abs/2609.34674) · [Method / experiments](https://arxiv.org/html/2609.34674v1#S4) · [Project](https://shinben0327.github.io/hoi-retarget/) | First arXiv submission: 2026-09-28. Checked 2026-10-17. G1/H2 retargeting and G1 physics refinement in §IV; these results do not establish physical multi-robot execution. |
+| UMR | [Paper](https://arxiv.org/abs/2609.02134) · [Method / experiments](https://arxiv.org/html/2609.02134v2#S4) | First arXiv submission: 2026-09-02. Checked 2026-10-17. §IV evaluates Unitree G1 references for tracking and contact-rich robot–object/scene tasks, with real-robot transfer reported. |
+| VICAR | [Paper](https://arxiv.org/abs/2610.13079) · [Method / experiments](https://arxiv.org/html/2610.13079v1#S4) | First arXiv submission: 2026-10-09. Checked 2026-10-17. G1 training setup in §III-E and hardware transfer in §IV; object pickup and ladder skills establish interaction relevance. |
+| Workhorse | [Paper](https://arxiv.org/abs/2610.09117) · [Method / experiments](https://arxiv.org/html/2610.09117v2#S5) · [Project](https://hybridrobotics.github.io/workhorse/) | First arXiv submission: 2026-10-06. Checked 2026-10-17. §III uses wearable trackers, so this is not video-only learning. §V reports real G1 manipulation and recovery; a second embodiment is tested in simulation after retraining. |
+| WholeBodyWAM | [Paper](https://arxiv.org/abs/2609.18197) · [Method / experiments](https://arxiv.org/html/2609.18197v2#S4.SS1) · [Project](https://zbzyjya.github.io/WholeBodyWAM/) | First arXiv submission: 2026-09-16. Checked 2026-10-17. §IV-A identifies the TianGong 3.0 full-sized humanoid and tasks involving kneeling, posture changes, and object transfer. Revision on 2026-10-01 is not its first release. |
+| ω-0 | [Paper](https://arxiv.org/abs/2608.06375) · [Method / experiments](https://arxiv.org/html/2608.06375v2#S6) | First arXiv submission: 2026-08-06. Checked 2026-10-17. §6 reports G1 household tasks with upper/lower-body coordination. arXiv v1 is 2026-08-06; 2026-08-09 is a revision, despite some discovery results using that date. |
+| Contact-UAN | [Paper](https://arxiv.org/abs/2610.18991) · [Method / experiments](https://arxiv.org/html/2610.18991v1#S2) · [Project](https://contact-uan.csail.mit.edu/) | First arXiv submission: 2026-10-13. Checked 2026-10-17. §2 describes hardware data → corrected simulation → policy training/deployment. §3–4 evaluate G1 force/impedance control, running, and jumping; this is transfer infrastructure, not an object-manipulation planner. |
+
+**Taxonomy:** retain all seven H2 headings. Broaden the existing human-video H3 to **Interaction Learning from Human Demonstrations**, preserving its old anchor, because Workhorse also uses wearable poses. Add **Contact-Consistent Actuator Modeling** under Real2Sim2Real for Contact-UAN; its correction of simulated actuators is distinct from video augmentation. HOI-Retarget/UMR reuse contact-preserving retargeting; WholeBodyWAM/ω-0 reuse world-model-conditioned policies. The TTCO subgroup receives no forced addition: runtime reaction selection and actuator-model learning are different contributions.
+
+**筛选边界 / Selected exclusions and deferrals:**
+
+- [ReCHOIR](https://arxiv.org/abs/2609.10982): excluded from this humanoid-robot update; the primary record describes retargeting to graphics characters and does not establish robot-platform results.
+- [Embodiment-aware reaction selection](https://arxiv.org/abs/2610.15274): deferred from this patch. It does evaluate humanoid retargeting feasibility, but its human–human reaction-selection focus is less direct than the selected object/environment interaction methods. It is not TTCO-style command optimization; no code release or physical deployment is asserted.
+- [SIMPLE](https://arxiv.org/abs/2606.08278): not counted as a recent first submission; its October revision follows a June v1. No new entry is proposed in this window.
+
 ## Related entries
 
 | Entry | Primary source | Scope note |
@@ -81,7 +105,7 @@ The homepage uses the first arXiv submission month unless another first public r
 
 ## Historical data-engine list
 
-The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 19 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
+The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 26 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
 
 历史清单保留于独立文件，标注为 2026-10-08 快照；其资源发布状态不表示在本轮全部重新核查，也不计入当前主页与关联阅读数量。
 

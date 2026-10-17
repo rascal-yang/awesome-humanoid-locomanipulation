@@ -1,8 +1,8 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **18 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **19 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
-Latest entry update: **2026-10-17** (PriMoRetarget only; earlier source checks retain their recorded dates).
+Latest entry update: **2026-10-17** (TTCO and PriMoRetarget; earlier source checks retain their recorded dates).
 
 ## Selection boundaries / 收录边界
 
@@ -12,7 +12,7 @@ The homepage uses seven H2 directions: Real2Sim, Real2Sim2Real, Sim2Real & Sim�
 - **Real2Sim2Real:** reconstruct simulation references from real inputs, train in simulation, and deploy back to real robots; PRISM uses counterfactual video augmentation within this route.
 - **Sim2Real & Sim–Real Co-Training:** use virtual-source data for real-robot learning and deployment; distinguish asset/video-prior synthesis (GRAIL) from simulation-demonstration expansion (HumanoidMimicGen and DemoHLM), and distinguish transfer from mixed-data training.
 - **Interaction:** distinguish learning from human videos, dexterous whole-body interaction from captured demonstrations, and contact/force regulation.
-- **Foundations:** distinguish human-data-pretrained whole-body VLAs, world-model-conditioned policies, and generalist whole-body controllers.
+- **Foundations:** distinguish test-time command optimization, human-data-pretrained whole-body VLAs, world-model-conditioned policies, and generalist whole-body controllers.
 - **Harness:** coordinate perception, spatial memory, reusable skills, and execution feedback through an execution framework; HomeBody illustrates spatial memory and skill orchestration.
 - **Iterative Improvement:** identify persistent execution-driven changes to later data or policies. An iterative data–policy loop is not a claim of unrestricted recursive self-improvement (RSI).
 
@@ -57,6 +57,7 @@ The homepage uses the first arXiv submission month unless another first public r
 | ULTRA | [Paper](https://arxiv.org/abs/2603.03279) | First preprint: 2026-03-03; revision: 2026-09-18. IROS 2026 is recorded in the arXiv comments; September is not the initial release. |
 | HOVER | [Paper](https://arxiv.org/abs/2410.21229) · [Project](https://hover-versatile-humanoid.github.io/) | First preprint: 2024-10-28. ICRA 2025 is stated on the official project page; this is a motor-control foundation rather than a complete autonomous agent. |
 | OmniH2O | [Paper](https://arxiv.org/abs/2406.08858) · [Project](https://omni.human2humanoid.com/) | First preprint: 2024-06-13. CoRL 2024 is stated on the official project page. |
+| TTCO | [Paper](https://arxiv.org/abs/2610.14896) · [Project linked by the paper](https://bfmttc.github.io/) | First arXiv submission: 2026-10-10; revised 2026-10-14. Checked 2026-10-17. Test-Time Command Optimization adapts commands using sampled closed-loop simulations while BFM weights remain frozen; it also generates BFM-specific action labels from recorded trajectories. Main placement: Foundations; cross-link: Harness. Iterative command search alone does not establish persistent cross-round self-improvement. The project URL is confirmed in the arXiv record but could not be fetched during this check; no code/data release or conference acceptance is asserted. |
 | PriMoRetarget | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) | First arXiv submission: 2026-10-08. Checked 2026-10-17. Prioritized optimization preserves higher-priority motion objectives during lower-priority updates; fits contact-preserving motion retargeting. The author project reports selected G1 hardware demonstrations and labels code “coming soon”; no code or data release is claimed. |
 | InterMimicGen | [Paper](https://arxiv.org/abs/2610.06850) · [Project](https://sirui-xu.github.io/InterMimicGen/) | First preprint: 2026-10-05. This is an execution-filtered motion/data feedback loop, not a claim of unrestricted recursive self-improvement. |
 
@@ -80,7 +81,7 @@ The homepage uses the first arXiv submission month unless another first public r
 
 ## Historical data-engine list
 
-The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 18 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
+The [17-entry data-engine document](DATA_ENGINE_READING_LIST.md) is retained as a **2026-10-08 snapshot** for source datasets, collection systems, and related avatar methods. It is not included in the current 19 + 13 counts and has not been fully re-audited in this update. The notes below are retained from that earlier curation.
 
 历史清单保留于独立文件，标注为 2026-10-08 快照；其资源发布状态不表示在本轮全部重新核查，也不计入当前主页与关联阅读数量。
 

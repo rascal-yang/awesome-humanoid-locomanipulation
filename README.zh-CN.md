@@ -14,17 +14,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-18-4263eb?style=flat-square" alt="18 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-19-4263eb?style=flat-square" alt="19 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **18 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **19 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-17（PriMoRetarget）。**
+**最新收录：2026-10-17（TTCO）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
@@ -44,6 +44,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
   - [灵巧全身交互](#dexterous-whole-body-interaction)
   - [接触与力控制](#contact-force-control)
 - [Foundations｜模型与控制基座](#foundations)
+  - [测试时指令优化](#test-time-command-optimization)
   - [全身 VLA 与人类数据预训练](#whole-body-vla-human-pretraining)
   - [世界模型条件化的全身策略](#world-model-conditioned-policies)
   - [通用全身控制](#generalist-whole-body-control)
@@ -187,7 +188,17 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 ## Foundations｜模型与控制基座
 
-收录直接支撑人形全身技能的可复用模型与控制接口，区分人体数据预训练的 VLA、世界模型条件化策略和通用运动控制器。
+收录直接支撑人形全身技能的可复用模型与控制接口，区分测试时指令优化、人体数据预训练的 VLA、世界模型条件化策略和通用运动控制器。
+
+<a id="test-time-command-optimization"></a>
+
+### 测试时指令优化
+
+在不重新训练行为基础模型（BFM）的条件下，利用额外测试时计算适配输入指令，并为下游策略学习生成模型专属动作标签。
+
+| 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
+| :--- | :--- | :--- | :--- | :--- |
+| [**TTCO**](https://arxiv.org/abs/2610.14896)<br><sub>Test-Time Compute for Humanoid Behavior Foundation Models</sub> | 2026-10<br><sub>arXiv</sub> | 期望动作或机器人轨迹与冻结 BFM → 优化指令与动作标签 | 通过闭环仿真中的采样优化调整冻结 BFM 的输入指令，缩小执行轨迹偏差，并生成支持跨 BFM 示教复用的动作标签。<br><sub>标签: Test-time compute · Command optimization · Demonstration relabeling</sub> | [论文](https://arxiv.org/abs/2610.14896) · [项目](https://bfmttc.github.io/) |
 
 <a id="whole-body-vla-human-pretraining"></a>
 <a id="whole-body-action-models"></a>
@@ -248,6 +259,8 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**HomeBody**](https://tml.stanford.edu/homebody/)<br><sub>HomeBody: A Humanoid That Explores, Remembers, and Acts on Its Own</sub> | 2026-09<br><sub>项目报告</sub> | 空间记忆与技能库 → 长时程任务执行 | 将 VLM 与导航、操作技能相连，用空间记忆和执行结果协调 G1 的长时程任务。<br><sub>标签: Spatial memory · Skill orchestration · Execution feedback</sub> | [项目报告](https://tml.stanford.edu/homebody/) |
 
 **跨方向阅读：** [OmniH2O](#generalist-whole-body-control) 连接遥操作与技能学习；[KPI](#contact-force-control) 连接智能体生成的参考轨迹与接触调节。
+
+**跨方向阅读：** [TTCO](#test-time-command-optimization) 通过外围仿真搜索适配冻结控制基座的输入指令，主条目见 Foundations。
 
 [关联执行与训练方法](docs/RELATED_READING.md#harness-zh)：RoboICL、Recova、SGS。
 

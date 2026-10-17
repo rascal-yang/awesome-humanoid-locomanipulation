@@ -14,17 +14,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-18-4263eb?style=flat-square" alt="18 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-19-4263eb?style=flat-square" alt="19 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **18 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **19 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest addition: 2026-10-17 (PriMoRetarget).**
+**Latest addition: 2026-10-17 (TTCO).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
@@ -44,6 +44,7 @@ H2 sections describe broad research directions, technical routes, or system para
   - [Dexterous Whole-Body Interaction](#dexterous-whole-body-interaction)
   - [Contact & Force Control](#contact-force-control)
 - [Foundations](#foundations)
+  - [Test-Time Command Optimization](#test-time-command-optimization)
   - [Whole-Body VLA & Human-Data Pretraining](#whole-body-vla-human-pretraining)
   - [World-Model-Conditioned Whole-Body Policies](#world-model-conditioned-policies)
   - [Generalist Whole-Body Control](#generalist-whole-body-control)
@@ -187,7 +188,17 @@ Regulate compliance and contact forces during execution, beyond following a moti
 
 ## Foundations
 
-Reusable learned models and control interfaces with direct whole-body humanoid relevance. Separate human-data-pretrained VLAs, world-model-conditioned policies, and generalist motor controllers.
+Reusable learned models and control interfaces with direct whole-body humanoid relevance. Separate test-time command optimization, human-data-pretrained VLAs, world-model-conditioned policies, and generalist motor controllers.
+
+<a id="test-time-command-optimization"></a>
+
+### Test-Time Command Optimization
+
+Use additional test-time computation to adapt commands to existing behavior foundation models (BFMs), without retraining them, and produce model-specific action labels for downstream policy learning.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**TTCO**](https://arxiv.org/abs/2610.14896)<br><sub>Test-Time Compute for Humanoid Behavior Foundation Models</sub> | 2026-10<br><sub>arXiv</sub> | Desired motions or robot trajectories + frozen BFM → optimized commands and action labels | Optimizes commands to a frozen BFM through sampled closed-loop simulations, reducing execution mismatch and generating action labels for demonstration reuse across BFMs.<br><sub>Tags: Test-time compute · Command optimization · Demonstration relabeling</sub> | [Paper](https://arxiv.org/abs/2610.14896) · [Project](https://bfmttc.github.io/) |
 
 <a id="whole-body-vla-human-pretraining"></a>
 <a id="whole-body-action-models"></a>
@@ -248,6 +259,8 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 | [**HomeBody**](https://tml.stanford.edu/homebody/)<br><sub>HomeBody: A Humanoid That Explores, Remembers, and Acts on Its Own</sub> | 2026-09<br><sub>Project report</sub> | Spatial memory + skill library → long-horizon execution | Connects a VLM to navigation and manipulation skills, using spatial memory and execution outcomes to coordinate tasks on a G1.<br><sub>Tags: Spatial memory · Skill orchestration · Execution feedback</sub> | [Report](https://tml.stanford.edu/homebody/) |
 
 **Across directions:** [OmniH2O](#generalist-whole-body-control) connects teleoperation and skill learning; [KPI](#contact-force-control) connects agent-generated references to contact regulation.
+
+**Across directions:** [TTCO](#test-time-command-optimization) wraps a frozen controller with simulation-based command search; its primary entry is under Foundations.
 
 [Related execution and training methods](docs/RELATED_READING.md#harness): RoboICL, Recova, SGS.
 

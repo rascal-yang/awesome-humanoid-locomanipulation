@@ -1,8 +1,8 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **48 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **49 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
-Latest entry update: **2026-10-17** (22 works from the 2025-onward search, following the prior seven-work update; earlier source checks retain their recorded dates).
+Latest entry update: **2026-10-18** (HumanoidTTT; the 22-work expansion remains recorded under 2026-10-17, and earlier source checks retain their recorded scope).
 
 ## Selection boundaries / 收录边界
 
@@ -14,7 +14,7 @@ The homepage uses seven H2 directions: Real2Sim, Real2Sim2Real, Sim2Real & Sim�
 - **Interaction:** distinguish learning from human demonstrations, dexterous whole-body interaction, tactile-guided manipulation, and contact/force regulation.
 - **Foundations:** distinguish test-time command optimization, human-data-pretrained whole-body VLAs, world-model-conditioned policies, and generalist whole-body controllers.
 - **Harness:** integrate perception, control interfaces, reusable skills, and execution feedback; distinguish autonomous skill orchestration from operator-guided whole-body data collection.
-- **Iterative Improvement:** identify persistent execution-driven changes to later data, policies, or reward programs. An iterative data–policy loop is not a claim of unrestricted recursive self-improvement (RSI).
+- **Iterative Improvement:** identify persistent execution-driven changes to later data, policies, reward programs, or capability retention. An iterative data–policy loop is not a claim of unrestricted recursive self-improvement (RSI).
 
 The 2026-10-16 hierarchy revision places Real2Sim, Real2Sim2Real, and Harness at H2. Counterfactual video augmentation, interaction synthesis from assets and video priors, and simulation-demonstration expansion remain H3 methods within their corresponding routes. The broad “Data Generation & Policy Learning” umbrella is split into Real2Sim2Real and Sim2Real & Sim–Real Co-Training, while the former Systems section is named Harness. Prior distinctions among dexterous interaction, human-data-pretrained VLAs, and world-model-conditioned policies remain part of the collection. Existing explicit anchors and cross-links are preserved.
 
@@ -186,3 +186,14 @@ Checked on **2026-10-17**, with a discovery window of **2025-01-01–2026-10-17*
 - [TWIST](https://arxiv.org/abs/2505.02833), [SkillBlender](https://arxiv.org/abs/2506.09366), [HEX](https://arxiv.org/abs/2604.07993), and [GenHOI](https://arxiv.org/abs/2606.12995): relevant follow-up candidates from abstract screening, not asserted to be ineligible. This batch prioritizes complementary verified routes, including TWIST2's complete data-collection system; these candidates were not all taken through the same platform, method, resource, and placement checks.
 
 Local review materials retain the API pages, query, selected-entry metadata, and inspected source extracts. They are not bulk-added to this repository. Uninspected metadata candidates remain unreviewed rather than being labeled rejected.
+
+## HumanoidTTT addition / HumanoidTTT 单篇收录（2026-10-18）
+
+- **Identity and date:** [HumanoidTTT: Test-Time Capability Reuse for Efficient Humanoid Control](https://arxiv.org/abs/2610.00198), arXiv v1 **2026-09-18 21:44:30 UTC**. The submission history, rather than the 2610 identifier, determines the September date. This is a single-entry check, not a new full-list audit.
+- **Embodiment and scope:** [Paper §IV-A and Fig. 6](https://arxiv.org/html/2610.00198v1) identify a physical Unitree G1 using HoloMotion, with A–B–A motion-reuse examples covering walking, turning, waving, and squatting/standing. These establish humanoid whole-body control relevance, not demonstrated object manipulation.
+- **Persistent improvement:** [§III-C–D](https://arxiv.org/html/2610.00198v1) checks candidate-specific entry applicability before reusing a complete motion and uses Double-DQN to learn which qualified capabilities remain in a bounded store. Later successful reuse supplies feedback. Generation, tracking, acceptance rules, and acquired applicability certificates remain fixed. The learned object is the store-retention policy, not a new motor capability or a self-rewriting controller.
+- **Evaluation boundary:** [§IV-E](https://arxiv.org/html/2610.00198v1) evaluates finite-capacity consolidation through controlled identity-level replay over matched request streams with frozen execution-derived outcomes. Physical reuse demonstrations and consolidation replay results should not be conflated into a claim of long-term on-hardware learning. The title's test-time terminology does not make this TTCO-style command optimization.
+- **Placement:** Iterative Improvement → **Skill Reuse & Memory Consolidation**, with a cross-link to Harness skill orchestration. This is distinct from InterMimicGen's data/tracker loop and InterEvolve's reward-program loop. Both READMEs contain one primary entry; counts change 48 → 49 and all seven H2 headings and back-to-top links remain.
+- **Resources:** [Official code](https://github.com/AIGeeksGroup/HumanoidTTT) documents method components and an application-provided generator/tracker/execution stack. It is not presented as a complete deployment implementation. The author project URL was unavailable to this browser check and is omitted from the new row.
+
+本次仅新增 HumanoidTTT：核验 G1 真机全身动作复用与技能保留策略的持续改进，明确其物体操作证据不足，并区分真机复用示例与基于固定执行结果的巩固回放评测。主分类为“迭代改进 → 技能复用与记忆巩固”，不将其写成测试时微调生成器或全身控制器。首次提交为 2026 年 9 月，不能按编号误记为 10 月。

@@ -16,17 +16,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-48-4263eb?style=flat-square" alt="48 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-49-4263eb?style=flat-square" alt="49 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **48 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **49 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-17 (22 works from the 2025-onward search; see source notes for dates and selection boundaries).**
+**Latest additions: 2026-10-18 (HumanoidTTT; see source notes for scope and evidence).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
@@ -61,6 +61,7 @@ H2 sections describe broad research directions, technical routes, or system para
 - [Iterative Improvement](#iterative-improvement)
   - [Execution-Guided Data–Policy Co-Improvement](#execution-guided-data-policy-co-improvement)
   - [Execution-Guided Reward Program Evolution](#execution-guided-reward-program-evolution)
+  - [Skill Reuse & Memory Consolidation](#skill-reuse-memory-consolidation)
 
 <a id="retargeting"></a>
 <a id="motion-retargeting动作重定向"></a>
@@ -388,7 +389,7 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 
 ## Iterative Improvement
 
-Use persistent execution feedback to improve later data, policies, or reward programs. Describe the object and mechanism of improvement explicitly; an iterative data flywheel does not establish unrestricted recursive self-improvement (RSI).
+Use persistent execution feedback to improve later data, policies, reward programs, or capability retention. Describe the object and mechanism of improvement explicitly; an iterative data flywheel does not establish unrestricted recursive self-improvement (RSI).
 
 <a id="execution-guided-data-policy-co-improvement"></a>
 <a id="self-evolving-data-engines"></a>
@@ -416,6 +417,18 @@ Retain successful executions to seed further data augmentation and tracking-poli
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**InterEvolve**](https://arxiv.org/abs/2610.02196)<br><sub>InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Task requests, simulated feedback, and a skill library → revised reward programs | Revises staged reward programs with an LLM and numerical search, verifying them on a fixed controller and retaining successful programs for later tasks.<br><sub>Tags: Reward programs · Test-time search · Persistent skill library</sub> | [Paper](https://arxiv.org/abs/2610.02196) · [Project](https://sirui-xu.github.io/InterEvolve/) |
+
+<a id="skill-reuse-memory-consolidation"></a>
+
+### Skill Reuse & Memory Consolidation
+
+**Scope.** Reuse execution-validated whole-body motions from applicable entry states, and learn which capabilities to retain under bounded storage.
+
+**Reading guide.** HumanoidTTT improves its retention policy while keeping motion generation and tracking fixed. This complements [skill orchestration](#spatial-memory-skill-orchestration); its reported physical examples concern whole-body motion reuse rather than object manipulation.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**HumanoidTTT**](https://arxiv.org/abs/2610.00198)<br><sub>HumanoidTTT: Test-Time Capability Reuse for Efficient Humanoid Control</sub> | 2026-09<br><sub>arXiv</sub> | Motion requests, entry states, and reuse feedback → validated motion reuse and capability retention | Gates complete-motion reuse by entry applicability and learns bounded-store retention from subsequent successful reuse while keeping the generator and tracker fixed.<br><sub>Tags: Capability reuse · Online consolidation · Bounded memory</sub> | [Paper](https://arxiv.org/abs/2610.00198) · [Code](https://github.com/AIGeeksGroup/HumanoidTTT) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 

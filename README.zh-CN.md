@@ -16,17 +16,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-48-4263eb?style=flat-square" alt="48 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-49-4263eb?style=flat-square" alt="49 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **48 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **49 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-17（从 2025 年至今的检索新增 22 项；日期与筛选边界见来源说明）。**
+**最新收录：2026-10-18（HumanoidTTT；范围与核验证据见来源说明）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
@@ -61,6 +61,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 - [Iterative Improvement｜迭代改进](#iterative-improvement)
   - [执行反馈驱动的数据与策略协同改进](#execution-guided-data-policy-co-improvement)
   - [执行反馈驱动的奖励程序演化](#execution-guided-reward-program-evolution)
+  - [技能复用与记忆巩固](#skill-reuse-memory-consolidation)
 
 <a id="retargeting"></a>
 <a id="motion-retargeting动作重定向"></a>
@@ -388,7 +389,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 ## Iterative Improvement｜迭代改进
 
-利用跨轮次保留的执行反馈改进后续数据、策略或奖励程序，明确改进对象与机制；迭代数据飞轮不等于不受限的递归自我改进（RSI）。
+利用跨轮次保留的执行反馈改进后续数据、策略、奖励程序或技能保留策略，明确改进对象与机制；迭代数据飞轮不等于不受限的递归自我改进（RSI）。
 
 <a id="execution-guided-data-policy-co-improvement"></a>
 <a id="self-evolving-data-engines"></a>
@@ -416,6 +417,18 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
 | [**InterEvolve**](https://arxiv.org/abs/2610.02196)<br><sub>InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 任务请求、仿真反馈与技能库 → 修订后的奖励程序 | 用 LLM 与数值搜索修订分阶段奖励程序，在固定控制器上验证，并保留成功程序供后续任务复用。<br><sub>标签: 奖励程序 · 测试时搜索 · 持久技能库</sub> | [论文](https://arxiv.org/abs/2610.02196) · [项目](https://sirui-xu.github.io/InterEvolve/) |
+
+<a id="skill-reuse-memory-consolidation"></a>
+
+### 技能复用与记忆巩固
+
+**范围。** 从适用的初始状态复用经过执行验证的全身动作，并在存储容量受限时学习保留哪些能力。
+
+**阅读提示。** HumanoidTTT 改进技能保留策略，动作生成器与跟踪器保持固定。该路线与[技能编排](#spatial-memory-skill-orchestration)互补；论文真机示例验证的是全身动作复用，而非物体操作。
+
+| 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
+| :--- | :--- | :--- | :--- | :--- |
+| [**HumanoidTTT**](https://arxiv.org/abs/2610.00198)<br><sub>HumanoidTTT: Test-Time Capability Reuse for Efficient Humanoid Control</sub> | 2026-09<br><sub>arXiv</sub> | 动作请求、初始状态与复用反馈 → 已验证动作复用及技能保留 | 通过初始状态适用性检查决定完整动作能否复用，并利用后续成功复用反馈学习有限技能库的保留策略，生成器与跟踪器保持固定。<br><sub>标签: 能力复用 · 在线巩固 · 有限记忆</sub> | [论文](https://arxiv.org/abs/2610.00198) · [代码](https://github.com/AIGeeksGroup/HumanoidTTT) |
 
 <p align="right"><a href="#top">↑ 回到顶部</a></p>
 

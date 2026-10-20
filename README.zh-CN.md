@@ -16,17 +16,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-49-4263eb?style=flat-square" alt="49 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-54-4263eb?style=flat-square" alt="54 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **49 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **54 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-18（HumanoidTTT；范围与核验证据见来源说明）。**
+**最新收录：2026-10-20（ROVE、POT-VLA、Ψ₀、GR00T N1.6、PingpongDuo；见来源说明）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
@@ -50,6 +50,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
   - [灵巧全身交互](#dexterous-whole-body-interaction)
   - [接触与力控制](#contact-force-control)
   - [触觉引导的全身操作](#tactile-guided-manipulation)
+  - [多机器人协同交互](#multi-humanoid-coordination)
 - [Foundations｜模型与控制基座](#foundations)
   - [测试时指令优化](#test-time-command-optimization)
   - [全身 VLA 与人类数据预训练](#whole-body-vla-human-pretraining)
@@ -58,10 +59,12 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 - [Harness｜执行框架与技能编排](#harness)
   - [空间记忆与长程技能编排](#spatial-memory-skill-orchestration)
   - [全身遥操作与数据采集](#whole-body-teleoperation-data)
+  - [物体记忆与执行验证](#object-memory-execution-verification)
 - [Iterative Improvement｜迭代改进](#iterative-improvement)
   - [执行反馈驱动的数据与策略协同改进](#execution-guided-data-policy-co-improvement)
   - [执行反馈驱动的奖励程序演化](#execution-guided-reward-program-evolution)
   - [技能复用与记忆巩固](#skill-reuse-memory-consolidation)
+  - [人类干预驱动的策略改进](#human-intervention-policy-improvement)
 
 <a id="retargeting"></a>
 <a id="motion-retargeting动作重定向"></a>
@@ -214,7 +217,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 ## Interaction｜交互学习与控制
 
-学习并控制人形机器人与物体、环境的物理交互，覆盖身体与手部协调及接触力调节。
+学习并控制人形机器人与物体、环境及队友的物理交互，覆盖身体与手部协调、团队配合及接触力调节。
 
 <a id="interaction-learning-from-human-demonstrations"></a>
 <a id="从人类视频学习交互"></a>
@@ -280,6 +283,18 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | :--- | :--- | :--- | :--- | :--- |
 | [**TACT**](https://arxiv.org/abs/2506.15146)<br><sub>TACT: Humanoid Whole-body Contact Manipulation through Deep Imitation Learning with Tactile Modality</sub> | 2025-06<br><sub>RA-L 2025</sub> | 视觉、关节状态与分布式触觉 → 接触密集操作动作 | 为 ACT 加入上半身触觉输入，并与基于模型的双足控制结合，实现利用大面积身体接触的搬运。<br><sub>标签: 触觉反馈 · 模仿学习 · 身体接触</sub> | [论文](https://arxiv.org/abs/2506.15146) |
 
+<a id="multi-humanoid-coordination"></a>
+
+### 多机器人协同交互
+
+**范围。** 协调共享物体或工作空间的多个人形机器人完成物理交互。
+
+**阅读提示。** PingpongDuo 将交替击球与队友让位、碰撞风险筛选结合；球飞行与接触参数校准是其迁移的辅助环节。
+
+| 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
+| :--- | :--- | :--- | :--- | :--- |
+| [**PingpongDuo**](https://arxiv.org/abs/2610.20579)<br><sub>PingpongDuo: Agile Humanoid Table Tennis Doubles with Safe Team Coordination</sub> | 2026-10<br><sub>arXiv</sub> | 人类动作参考、球状态与队友状态 → 协同步法及击球 | 结合风险筛选的团队规划器、相互初始化的步法与击球技能及持拍臂残差，使两台 G1 协调完成交替双打。<br><sub>标签: 多人形协调 · 动态交互 · 风险感知规划</sub> | [论文](https://arxiv.org/abs/2610.20579) |
+
 <p align="right"><a href="#top">↑ 回到顶部</a></p>
 
 <a id="foundations"></a>
@@ -310,6 +325,8 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | :--- | :--- | :--- | :--- | :--- |
 | [**λ₀**](https://arxiv.org/abs/2610.00438)<br><sub>Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining</sub> | 2026-09<br><sub>arXiv</sub> | 第一视角身体与手部数据 → 全身 VLA | 通过分阶段人体数据预训练与形态适配，学习协调全身和手部动作的策略。<br><sub>标签: VLA · Human-data pretraining · Embodiment adaptation</sub> | [论文](https://arxiv.org/abs/2610.00438) |
 | [**OpenHLM**](https://arxiv.org/abs/2606.22174)<br><sub>OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | 全身遥操作与异构示教 → 面向人形全身的 VLA | 系统研究关节级遥操作、VLA 动作设计与异构数据联合训练，以单一学习策略指挥人形全身。<br><sub>标签: 全身 VLA · 异构联合训练 · 动作接口</sub> | [论文](https://arxiv.org/abs/2606.22174) · [项目](https://openhlm-project.github.io/) |
+| [**Ψ₀**](https://arxiv.org/abs/2603.12263)<br><sub>Ψ₀: An Open Foundation Model Towards Universal Humanoid Loco-Manipulation</sub> | 2026-03<br><sub>arXiv</sub> | 第一视角人类视频与人形轨迹 → 分阶段 VLA 及全身动作指令 | 先预训练视觉动作表征，再训练流式动作专家，将手臂与手部指令和 RL 下半身控制器结合，支持 G1 移动操作。<br><sub>标签: 分阶段训练 · 人类视频预训练 · 全身 VLA</sub> | [论文](https://arxiv.org/abs/2603.12263) |
+| [**GR00T N1.6**](https://research.nvidia.com/labs/gear/gr00t-n1_6/)<br><sub>GR00T N1.6</sub> | 2025-12<br><sub>技术报告</sub> | 异构机器人数据与任务示教 → 可适配的 VLA 策略 | 结合更新的视觉语言骨干、更大的动作 Transformer 和包含 G1 移动操作的扩展机器人数据，并通过任务专属后训练部署。<br><sub>标签: 跨构型预训练 · G1 移动操作 · 模型报告</sub> | [报告](https://research.nvidia.com/labs/gear/gr00t-n1_6/) |
 | [**WholeBodyVLA**](https://arxiv.org/abs/2512.11047)<br><sub>WholeBodyVLA: Towards Unified Latent VLA for Whole-Body Loco-Manipulation Control</sub> | 2025-12<br><sub>arXiv</sub> | 无动作标签的第一视角视频与机器人示教 → 潜在动作 VLA 及移动控制 | 从第一视角视频学习潜在动作，将 VLA 与面向移动操作的控制器结合，支持大范围协调任务。<br><sub>标签: 潜在动作 · 第一视角视频 · 全身 VLA</sub> | [论文](https://arxiv.org/abs/2512.11047) |
 
 <a id="world-model-conditioned-policies"></a>
@@ -382,6 +399,18 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**TWIST2**](https://arxiv.org/abs/2511.02832)<br><sub>TWIST2: Scalable, Portable, and Holistic Humanoid Data Collection System</sub> | 2025-11<br><sub>arXiv</sub> | VR 全身动作与第一视角反馈 → 人形示教数据及视觉动作策略 | 结合便携式 VR 全身遥操作、主动颈部与分层视觉动作学习，支持 G1 协调示教采集及自主技能。<br><sub>标签: 全身遥操作 · 主动视觉 · 示教采集</sub> | [论文](https://arxiv.org/abs/2511.02832) · [项目](https://yanjieze.com/projects/TWIST2/) |
 | [**HOMIE**](https://arxiv.org/abs/2502.13013)<br><sub>HOMIE: Humanoid Loco-Manipulation with Isomorphic Exoskeleton Cockpit</sub> | 2025-02<br><sub>arXiv</sub> | 外骨骼、手套与踏板指令 → 人形全身遥操作及示教数据 | 将同构手臂控制、手指感知与支持行走和下蹲的 RL 控制器集成，采集人形移动操作示教。<br><sub>标签: 遥操作 · 外骨骼 · 数据采集</sub> | [论文](https://arxiv.org/abs/2502.13013) · [项目](https://homietele.github.io/) |
 
+<a id="object-memory-execution-verification"></a>
+
+### 物体记忆与执行验证
+
+**范围。** 维护以物体为中心的状态，同时用于动作生成与物理结果验证。
+
+**阅读提示。** POT-VLA 在动作片段执行后形成验证闭环；持久物体状态与上面的空间记忆、技能编排互补。
+
+| 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
+| :--- | :--- | :--- | :--- | :--- |
+| [**POT-VLA**](https://arxiv.org/abs/2607.18016)<br><sub>Closing the Loop in Humanoid VLA: Persistent 3D Object Tokens for Verifiable Loco-Manipulation</sub> | 2026-07<br><sub>arXiv</sub> | RGB-D 观测、任务角色与机器人状态 → 物体条件化动作及执行检查 | 维护持久三维物体记录，同时供 G1 动作专家与几何谓词检查使用，在动作片段执行后验证结果并进行局部恢复。<br><sub>标签: 物体记忆 · Token 条件化 VLA · 执行验证</sub> | [论文](https://arxiv.org/abs/2607.18016) |
+
 <p align="right"><a href="#top">↑ 回到顶部</a></p>
 
 <a id="iterative-improvement"></a>
@@ -429,6 +458,18 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
 | [**HumanoidTTT**](https://arxiv.org/abs/2610.00198)<br><sub>HumanoidTTT: Test-Time Capability Reuse for Efficient Humanoid Control</sub> | 2026-09<br><sub>arXiv</sub> | 动作请求、初始状态与复用反馈 → 已验证动作复用及技能保留 | 通过初始状态适用性检查决定完整动作能否复用，并利用后续成功复用反馈学习有限技能库的保留策略，生成器与跟踪器保持固定。<br><sub>标签: 能力复用 · 在线巩固 · 有限记忆</sub> | [论文](https://arxiv.org/abs/2610.00198) · [代码](https://github.com/AIGeeksGroup/HumanoidTTT) |
+
+<a id="human-intervention-policy-improvement"></a>
+
+### 人类干预驱动的策略改进
+
+**范围。** 利用部署尝试和不完美的人工纠正，跨轮次更新人形策略。
+
+**阅读提示。** ROVE 从混合质量经验改进策略与价值函数；其改进对象不同于保留动作或在运动控制器固定时修订奖励程序。
+
+| 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
+| :--- | :--- | :--- | :--- | :--- |
+| [**ROVE**](https://arxiv.org/abs/2606.17011)<br><sub>ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning</sub> | 2026-06<br><sub>arXiv</sub> | 人形执行轨迹、人工干预与人类视频 → 价值引导的 VLA 更新 | 从混合质量经验学习乐观价值估计，通过优势条件化策略更新，跨执行与人工干预轮次改进人形操作。<br><sub>标签: 人类干预 · 价值估计 · 迭代后训练</sub> | [论文](https://arxiv.org/abs/2606.17011) |
 
 <p align="right"><a href="#top">↑ 回到顶部</a></p>
 

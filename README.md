@@ -16,17 +16,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-54-4263eb?style=flat-square" alt="54 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-102-4263eb?style=flat-square" alt="102 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **54 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **102 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-20 (ROVE, POT-VLA, Ψ₀, GR00T N1.6, and PingpongDuo; see source notes).**
+**Latest additions: 2026-10-20 (48 works from the reference-list audit; see [batch scope and evidence](docs/SOURCES.md#reference-audit-2026-10-20)).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
@@ -45,26 +45,31 @@ H2 sections describe broad research directions, technical routes, or system para
   - [Asset- and Video-Prior-Based Interaction Synthesis](#asset-video-interaction-synthesis)
   - [Demonstration Expansion in Simulation](#simulation-demonstration-expansion)
   - [Visual Policy Learning & Evaluation](#visual-policy-learning-evaluation)
+  - [Whole-Body Policy Transfer](#whole-body-policy-transfer)
 - [Interaction](#interaction)
   - [Interaction Learning from Human Demonstrations](#interaction-learning-from-human-videos)
   - [Dexterous Whole-Body Interaction](#dexterous-whole-body-interaction)
   - [Contact & Force Control](#contact-force-control)
   - [Tactile-Guided Whole-Body Manipulation](#tactile-guided-manipulation)
   - [Multi-Humanoid Coordination](#multi-humanoid-coordination)
+  - [Whole-Body Planning & Skill Learning](#whole-body-planning-skill-learning)
 - [Foundations](#foundations)
   - [Test-Time Command Optimization](#test-time-command-optimization)
   - [Whole-Body VLA & Human-Data Pretraining](#whole-body-vla-human-pretraining)
   - [World-Model-Conditioned Whole-Body Policies](#world-model-conditioned-policies)
   - [Generalist Whole-Body Control](#generalist-whole-body-control)
+  - [Humanoid Simulation Benchmarks](#humanoid-simulation-benchmarks)
 - [Harness](#harness)
   - [Spatial Memory & Long-Horizon Skill Orchestration](#spatial-memory-skill-orchestration)
   - [Whole-Body Teleoperation & Data Collection](#whole-body-teleoperation-data)
-  - [Object Memory & Execution Verification](#object-memory-execution-verification)
+  - [Execution Monitoring & Recovery](#object-memory-execution-verification)
+  - [Planning & Control Interfaces](#planning-control-interfaces)
 - [Iterative Improvement](#iterative-improvement)
   - [Execution-Guided Data–Policy Co-Improvement](#execution-guided-data-policy-co-improvement)
-  - [Execution-Guided Reward Program Evolution](#execution-guided-reward-program-evolution)
+  - [Execution-Guided Program Refinement](#execution-guided-reward-program-evolution)
   - [Skill Reuse & Memory Consolidation](#skill-reuse-memory-consolidation)
   - [Policy Improvement from Human Interventions](#human-intervention-policy-improvement)
+  - [Planner & Policy Post-Training](#planner-policy-post-training)
 
 <a id="retargeting"></a>
 <a id="motion-retargeting动作重定向"></a>
@@ -107,6 +112,8 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**KODA**](https://arxiv.org/abs/2610.21152)<br><sub>KODA: Kinematics--Observation Data Alignment for Humanoid Learning from Human Egocentric Demonstration</sub> | 2026-10<br><sub>arXiv</sub> | Egocentric human RGB → canonical robot motion/views → controller-specific action labels | Aligns synthesized onboard views with simulator-checked motion and regenerates action supervision for each controller through command optimization.<br><sub>Tags: View–motion alignment · Command optimization · Demonstration relabeling</sub> | [Paper](https://arxiv.org/abs/2610.21152) |
+| [**EgoHumanoid-V2**](https://arxiv.org/abs/2609.37181)<br><sub>EgoHumanoid-V2: Human-to-Humanoid Transfer of Coordinated Whole-Body Skills for Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Human demonstrations → controller-aligned robot observations and actions | Aligns demonstrated motion through controller rollouts, dynamics-aware correction, and rendered robot views to learn coordinated G1 skills without target-task robot demonstrations. | [Paper](https://arxiv.org/abs/2609.37181) |
+| [**TrajBooster**](https://arxiv.org/abs/2509.11839)<br><sub>TrajBooster: Boosting Humanoid Whole-Body Manipulation via Trajectory-Centric Learning</sub> | 2025-09<br><sub>arXiv</sub> | Source robot trajectories → G1 action supervision and VLA | Retargets source end-effector trajectories through G1 simulation control and combines aligned data with limited target demonstrations for whole-body deployment. | [Paper](https://arxiv.org/abs/2509.11839) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
@@ -161,7 +168,9 @@ Expand real interaction videos, reconstruct robot-compatible references, and tra
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**VLK**](https://arxiv.org/abs/2606.30645)<br><sub>VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes</sub> | 2026-06<br><sub>arXiv</sub> | Real scene capture → synthetic interactions → visual policy | Synthesizes interactions inside reconstructed deployment scenes and trains perception-based policies for navigation and object transport on a physical G1. | [Paper](https://arxiv.org/abs/2606.30645) |
 | [**LEGS**](https://arxiv.org/abs/2606.01458)<br><sub>LEGS: Fine-Tuning Teleop-Free VLAs for Humanoid Loco-manipulation in an Embodied Gaussian Splatting World</sub> | 2026-05<br><sub>arXiv</sub> | Real scene captures → calibrated 3DGS simulator → synthetic VLA demonstrations | Composites reconstructed backgrounds with dynamic mesh foregrounds and procedural motion demonstrations to fine-tune VLAs for real G1 tasks.<br><sub>Tags: Scene reconstruction · Gaussian splatting · Synthetic demonstrations</sub> | [Paper](https://arxiv.org/abs/2606.01458) · [Project](https://hojjunekim.github.io/legs/) |
+| [**DexMimicGen**](https://arxiv.org/abs/2410.24185)<br><sub>DexMimicGen: Automated Data Generation for Bimanual Dexterous Manipulation via Imitation Learning</sub> | 2024-10<br><sub>arXiv</sub> | Real demonstrations and digital twin → generated robot demonstrations | Expands demonstrations in simulation and validates digital-twin-assisted data collection and policy learning on Fourier GR1, alongside separate dual-arm experiments. | [Paper](https://arxiv.org/abs/2410.24185) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
@@ -210,6 +219,19 @@ Adapt a small set of simulated robot demonstrations into larger datasets. Deploy
 | :--- | :--- | :--- | :--- | :--- |
 | [**SIMPLE**](https://arxiv.org/abs/2606.08278)<br><sub>SIMPLE: Simulation-Based Policy Learning and Evaluation for Humanoid Loco-manipulation</sub> | 2026-06<br><sub>arXiv · Benchmark</sub> | Simulated tasks, assets, and collection interfaces → humanoid policy benchmark and training data | Couples MuJoCo physics with Isaac Sim rendering to collect and evaluate whole-body humanoid policies, including reported sim-to-real transfer under matched settings.<br><sub>Tags: Benchmark · Simulation data · Policy evaluation</sub> | [Paper](https://arxiv.org/abs/2606.08278) · [Project](https://psi-lab.ai/SIMPLE/) |
 | [**VIRAL**](https://arxiv.org/abs/2511.15200)<br><sub>VIRAL: Visual Sim-to-Real at Scale for Humanoid Loco-Manipulation</sub> | 2025-11<br><sub>arXiv</sub> | Privileged simulation rollouts → RGB student policy → real humanoid control | Distills a simulation RL teacher into a visual student using large-scale rendering and domain randomization, with hand and camera alignment for G1 transfer.<br><sub>Tags: Visual sim-to-real · Teacher–student learning · Domain randomization</sub> | [Paper](https://arxiv.org/abs/2511.15200) · [Project](https://viral-humanoid.github.io/) |
+| [**VisualMimic**](https://arxiv.org/abs/2509.20322)<br><sub>VisualMimic: Visual Humanoid Loco-Manipulation via Motion Tracking and Generation</sub> | 2025-09<br><sub>arXiv</sub> | Simulated motion tracking and rendering → visual humanoid policy | Combines motion tracking and generation to train visual policies in simulation for real humanoid lifting, pushing, dribbling, and kicking. | [Paper](https://arxiv.org/abs/2509.20322) |
+
+<a id="whole-body-policy-transfer"></a>
+
+### Whole-Body Policy Transfer
+
+**Scope.** Train coupled locomotion and manipulation policies in simulation and deploy them on physical humanoids.
+
+**Reading guide.** Digit box transport provides an early example of transferring pickup and carrying skills as a complete task.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**Sim-to-Real Humanoid Box Loco-Manipulation**](https://arxiv.org/abs/2310.03191)<br><sub>Sim-to-Real Learning for Humanoid Box Loco-Manipulation</sub> | 2023-10<br><sub>arXiv</sub> | Simulated pickup and carrying tasks → real Digit skills | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport. | [Paper](https://arxiv.org/abs/2310.03191) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
@@ -235,12 +257,15 @@ Learn humanoid interactions from human videos or wearable demonstrations; method
 | [**VICAR**](https://arxiv.org/abs/2610.13079)<br><sub>VICAR: Video Imitation with Contact-Aware Retargeting for Humanoid Interactive Skills</sub> | 2026-10<br><sub>arXiv</sub> | Third-person human video and contact targets → adaptive humanoid interaction skills | Preserves global contact poses, speed, and collision clearance during retargeting, then learns contact-conditioned motions that adapt to moved contact targets.<br><sub>Tags: Video imitation · Contact-aware retargeting · Contact conditioning</sub> | [Paper](https://arxiv.org/abs/2610.13079) |
 | [**Workhorse**](https://arxiv.org/abs/2610.09117)<br><sub>Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data</sub> | 2026-10<br><sub>arXiv</sub> | Wearable human poses and egocentric RGB → visual planner and whole-body tracker | Trains a visual planner and an RL tracker on shared torso, wrist, and foot targets, using mutual error augmentation for contact-rich G1 skills without robot-specific retargeting.<br><sub>Tags: Robot-free demonstrations · Five-link interface · Robust tracking</sub> | [Paper](https://arxiv.org/abs/2610.09117) · [Project](https://hybridrobotics.github.io/workhorse/) |
 | [**HALOMI**](https://arxiv.org/abs/2606.18772)<br><sub>HALOMI: Learning Humanoid Loco-Manipulation with Active Perception from Human Demonstrations</sub> | 2026-06<br><sub>arXiv</sub> | Egocentric/wrist observations and head–hand demonstrations → active-perception humanoid policy | Combines view alignment and controller-aware reference adaptation with a latent-manifold controller for coordinated head–hand tracking.<br><sub>Tags: Active perception · Head–hand control · Demonstration alignment</sub> | [Paper](https://arxiv.org/abs/2606.18772) · [Project](https://halomi-humanoid.github.io) |
+| [**GenHOI**](https://arxiv.org/abs/2606.12995)<br><sub>GenHOI: Contact-Aware Humanoid-Object Interaction by Imitating Generated Videos without Task-Specific Training</sub> | 2026-06<br><sub>arXiv</sub> | Human video → optimized contact-aware robot references | Recovers interactions from video and optimizes references for a frozen closed-loop tracker, with G1 simulation and hardware evaluation rather than task-specific policy training. | [Paper](https://arxiv.org/abs/2606.12995) |
+| [**Bifrost-UMI**](https://arxiv.org/abs/2605.03452)<br><sub>BifrostUMI: Bridging Robot-Free Demonstrations and Humanoid Whole-Body Manipulation</sub> | 2026-05<br><sub>arXiv</sub> | Human demonstrations and pose alignment → whole-body manipulation | Couples demonstration transfer and whole-body execution for physical G1 tasks involving bending, stepping, and manipulation while walking. | [Paper](https://arxiv.org/abs/2605.03452) |
 | [**EgoHumanoid**](https://arxiv.org/abs/2602.10106)<br><sub>EgoHumanoid: Unlocking In-the-Wild Loco-Manipulation with Robot-Free Egocentric Demonstration</sub> | 2026-02<br><sub>arXiv</sub> | Egocentric human demonstrations and limited robot data → aligned humanoid VLA policy | Aligns human and robot viewpoints and action spaces before co-training a VLA for G1 loco-manipulation across environments.<br><sub>Tags: View alignment · Action alignment · Human–robot co-training</sub> | [Paper](https://arxiv.org/abs/2602.10106) · [Project](https://opendrivelab.com/EgoHumanoid/) |
 | [**HuMI**](https://arxiv.org/abs/2602.06643)<br><sub>Humanoid Manipulation Interface: Humanoid Whole-Body Manipulation from Robot-Free Demonstrations</sub> | 2026-02<br><sub>arXiv</sub> | Portable robot-free whole-body demonstrations → hierarchical humanoid manipulation policy | Captures human whole-body motion with an online feasibility preview and learns hierarchical policies for coordinated kneeling, squatting, tossing, and walking manipulation.<br><sub>Tags: Robot-free demonstrations · Feasibility alignment · Hierarchical learning</sub> | [Paper](https://arxiv.org/abs/2602.06643) · [Project](https://humanoid-manipulation-interface.github.io) |
 | [**HumanX**](https://arxiv.org/abs/2602.02473)<br><sub>HumanX: Toward Agile and Generalizable Humanoid Interaction Skills from Human Videos</sub> | 2026-02<br><sub>CoRL 2026</sub> | Human video → augmented references → interaction skills | Pairs anchor-centric interaction synthesis with interaction-prioritized imitation to learn agile skills that transfer to a G1.<br><sub>Tags: Video reconstruction · Data augmentation · Interaction learning</sub> | [Paper](https://arxiv.org/abs/2602.02473) · [Project](https://wyhuai.github.io/human-x/) |
 | [**ResMimic**](https://arxiv.org/abs/2510.05070)<br><sub>ResMimic: From General Motion Tracking to Humanoid Whole-body Loco-Manipulation via Residual Learning</sub> | 2025-10<br><sub>arXiv</sub> | Human interaction references and a general motion tracker → object-aware residual policy | Adds a learned residual to a general motion tracker, using object geometry and contact rewards to improve whole-body interaction precision.<br><sub>Tags: Residual learning · Contact rewards · Object tracking</sub> | [Paper](https://arxiv.org/abs/2510.05070) · [Project](https://resmimic.github.io/) |
 | [**HumanoidExo**](https://arxiv.org/abs/2510.03022)<br><sub>HumanoidExo: Scalable Whole-Body Humanoid Manipulation via Wearable Exoskeleton</sub> | 2025-10<br><sub>arXiv</sub> | Wearable exoskeleton motion and camera observations → humanoid whole-body policy | Aligns wearable human data with the humanoid and combines it with limited robot demonstrations to learn coordinated standing, squatting, and walking manipulation.<br><sub>Tags: Robot-free data · Exoskeleton · Human–robot co-training</sub> | [Paper](https://arxiv.org/abs/2510.03022) |
 | [**HDMI**](https://arxiv.org/abs/2509.16757)<br><sub>HDMI: Learning Interactive Humanoid Whole-Body Control from Human Videos</sub> | 2025-09<br><sub>arXiv</sub> | Monocular RGB video → whole-body interaction policy | Extracts human–object trajectories and learns interaction skills by jointly tracking robot and object states.<br><sub>Tags: Video reconstruction · Interaction imitation · Sim-to-real</sub> | [Paper](https://arxiv.org/abs/2509.16757) · [Project](https://hdmi-humanoid.github.io/) · [Code](https://github.com/LeCAR-Lab/HDMI) |
+| [**Cross-Embodiment Behavior-Skill Transfer**](https://arxiv.org/abs/2412.15166)<br><sub>Human-Humanoid Robots Cross-Embodiment Behavior-Skill Transfer Using Decomposed Adversarial Learning from Demonstration</sub> | 2024-12<br><sub>arXiv</sub> | Human demonstrations and interaction graphs → transferred robot skills | Decomposes behavior primitives and fine-tunes interaction skills across robot embodiments, including simulated H1 and NAVIAI box carrying. | [Paper](https://arxiv.org/abs/2412.15166) |
 
 <a id="dexterous-whole-body-interaction"></a>
 
@@ -252,6 +277,7 @@ Coordinate body and hand contacts through captured demonstrations or synthesized
 | :--- | :--- | :--- | :--- | :--- |
 | [**WBD**](https://arxiv.org/abs/2610.22184)<br><sub>Whole-Body Dexterity</sub> | 2026-10<br><sub>arXiv</sub> | Generated whole-body grasps and goal references → body-contact manipulation policy | Trains and distills repositioning experts from feasible grasps so a G1 can manipulate objects through coordinated arm and torso contacts.<br><sub>Tags: Whole-body grasps · Expert distillation · Body contact</sub> | [Paper](https://arxiv.org/abs/2610.22184) |
 | [**Weave**](https://arxiv.org/abs/2609.16683)<br><sub>Weave: Learning Whole-Body Dexterous Loco-Manipulation from Human-Object Interactions</sub> | 2026-09<br><sub>arXiv</sub> | Captured HOI → dexterous robot–object interaction | Combines contact-aware retargeting with a geometry-aware policy that coordinates body and finger joints to track robot–object references.<br><sub>Tags: HOI motion capture · Dexterous hands · Contact-aware retargeting</sub> | [Paper](https://arxiv.org/abs/2609.16683) · [Project](https://xiaohu-art.github.io/Weave/) |
+| [**CoorDex**](https://arxiv.org/abs/2606.23680)<br><sub>CoorDex: Coordinating Body and Hand Priors for Continuous Dexterous Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | Body and hand demonstrations → coordinated latent-prior policy | Coordinates frozen body and hand priors through residual learning for continuous manipulation on a G1 equipped with WUJI dexterous hands. | [Paper](https://arxiv.org/abs/2606.23680) |
 
 <a id="contact-force-control"></a>
 
@@ -265,9 +291,12 @@ For actuator-model correction that improves force transfer, see [Contact-UAN](#c
 | :--- | :--- | :--- | :--- | :--- |
 | [**C-GMT**](https://arxiv.org/abs/2610.22119)<br><sub>Compliant GMT: Making General Motion Tracking Compliant via Residual Reference Adaptation</sub> | 2026-10<br><sub>arXiv</sub> | Motion references and proprioceptive history → compliant reference corrections | Learns a residual reference adapter above a general motion tracker to produce compliant whole-body responses across playback, teleoperation, and VLA interfaces.<br><sub>Tags: Residual reference adaptation · Compliance · General motion tracking</sub> | [Paper](https://arxiv.org/abs/2610.22119) · [Project](https://venki1899.github.io/c-gmt/) |
 | [**KPI**](https://arxiv.org/abs/2609.36151)<br><sub>KPI: A Promptable Kernel for Physical Interaction on Humanoids</sub> | 2026-09<br><sub>arXiv</sub> | Trajectory + interaction contract → adaptive contact control | Adapts arm impedance and references to tracking, compliance, and force-range requests while retaining the underlying whole-body tracker.<br><sub>Tags: Impedance adaptation · Force regulation</sub> | [Paper](https://arxiv.org/abs/2609.36151) · [Project](https://kpi-robot.github.io/) |
+| [**CEER2**](https://arxiv.org/abs/2609.38709)<br><sub>CEER2: Directional and Tunable End-Effector and Root Compliance for Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Motion commands and proprioception → directionally compliant control | Regulates direction-dependent whole-body compliance on a real G1 without requiring wrist force-torque sensors. | [Paper](https://arxiv.org/abs/2609.38709) |
 | [**CEER**](https://arxiv.org/abs/2605.19981)<br><sub>CEER: Compliant End-Effector and Root Control as a Unified Interface for Hierarchical Humanoid Loco-Manipulation</sub> | 2026-05<br><sub>arXiv</sub> | Root commands and end-effector poses → compliant whole-body control interface | Distills motion tracking into an end-effector–root interface that supports compliant manipulation and integration with heterogeneous high-level planners.<br><sub>Tags: Compliance · Task-space interface · Hierarchical control</sub> | [Paper](https://arxiv.org/abs/2605.19981) · [Project](https://robotproject8.github.io/ceer_page/) |
 | [**GentleHumanoid**](https://arxiv.org/abs/2511.04679)<br><sub>GentleHumanoid: Learning Upper-body Compliance for Contact-rich Human and Object Interaction</sub> | 2025-11<br><sub>arXiv</sub> | Motion references and modeled interaction forces → compliant upper-body responses | Trains a whole-body tracker with spring-based guiding and resistive contacts to coordinate shoulder, elbow, and wrist compliance during physical interaction.<br><sub>Tags: Compliance · Human–robot contact · Whole-body tracking</sub> | [Paper](https://arxiv.org/abs/2511.04679) |
 | [**FALCON**](https://arxiv.org/abs/2505.06776)<br><sub>FALCON: Learning Force-Adaptive Humanoid Loco-Manipulation</sub> | 2025-05<br><sub>arXiv</sub> | Root and end-effector commands under external loads → force-adaptive whole-body control | Jointly trains lower- and upper-body agents with a torque-feasible force curriculum for payload transport, cart pulling, and door opening on humanoids.<br><sub>Tags: Force adaptation · Dual-agent RL · Load handling</sub> | [Paper](https://arxiv.org/abs/2505.06776) |
+| [**Flow Multi-Support**](https://arxiv.org/abs/2407.12381)<br><sub>Flow Matching Imitation Learning for Multi-Support Manipulation</sub> | 2024-07<br><sub>arXiv</sub> | Demonstrations and contact constraints → flow-matching control | Combines flow-matching imitation with multi-contact whole-body optimization for Talos pushing and drawer closing with supporting hand contacts. | [Paper](https://arxiv.org/abs/2407.12381) |
+| [**WoCoCo**](https://arxiv.org/abs/2406.06005)<br><sub>WoCoCo: Learning Whole-Body Humanoid Control with Sequential Contacts</sub> | 2024-06<br><sub>arXiv</sub> | Contact stages and task rewards → whole-body interaction policies | Decomposes sequential contacts into stages for reinforcement learning, with real humanoid box loco-manipulation among its evaluated tasks. | [Paper](https://arxiv.org/abs/2406.06005) |
 
 **Across directions:** [PRISM](#counterfactual-video-augmentation) and [GRAIL](#asset-video-interaction-synthesis) also learn interaction policies, with their main entries emphasizing data generation. [KPI](#contact-force-control) includes agent-driven trajectory and interaction-contract generation.
 
@@ -275,12 +304,14 @@ For actuator-model correction that improves force transfer, see [Contact-UAN](#c
 
 ### Tactile-Guided Whole-Body Manipulation
 
-**Scope.** Use distributed body-contact sensing as policy input for humanoid object manipulation.
+**Scope.** Use human contact demonstrations or robot tactile observations to learn humanoid manipulation and contact goals.
 
-**Reading guide.** TACT learns from tactile observations; [Contact & Force Control](#contact-force-control) focuses on regulating interaction dynamics.
+**Reading guide.** TACT uses robot tactile observations; PanTact and WT-UMI transfer human contact or force demonstrations. [Contact & Force Control](#contact-force-control) focuses on regulating execution dynamics.
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**PanTact**](https://arxiv.org/abs/2610.12558)<br><sub>PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface</sub> | 2026-10<br><sub>arXiv</sub> | Wearable contact demonstrations → body-contact goals and control | Learns contact goals from a wearable interface and executes support, pushing, sweeping, and load-sharing on G1 without added body-contact sensors. | [Paper](https://arxiv.org/abs/2610.12558) |
+| [**WT-UMI**](https://arxiv.org/abs/2606.13232)<br><sub>WT-UMI: Tactile-based Whole-Body Manipulation via Force-Supervised Contact-Aware Planning</sub> | 2026-06<br><sub>arXiv</sub> | Wearable pose and tactile demonstrations → force-aware execution | Uses demonstrated poses and contact forces to supervise planning with admittance execution for real G1 manipulation. | [Paper](https://arxiv.org/abs/2606.13232) |
 | [**TACT**](https://arxiv.org/abs/2506.15146)<br><sub>TACT: Humanoid Whole-body Contact Manipulation through Deep Imitation Learning with Tactile Modality</sub> | 2025-06<br><sub>RA-L 2025</sub> | Vision, joint states, and distributed tactile sensing → contact-rich manipulation actions | Extends ACT with upper-body tactile inputs and integrates the learned manipulation policy with model-based biped control for carrying with broad body contacts.<br><sub>Tags: Tactile feedback · Imitation learning · Body contact</sub> | [Paper](https://arxiv.org/abs/2506.15146) |
 
 <a id="multi-humanoid-coordination"></a>
@@ -294,6 +325,24 @@ For actuator-model correction that improves force transfer, see [Contact-UAN](#c
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**PingpongDuo**](https://arxiv.org/abs/2610.20579)<br><sub>PingpongDuo: Agile Humanoid Table Tennis Doubles with Safe Team Coordination</sub> | 2026-10<br><sub>arXiv</sub> | Human motion references, ball state, and teammate state → coordinated footwork and strikes | Combines a risk-filtered team planner, mutually initialized footwork/striking skills, and racket-arm residuals for alternating doubles play with two G1 humanoids.<br><sub>Tags: Multi-humanoid coordination · Dynamic interaction · Risk-aware planning</sub> | [Paper](https://arxiv.org/abs/2610.20579) |
+
+<a id="whole-body-planning-skill-learning"></a>
+
+### Whole-Body Planning & Skill Learning
+
+**Scope.** Plan contacts or learn task policies that coordinate locomotion, balance, and object interaction.
+
+**Reading guide.** BOPI replans under uncertain dynamics; SkillBlender composes reusable skills; Opt2Skill connects trajectory optimization to policy learning.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**BOPI**](https://arxiv.org/abs/2610.13087)<br><sub>Belief-Overlap Partial Inversion: Object-Centric Flow Replanning for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Interaction observations and goals → belief-conditioned plans | Updates a belief over uncertain interaction dynamics and replans with a flow-based model for cart translation and turning on G1. | [Paper](https://arxiv.org/abs/2610.13087) |
+| [**MotionDisco**](https://arxiv.org/abs/2606.06139)<br><sub>MotionDisco: Motion Discovery for Extreme Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | Scene geometry and task goals → contact plans and full-body motion | Discovers G1 motions by planning object and environmental support contacts and solving the resulting whole-body motion constraints. | [Paper](https://arxiv.org/abs/2606.06139) |
+| [**DreamControl**](https://arxiv.org/abs/2509.14353)<br><sub>DreamControl: Human-Inspired Whole-Body Humanoid Control for Scene Interaction via Guided Diffusion</sub> | 2025-09<br><sub>arXiv</sub> | Human motion diffusion prior and task reward → interaction policy | Guides reinforcement learning with a human motion diffusion prior for coordinated lower- and upper-body scene interaction, evaluated on G1. | [Paper](https://arxiv.org/abs/2509.14353) |
+| [**SkillBlender**](https://arxiv.org/abs/2506.09366)<br><sub>SkillBlender: Towards Versatile Humanoid Whole-Body Loco-Manipulation via Skill Blending</sub> | 2025-06<br><sub>arXiv</sub> | Pretrained low-level skills and task goals → composed behavior | Learns a higher-level policy over reusable skills for whole-body tasks using H1, G1, and H1-2 simulation models. | [Paper](https://arxiv.org/abs/2506.09366) |
+| [**Whole-Body Dynamic Throwing**](https://arxiv.org/abs/2410.05681)<br><sub>Whole-Body Dynamic Throwing with Legged Manipulators</sub> | 2024-10<br><sub>arXiv</sub> | Target locations and robot state → dynamic whole-body throws | Uses reinforcement learning and curriculum training to exploit whole-body momentum on the two-legged, two-armed Chuck robot; quadruped results are separate. | [Paper](https://arxiv.org/abs/2410.05681) |
+| [**OGMP**](https://arxiv.org/abs/2410.01030)<br><sub>Preferenced Oracle Guided Multi-mode Policies for Dynamic Bipedal Loco-Manipulation</sub> | 2024-10<br><sub>arXiv</sub> | Hybrid task oracles and preferred transitions → multi-mode policy | Guides policy learning with hybrid references and transition preferences for simulated humanoid soccer and box movement, including G1 and H1. | [Paper](https://arxiv.org/abs/2410.01030) |
+| [**Opt2Skill**](https://arxiv.org/abs/2409.20514)<br><sub>Opt2Skill: Imitating Dynamically-feasible Whole-Body Trajectories for Versatile Humanoid Loco-Manipulation</sub> | 2024-09<br><sub>arXiv</sub> | Contact-consistent optimized trajectories → tracking policies | Trains Digit policies to track dynamically feasible trajectory-optimization references, including torque supervision for contact-sensitive tasks. | [Paper](https://arxiv.org/abs/2409.20514) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
@@ -325,6 +374,7 @@ Learn whole-body vision-language-action policies through human-video pretraining
 | :--- | :--- | :--- | :--- | :--- |
 | [**λ₀**](https://arxiv.org/abs/2610.00438)<br><sub>Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining</sub> | 2026-09<br><sub>arXiv</sub> | Egocentric body/hand data → whole-body VLA | Uses staged human-data pretraining and embodiment adaptation to learn a policy coordinating whole-body and hand actions.<br><sub>Tags: VLA · Human-data pretraining · Embodiment adaptation</sub> | [Paper](https://arxiv.org/abs/2610.00438) |
 | [**OpenHLM**](https://arxiv.org/abs/2606.22174)<br><sub>OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | Whole-body teleoperation and heterogeneous demonstrations → humanoid-native VLA | Studies joint-level teleoperation, VLA action design, and heterogeneous co-training to command the humanoid's full body through one learned policy.<br><sub>Tags: Whole-body VLA · Heterogeneous co-training · Action interface</sub> | [Paper](https://arxiv.org/abs/2606.22174) · [Project](https://openhlm-project.github.io/) |
+| [**HEX**](https://arxiv.org/abs/2604.07993)<br><sub>HEX: Humanoid-Aligned Experts for Cross-Embodiment Whole-Body Manipulation</sub> | 2026-04<br><sub>arXiv</sub> | Heterogeneous embodiment data → humanoid-aligned expert policy | Uses predictive state conditioning and embodiment-aware experts, with whole-body manipulation evaluated on the legged Tienkung 2.0 and 3.0 platforms. | [Paper](https://arxiv.org/abs/2604.07993) |
 | [**Ψ₀**](https://arxiv.org/abs/2603.12263)<br><sub>Ψ₀: An Open Foundation Model Towards Universal Humanoid Loco-Manipulation</sub> | 2026-03<br><sub>arXiv</sub> | Egocentric human videos and humanoid trajectories → staged VLA and whole-body action commands | Pretrains visual-action representations before training a flow-based action expert, combining arm/hand commands with an RL lower-body controller for G1 loco-manipulation.<br><sub>Tags: Staged training · Human-video pretraining · Whole-body VLA</sub> | [Paper](https://arxiv.org/abs/2603.12263) |
 | [**GR00T N1.6**](https://research.nvidia.com/labs/gear/gr00t-n1_6/)<br><sub>GR00T N1.6</sub> | 2025-12<br><sub>Technical report</sub> | Heterogeneous robot data and task demonstrations → adaptable VLA policy | Combines an updated vision-language backbone, a larger action transformer, and expanded robot data, including G1 loco-manipulation, with task-specific post-training.<br><sub>Tags: Cross-embodiment pretraining · G1 loco-manipulation · Model report</sub> | [Report](https://research.nvidia.com/labs/gear/gr00t-n1_6/) |
 | [**WholeBodyVLA**](https://arxiv.org/abs/2512.11047)<br><sub>WholeBodyVLA: Towards Unified Latent VLA for Whole-Body Loco-Manipulation Control</sub> | 2025-12<br><sub>arXiv</sub> | Action-free egocentric videos and robot demonstrations → latent VLA with locomotion control | Learns latent actions from egocentric video and couples a VLA with a loco-manipulation-oriented controller for coordinated large-workspace tasks.<br><sub>Tags: Latent actions · Egocentric video · Whole-body VLA</sub> | [Paper](https://arxiv.org/abs/2512.11047) |
@@ -349,14 +399,35 @@ Provide reusable motor control across command interfaces, teleoperation, or task
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**I-BFM**](https://arxiv.org/abs/2610.06129)<br><sub>I-BFM: Reward-Conditioned Robust Humanoid Interaction via Unsupervised Reinforcement Learning</sub> | 2026-10<br><sub>arXiv</sub> | Interaction experience and reward conditions → reusable behavior policy | Learns a reward-conditioned interaction foundation policy supporting G1 loco-manipulation, recovery, and task chaining without task-specific retraining. | [Paper](https://arxiv.org/abs/2610.06129) |
+| [**OMG**](https://arxiv.org/abs/2606.10340)<br><sub>OMG: Omni-Modal Motion Generation for Generalist Humanoid Control</sub> | 2026-06<br><sub>arXiv</sub> | Language, audio, or motion conditions → generated humanoid motion | Pairs a multimodal diffusion motion generator with reactive tracking for G1 control, providing a motion-generation foundation rather than a complete manipulation agent. | [Paper](https://arxiv.org/abs/2606.10340) |
 | [**ULTRA**](https://arxiv.org/abs/2603.03279)<br><sub>ULTRA: Unified Multimodal Control for Autonomous Humanoid Whole-Body Loco-Manipulation</sub> | 2026-03<br><sub>IROS 2026</sub> | Motion references or sparse goals → whole-body control | Distills motion-tracking skills into a multimodal controller that also supports autonomous behavior from sparse goals and egocentric perception.<br><sub>Tags: Multimodal control · Sparse goals · Motion tracking</sub> | [Paper](https://arxiv.org/abs/2603.03279) |
+| [**SONIC**](https://arxiv.org/abs/2511.07820)<br><sub>SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control</sub> | 2025-11<br><sub>arXiv</sub> | Multimodal motion commands → unified G1 control | Scales motion tracking and command interfaces into a reusable G1 controller supporting teleoperation and downstream loco-manipulation. | [Paper](https://arxiv.org/abs/2511.07820) |
 | [**ULC**](https://arxiv.org/abs/2507.06905)<br><sub>ULC: A Unified and Fine-Grained Controller for Humanoid Loco-Manipulation</sub> | 2025-07<br><sub>arXiv</sub> | Root velocity/height, torso orientation, and arm targets → one whole-body policy | Uses progressive command curricula and residual arm actions to track locomotion, torso, and dual-arm commands with a unified humanoid controller.<br><sub>Tags: Unified control · Command tracking · Load randomization</sub> | [Paper](https://arxiv.org/abs/2507.06905) · [Project](https://hellod035.github.io/ULC/) |
+| [**AMO**](https://arxiv.org/abs/2505.03738)<br><sub>AMO: Adaptive Motion Optimization for Hyper-Dexterous Humanoid Whole-Body Control</sub> | 2025-05<br><sub>arXiv</sub> | Motion targets and robot state → adaptive whole-body control | Combines trajectory optimization and sim-to-real reinforcement learning for stable G1 control over an expanded manipulation workspace. | [Paper](https://arxiv.org/abs/2505.03738) |
 | [**HOVER**](https://arxiv.org/abs/2410.21229)<br><sub>HOVER: Versatile Neural Whole-Body Controller for Humanoid Robots</sub> | 2024-10<br><sub>ICRA 2025</sub> | Multiple command spaces → one whole-body controller | Distills diverse control modes into one policy using kinematic motion imitation as a common basis.<br><sub>Tags: Multi-mode control · Policy distillation</sub> | [Paper](https://arxiv.org/abs/2410.21229) · [Project](https://hover-versatile-humanoid.github.io/) |
+| [**Masked Humanoid Controller / MHC**](https://arxiv.org/abs/2408.07295)<br><sub>Learning Multi-Modal Whole-Body Control for Real-World Humanoid Robots</sub> | 2024-07<br><sub>arXiv</sub> | Masked target trajectories → multimodal whole-body controller | Exposes one learned command interface for selected robot-state targets and demonstrates multimodal control on a real Digit V3. | [Paper](https://arxiv.org/abs/2408.07295) |
 | [**OmniH2O**](https://arxiv.org/abs/2406.08858)<br><sub>OmniH2O: Universal and Dexterous Human-to-Humanoid Whole-Body Teleoperation and Learning</sub> | 2024-06<br><sub>CoRL 2024</sub> | Kinematic pose commands → whole-body teleoperation and learning | Provides a common pose interface and deployable whole-body controller for teleoperation and learning autonomous skills from demonstrations.<br><sub>Tags: Teleoperation · Whole-body control · Imitation learning</sub> | [Paper](https://arxiv.org/abs/2406.08858) · [Project](https://omni.human2humanoid.com/) |
+| [**HumanPlus**](https://arxiv.org/abs/2406.10454)<br><sub>HumanPlus: Humanoid Shadowing and Imitation from Humans</sub> | 2024-06<br><sub>arXiv</sub> | Human motion and shadowed demonstrations → autonomous visual skills | Uses whole-body shadowing to collect demonstrations and learns autonomous skills on a full-sized humanoid, including standing, walking, and shelf manipulation. | [Paper](https://arxiv.org/abs/2406.10454) |
 
 **Across directions:** [InterMimicGen](#execution-guided-data-policy-co-improvement) also trains a generalist interaction tracker, alongside its iterative data loop.
 
 [Related models and learning foundations](docs/RELATED_READING.md#foundations): Astranomy, InternW0-Δ, Diffusion Policy, Dreamer, InterMimic.
+
+<a id="humanoid-simulation-benchmarks"></a>
+
+### Humanoid Simulation Benchmarks
+
+**Scope.** Evaluate learning and control with explicit humanoid robot models, including scene interaction and multi-robot manipulation.
+
+**Reading guide.** HumanoidBench and Mimicking-Bench evaluate single-robot skills; CoHuB addresses collaboration. These entries are benchmarks, not hardware claims.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**CoHuB**](https://arxiv.org/abs/2609.34782)<br><sub>CoHuB: A Simulation Benchmark for Multi-Humanoid Collaboration</sub> | 2026-09<br><sub>arXiv · Benchmark</sub> | Multi-robot simulated tasks → cooperative manipulation evaluation | Benchmarks cooperative manipulation with simulated G1 robots and Dex3-1 hands, without claiming physical multi-robot deployment. | [Paper](https://arxiv.org/abs/2609.34782) |
+| [**HumanoidArena**](https://arxiv.org/abs/2606.17833)<br><sub>HumanoidArena: Benchmarking Egocentric Hierarchical Whole-body Learning</sub> | 2026-06<br><sub>arXiv · Benchmark</sub> | Simulated tasks and controller backends → humanoid policy benchmark | Provides G1 manipulation tasks and demonstrations with TWIST2 and SONIC controller backends for standardized simulation evaluation. | [Paper](https://arxiv.org/abs/2606.17833) |
+| [**Mimicking-Bench**](https://arxiv.org/abs/2412.17730)<br><sub>Mimicking-Bench: A Benchmark for Generalizable Humanoid-Scene Interaction Learning via Human Mimicking</sub> | 2024-12<br><sub>arXiv · Benchmark</sub> | Human interaction references and diverse objects → scene-interaction benchmark | Benchmarks retargeting, tracking, and skill learning on six household interaction tasks using a simulated Unitree H1. | [Paper](https://arxiv.org/abs/2412.17730) |
+| [**HumanoidBench**](https://arxiv.org/abs/2403.10506)<br><sub>HumanoidBench: Simulated Humanoid Benchmark for Whole-Body Locomotion and Manipulation</sub> | 2024-03<br><sub>arXiv · Benchmark</sub> | Simulated humanoid models and tasks → learning benchmark | Provides whole-body locomotion and manipulation tasks around an H1 model with dexterous hands, with additional Digit models and hierarchical baselines. | [Paper](https://arxiv.org/abs/2403.10506) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
@@ -398,18 +469,40 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 | :--- | :--- | :--- | :--- | :--- |
 | [**TWIST2**](https://arxiv.org/abs/2511.02832)<br><sub>TWIST2: Scalable, Portable, and Holistic Humanoid Data Collection System</sub> | 2025-11<br><sub>arXiv</sub> | VR whole-body motion and egocentric feedback → humanoid demonstrations and visuomotor policy | Combines portable whole-body VR teleoperation, an actuated neck, and a hierarchical visuomotor learner for coordinated G1 data collection and autonomous skills.<br><sub>Tags: Whole-body teleoperation · Active vision · Demonstration collection</sub> | [Paper](https://arxiv.org/abs/2511.02832) · [Project](https://yanjieze.com/projects/TWIST2/) |
 | [**HOMIE**](https://arxiv.org/abs/2502.13013)<br><sub>HOMIE: Humanoid Loco-Manipulation with Isomorphic Exoskeleton Cockpit</sub> | 2025-02<br><sub>arXiv</sub> | Exoskeleton, gloves, and pedal commands → humanoid teleoperation and demonstrations | Integrates joint-matched arm control and finger sensing with an RL walking-and-squatting controller to collect humanoid loco-manipulation demonstrations.<br><sub>Tags: Teleoperation · Exoskeleton · Data collection</sub> | [Paper](https://arxiv.org/abs/2502.13013) · [Project](https://homietele.github.io/) |
+| [**Mobile-TeleVision**](https://arxiv.org/abs/2412.07773)<br><sub>Mobile-TeleVision: Predictive Motion Priors for Humanoid Whole-Body Control</sub> | 2024-12<br><sub>arXiv</sub> | Teleoperated upper-body targets → coordinated walking and manipulation | Conditions locomotion on predictive upper-body motion priors while using retargeting and inverse kinematics for precise manipulation. | [Paper](https://arxiv.org/abs/2412.07773) |
+| [**Mixed Reality Teleoperation Assistance**](https://arxiv.org/abs/2411.01014)<br><sub>Mixed Reality Teleoperation Assistance for Direct Control of Humanoids</sub> | 2024-11<br><sub>arXiv</sub> | Mixed-reality commands and object affordances → assisted teleoperation | Combines movement primitives, object detection, and affordance templates to assist physical Nadia teleoperation. | [Paper](https://arxiv.org/abs/2411.01014) |
+| [**TRILL**](https://arxiv.org/abs/2309.01952)<br><sub>Deep Imitation Learning for Humanoid Loco-manipulation through Human Teleoperation</sub> | 2023-09<br><sub>arXiv</sub> | VR demonstrations and whole-body control → visuomotor policy | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation. | [Paper](https://arxiv.org/abs/2309.01952) |
+| [**iCub3 Avatar System**](https://arxiv.org/abs/2203.06972)<br><sub>iCub3 Avatar System: Enabling Remote Fully-Immersive Embodiment of Humanoid Robots</sub> | 2022-03<br><sub>arXiv</sub> | Remote operator commands and multimodal feedback → avatar execution | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying. | [Paper](https://arxiv.org/abs/2203.06972) |
 
 <a id="object-memory-execution-verification"></a>
+<a id="execution-monitoring-recovery"></a>
 
-### Object Memory & Execution Verification
+### Execution Monitoring & Recovery
 
-**Scope.** Maintain object-centered state that both conditions actions and verifies their physical effects.
+**Scope.** Monitor physical task effects and trigger recovery, using persistent object state or skill-level execution checks.
 
 **Reading guide.** POT-VLA closes the loop after action chunks; persistent object state complements the spatial memory and skill orchestration above.
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**FRAMES**](https://arxiv.org/abs/2609.22538)<br><sub>FRAMES: Failure Recovery And Monitoring of Embodied Skills for Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Skill execution observations → monitoring and recovery decisions | Supervises CEER-based G1 skills with failure monitoring and recovery above the low-level whole-body controller. | [Paper](https://arxiv.org/abs/2609.22538) |
 | [**POT-VLA**](https://arxiv.org/abs/2607.18016)<br><sub>Closing the Loop in Humanoid VLA: Persistent 3D Object Tokens for Verifiable Loco-Manipulation</sub> | 2026-07<br><sub>arXiv</sub> | RGB-D observations, task roles, and robot state → object-conditioned actions and execution checks | Maintains persistent 3D object records shared by a G1 action expert and geometric predicate checks, enabling verification and local recovery after action chunks.<br><sub>Tags: Object memory · Token-conditioned VLA · Execution verification</sub> | [Paper](https://arxiv.org/abs/2607.18016) |
+
+<a id="planning-control-interfaces"></a>
+
+### Planning & Control Interfaces
+
+**Scope.** Translate task reasoning and perception into executable whole-body plans and controller commands.
+
+**Reading guide.** KINO uses keyframes; iGPC grounds execution geometrically; door traversal uses reusable behavior trees.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**iGPC**](https://arxiv.org/abs/2610.08120)<br><sub>iGPC: Generative Motion Priors for Object-Aware Humanoid Interaction</sub> | 2026-10<br><sub>arXiv</sub> | Geometry observations and goals → grounded whole-body execution | Combines geometry-aware planning with existing motor priors on G1 for rail grasping, box pushing, and sitting or standing. | [Paper](https://arxiv.org/abs/2610.08120) |
+| [**Praxis**](https://arxiv.org/abs/2609.30735)<br><sub>Praxis: Distilling Physical Interaction Priors from Egocentric Videos for Generalizable Whole-Body Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Perception and task requests → coordinated skill execution | Integrates navigation, calibration, and manipulation into a real G1 EDU system equipped with Revo2 hands. | [Paper](https://arxiv.org/abs/2609.30735) |
+| [**KINO**](https://arxiv.org/abs/2609.18869)<br><sub>KINO: A Keyframe Interface for VLM Planning and Whole-Body Control in Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | VLM-generated keyframes → whole-body pickup and transport | Uses keyframes as the interface between semantic planning and whole-body control for pickup, transport, and placement in simulation and on G1. | [Paper](https://arxiv.org/abs/2609.18869) |
+| [**Fast Humanoid Robot Door Traversals**](https://arxiv.org/abs/2411.03532)<br><sub>A Behavior Architecture for Fast Humanoid Robot Door Traversals</sub> | 2024-11<br><sub>arXiv</sub> | Door perception and behavior trees → coordinated traversal | Integrates perception, reusable behavior trees, and whole-body walking and manipulation for real Nadia door traversal. | [Paper](https://arxiv.org/abs/2411.03532) |
+| [**OKAMI**](https://arxiv.org/abs/2410.11792)<br><sub>OKAMI: Teaching Humanoid Robots Manipulation Skills through Single Video Imitation</sub> | 2024-10<br><sub>arXiv</sub> | Single RGB-D demonstration → object-aware plan and visual policy | Retargets body and hand motion around task objects on Fourier GR1 and uses execution trajectories to train closed-loop manipulation policies. | [Paper](https://arxiv.org/abs/2410.11792) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
@@ -432,20 +525,24 @@ Retain successful executions to seed further data augmentation and tracking-poli
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**InterMimicGen**](https://arxiv.org/abs/2610.06850)<br><sub>InterMimicGen: Scaling Humanoid Loco-Manipulation through Self-Evolving Motion Imitation</sub> | 2026-10<br><sub>arXiv</sub> | HOI references + execution results → expanded motions and tracker | Iteratively perturbs interaction references, fine-tunes a generalist tracker, and retains successful executions to seed the next round.<br><sub>Tags: Contact-aware retargeting · Generalist tracking · Iterative augmentation</sub> | [Paper](https://arxiv.org/abs/2610.06850) · [Project](https://sirui-xu.github.io/InterMimicGen/) |
+| [**HumanoidDART**](https://arxiv.org/abs/2606.26855)<br><sub>Humanoid-DART: Humanoid Loco-Manipulation using Diffusion-guided Augmentation through Relabeling and Tracking</sub> | 2026-06<br><sub>arXiv</sub> | Generated interaction references and rollouts → improved generator and tracker | Alternates interaction generation and tracking-policy updates using execution feedback, with real G1 pushing, kicking, and pick-and-place. | [Paper](https://arxiv.org/abs/2606.26855) |
 
 [Related program and harness evolution](docs/RELATED_READING.md#rsi): HarnessPAI and PhysEvo. These offer transferable mechanisms, with evaluation scopes distinct from humanoid whole-body control.
 
 <a id="execution-guided-reward-program-evolution"></a>
+<a id="execution-guided-program-refinement"></a>
 
-### Execution-Guided Reward Program Evolution
+### Execution-Guided Program Refinement
 
-**Scope.** Revise executable task rewards using rollout feedback and retain verified programs for later tasks.
+**Scope.** Revise reward, control, or coordination programs from execution feedback, identifying which programs or experience persist.
 
-**Reading guide.** InterEvolve changes reward programs and its skill library while keeping the motor controller fixed during search.
+**Reading guide.** InterEvolve revises rewards; HuGo revises control code; CoEvolve revises team coordination and retains verified experience in simulation.
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**InterEvolve**](https://arxiv.org/abs/2610.02196)<br><sub>InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Task requests, simulated feedback, and a skill library → revised reward programs | Revises staged reward programs with an LLM and numerical search, verifying them on a fixed controller and retaining successful programs for later tasks.<br><sub>Tags: Reward programs · Test-time search · Persistent skill library</sub> | [Paper](https://arxiv.org/abs/2610.02196) · [Project](https://sirui-xu.github.io/InterEvolve/) |
+| [**CoEvolve**](https://arxiv.org/abs/2610.23288)<br><sub>CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots</sub> | 2026-10<br><sub>arXiv</sub> | Fixed motor skills and verification feedback → evolved coordination code | Revises executable team coordination from verified checkpoints and retains experience for two simulated G1 robots carrying a shared payload. | [Paper](https://arxiv.org/abs/2610.23288) |
+| [**HuGo**](https://arxiv.org/abs/2609.30594)<br><sub>HuGo: LLMs as Whole-Body Policy Code Designers for Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Task requests and execution rollouts → revised control programs | Generates and revises executable G1 control code using verified rollout and hardware feedback; cross-task skill memory remains future work. | [Paper](https://arxiv.org/abs/2609.30594) |
 
 <a id="skill-reuse-memory-consolidation"></a>
 
@@ -470,6 +567,19 @@ Retain successful executions to seed further data augmentation and tracking-poli
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
 | [**ROVE**](https://arxiv.org/abs/2606.17011)<br><sub>ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning</sub> | 2026-06<br><sub>arXiv</sub> | Humanoid rollouts, human interventions, and human videos → value-guided VLA updates | Learns optimistic values from mixed-quality experience and uses advantage-conditioned policy updates to improve humanoid manipulation across rollout–intervention rounds.<br><sub>Tags: Human intervention · Value estimation · Iterative post-training</sub> | [Paper](https://arxiv.org/abs/2606.17011) |
+
+<a id="planner-policy-post-training"></a>
+
+### Planner & Policy Post-Training
+
+**Scope.** Retain planner or policy updates learned through explicit post-training; distinguish these from within-rollout command search.
+
+**Reading guide.** DiPLO updates a diffusion planner against a frozen tracker; HAF updates a latent policy over a frozen VLA. Neither alone establishes strict RSI.
+
+| Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| [**DiPLO**](https://arxiv.org/abs/2610.24847)<br><sub>DiPLO: Self-distilled Diffusion Planning for Loco-manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Pretrained diffusion planner and tracker → post-trained planner | Self-distills and reinforcement-fine-tunes a diffusion planner to improve task success and match a frozen tracker, with G1 hardware deployment. | [Paper](https://arxiv.org/abs/2610.24847) |
+| [**HAF**](https://arxiv.org/abs/2608.16837)<br><sub>HAF: Adapting Generalist VLAs to Humanoid Whole-Body Loco-manipulation via Hierarchical Action Flow and Spectral Latent RL</sub> | 2026-08<br><sub>arXiv</sub> | Generalist VLA and offline/online experience → adapted whole-body policy | Combines hierarchical action flow with latent-space reinforcement learning over a frozen VLA on Tienkung 2.0 and 3.0 humanoids. | [Paper](https://arxiv.org/abs/2608.16837) |
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 

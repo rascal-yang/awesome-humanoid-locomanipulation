@@ -10,6 +10,7 @@ Thank you for helping build a focused, readable resource for humanoid loco-manip
 4. State the input and output, and write one factual sentence about the method. Avoid unsupported performance comparisons and marketing claims.
 5. Link only verified official resources. Omit unavailable links rather than guessing a repository URL. A benchmark-only release should be labeled **Benchmark**, not presented as a complete data-generation implementation.
 6. Update the homepage core-entry count in both READMEs, including badge URLs and alt text, and add a source note to `docs/SOURCES.md`. Update the curation date if you recheck the list.
+7. The growth chart is generated from primary README rows after relevant changes reach `main`; do not edit its SVG or CSV by hand. Keep first-release dates and main H2 placements synchronized in both languages. See [counting rules and local generation](docs/CHART.md).
 
 ```markdown
 | [**Method**](PAPER_URL)<br><sub>Original full title</sub> | YYYY-MM<br><sub>Venue or arXiv</sub> | Source → output | One factual sentence. | [Paper](PAPER_URL) · [Project](PROJECT_URL) · [Code](CODE_URL) |
@@ -43,3 +44,4 @@ Explain what changed and link the source: title, venue, official code, dataset a
 首页当前采用 Real2Sim、Real2Sim2Real、Sim2Real & Sim–Real Co-Training、Interaction、Foundations、Harness、Iterative Improvement 七个 H2 方向。H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法。例如 Real2Sim2Real 是 H2 路线，反事实视频扩增是其中的 H3 方法；Harness 是 H2 系统范式，空间记忆与技能编排是其中的 H3 方法。保持这七个 H2 的名称、顺序与层级不变；只有维护者明确要求时，才调整 H2。后续分类调整通过新增或细化 H3、调整论文位置、交叉链接与标签完成。H3 标题不能准确描述论文时，可以新建或改名，小节可以只有一篇。新增 H3 时使用主题模板说明范围，并同步两版目录；改名或拆分 H3 时保留已有显式锚点，必要时增加指向新小节的链接。
 
 每项工作设一个主表格条目，交叉贡献通过链接和简短标签呈现，不要求互斥归类。真实视频重建、全虚拟交互合成和仿真示教扩增应分别描述；真实数据混合训练或真机评测本身不代表存在 Real2Sim。迭代改进需写清跨轮次保留并改进的对象，不将单次生成、回合内反馈或自适应采样等同于严格 RSI。机械臂、仿真人体与通用方法放入双语关联阅读并说明边界；项目报告与论文分别标注。
+

@@ -1,0 +1,53 @@
+name: Update paper growth chart
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'README.zh-CN.md'
+      - 'scripts/paper_growth.py'
+      - 'scripts/test_paper_growth.py'
+      - 'scripts/requirements-chart.txt'
+      - '.github/workflows/update-paper-growth.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: paper-growth-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-chart.txt
+      - name: Install chart dependencies
+        run: python -m pip install -r scripts/requirements-chart.txt
+      - name: Read the latest branch state
+        run: git pull --ff-only
+      - name: Test counting and bilingual consistency
+        run: python -m unittest discover -s scripts -p 'test_*.py'
+      - name: Regenerate the chart and data
+        run: python scripts/paper_growth.py
+      - name: Commit changed chart files
+        run: |
+          git add assets/paper-growth.svg docs/paper-growth.csv
+          if git diff --cached --quiet; then
+            echo 'Chart already matches the reading list.'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'docs: refresh paper growth chart'
+          git push origin HEAD:"$GITHUB_REF_NAME"

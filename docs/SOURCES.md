@@ -1,8 +1,8 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **102 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **111 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
-Latest entry update: **2026-10-20** (48 additional core entries from the reference-list audit; earlier checks retain their recorded dates and scope).
+Latest entry update: **2026-10-21** (9 additional core entries from the arXiv announcement scan; earlier checks retain their recorded dates and scope).
 
 ## Selection boundaries / 收录边界
 
@@ -36,6 +36,28 @@ HumanoidMimicGen 的真实数据用于和仿真数据共同训练，不应据此
 The homepage uses the first arXiv submission month unless another first public release is explicitly documented. Venue is recorded separately and only when supported by an author or conference source. Personal reading dates are not publication dates. A linked preprint is not a claim of peer review. HomeBody is explicitly a project report; Astranomy is an official research report/blog.
 
 首次公开时间、修订时间、会议年份及个人阅读时间分别处理。论文编号的月份也不必等于首次提交月份，例如 λ₀ 的首次提交日期是 2026-09-30。涉及人体角色、仿真机器人和真机的结果分别描述。
+
+<a id="arxiv-monitor-2026-10-21"></a>
+
+## arXiv announcement scan: 2026-10-21 / 公告检索补充
+
+Nine additions were approved by the maintainer on 2026-10-21. The scan used recent/new cs.RO announcements, related cross-lists and RSS feeds, plus topic queries across cs.RO, cs.CV, cs.AI and cs.LG; it was not a one-day submitted-date filter. An observed announcement date is distinct from the arXiv v1 submission and revision dates below. For topic-query discoveries without a dated announcement observation, no announcement date is inferred. This batch adds 1 Real2Sim, 5 Interaction, 2 Foundations and 1 Harness entries, preserving all seven H2 directions and existing H3 subgroups. Only these nine candidates are included; optional foundation candidates and unresolved identities remain outside this update.
+
+本批按主要贡献归类并逐项记录人形证据。构型合格的机器人仿真可以收录；跨构型模型只描述已核实的人形部分。Language-Forcing 的 v1 为 2026-09-28，虽然编号以 2610 开头且本轮公告中才发现，表格仍按 2026-09 计数。FIBER 从此前扩展候选升级为核心收录，依据为已补核的 G1 真机方法与任务证据。既有条目的核验日期保持不变。
+
+| Entry / main placement | Primary evidence | Dates and humanoid evidence boundary |
+| :--- | :--- | :--- |
+| **REACT** — Interaction / Interaction Learning from Human Demonstrations | [Paper](https://arxiv.org/abs/2610.28523) · [Method / experiments](https://arxiv.org/html/2610.28523v1) | v1: 2026-10-20; no later revision observed. Dated first announcement not established in this scan. G1 仿真与真机；接触保持重定向、伙伴状态生成与机载深度策略支持击掌、拥抱等五种接触交互。不是纯人体动画。 |
+| **Language-Forcing** — Foundations / World-Model-Conditioned Whole-Body Policies | [Paper](https://arxiv.org/abs/2610.23894) · [Method / experiments](https://arxiv.org/html/2610.23894v1) | v1: 2026-09-28; no later revision observed. Announcement observed: Tue, 20 Oct 2026. G1 29-DoF 真机与 HumanoidArena 仿真；以语言监督对齐 WAM 的任务相关未来表征。辅助语言组件只用于训练。 |
+| **OmniInteract** — Interaction / Multi-Humanoid Coordination | [Paper](https://arxiv.org/abs/2610.26043) · [Method / experiments](https://arxiv.org/html/2610.26043v2) | v1: 2026-10-19; revision: 2026-10-20. Announcement observed: Tue, 20 Oct 2026. 两个真实 G1；表面接触重定向与伙伴条件残差策略支持击掌、拥抱、扶肩。是双人形机器人，不是独立双臂平台。 |
+| **Ropedia W0** — Foundations / World-Model-Conditioned Whole-Body Policies | [Paper](https://arxiv.org/abs/2610.26855) · [Method / experiments](https://arxiv.org/html/2610.26855v1) | v1: 2026-10-19; no later revision observed. Announcement observed: Tue, 20 Oct 2026. Xp-Teleop 包含 G1+Inspire 的真实长程移动操作数据，另有真实 G1 规划和 WAM 初始化实验。只描述有证据的人形部分，不将所有跨构型结果当作 humanoid。 |
+| **EmbodyHOI** — Interaction / Dexterous Whole-Body Interaction | [Paper](https://arxiv.org/abs/2610.27242) · [Method / experiments](https://arxiv.org/html/2610.27242v1) | v1: 2026-10-19; no later revision observed. Dated first announcement not established in this scan. G1 与 H1-2 仿真：在生成手物交互时引入机器人 IK 可达性，引导身体根位置和腕部参考；只确认仿真，不宣称真机。 |
+| **HS-MoDP / G1Exo** — Interaction / Whole-Body Planning & Skill Learning | [Paper](https://arxiv.org/abs/2610.26169) · [Method / experiments](https://arxiv.org/html/2610.26169v1) | v1: 2026-10-19; no later revision observed. Announcement observed: Tue, 20 Oct 2026. 真实 G1 的身体接触操作；同构外骨骼采集夹臂/抱筐示教，两臂独立语义路由共享专家。不是因为 dual-arm 字样而排除真实人形。 |
+| **FIBER** — Interaction / Whole-Body Planning & Skill Learning | [Paper](https://arxiv.org/abs/2610.24675) · [Method / experiments](https://arxiv.org/html/2610.24675v1) | v1: 2026-10-17; revision: 2026-10-20. Announcement observed: Tue, 20 Oct 2026. 真实 G1；将任务专家的局部控制响应映射到冻结 BFM 潜动作空间，再离线训练统一视觉规划器。正文明确拾箱、开门和抓物，真机成功率分别为6/10、4/10、2/10；不以仿真均值替代真机。 |
+| **FRDV** — Real2Sim / Contact-Preserving Motion Retargeting | [Paper](https://arxiv.org/abs/2610.28470) · [Method / experiments](https://arxiv.org/html/2610.28470v1) | v1: 2026-10-20; no later revision observed. Dated first announcement not established in this scan. 约束 IK 后可选接触隐式 iLQR 验证/修正，消除足部浮空和滑步；有 G1 真机迁移。接触证据以足部支撑为主，不宣称物体交互重定向。 |
+| **Inertially Significant Humanoid Teleoperation** — Harness / Planning & Control Interfaces | [Paper](https://arxiv.org/abs/2610.22176) · [Method / experiments](https://arxiv.org/html/2610.22176v1) | v1: 2026-10-15; no later revision observed. Announcement observed: Fri, 16 Oct 2026. 23-DoF 双足双臂人形平台，商业型号未明确；WB-MPC+EKF 在线估计负载惯性。真机主要为手工在前臂安装配重，不写成自主抓取重物；另有 VR 操作接口。 |
+
+EmbodyHOI is recorded as simulation evidence only. FRDV chiefly establishes foot/support-contact refinement, not robot–object contact retargeting. The inertial teleoperation paper establishes a 23-DoF bipedal, two-armed humanoid; its commercial model is not established, and manually attached weights are not autonomous heavy-object grasping. FIBER simulation and hardware results are not interchanged. No new code-release or venue claim is made.
 
 ## Current core entries
 
@@ -281,3 +303,4 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+

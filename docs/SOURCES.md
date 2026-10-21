@@ -1,8 +1,8 @@
 # Source notes / 来源与收录说明
 
-Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **111 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
+Curation date: **2026-10-15**. Classification review: **2026-10-16** (existing resource-release and venue checks retain their original scope). The current reading set contains **115 core entries and 13 related entries**. This is a selected reading list, not an exhaustive survey. Summaries are original paraphrases of primary research sources. Resource links are entry points, not promises of a complete code or data release.
 
-Latest entry update: **2026-10-21** (9 additional core entries from the arXiv announcement scan; earlier checks retain their recorded dates and scope).
+Latest entry update: **2026-10-21** (4 additional core entries from the talk audit, following the 9-entry arXiv announcement batch on the same date; earlier checks retain their recorded dates and scope).
 
 ## Selection boundaries / 收录边界
 
@@ -58,6 +58,23 @@ Nine additions were approved by the maintainer on 2026-10-21. The scan used rece
 | **Inertially Significant Humanoid Teleoperation** — Harness / Planning & Control Interfaces | [Paper](https://arxiv.org/abs/2610.22176) · [Method / experiments](https://arxiv.org/html/2610.22176v1) | v1: 2026-10-15; no later revision observed. Announcement observed: Fri, 16 Oct 2026. 23-DoF 双足双臂人形平台，商业型号未明确；WB-MPC+EKF 在线估计负载惯性。真机主要为手工在前臂安装配重，不写成自主抓取重物；另有 VR 操作接口。 |
 
 EmbodyHOI is recorded as simulation evidence only. FRDV chiefly establishes foot/support-contact refinement, not robot–object contact retargeting. The inertial teleoperation paper establishes a 23-DoF bipedal, two-armed humanoid; its commercial model is not established, and manually attached weights are not autonomous heavy-object grasping. FIBER simulation and hardware results are not interchanged. No new code-release or venue claim is made.
+
+<a id="talk-audit-2026-10-21"></a>
+
+## Talk-based additions: 2026-10-21 / 报告线索补充
+
+The maintainer selected LadderMan, SPIDER, FADA and BFM-Zero after reviewing a pasted transcript of Guanya Shi’s talk. The transcript supplied discovery leads; paper identities, first-submission dates, platforms and method claims below were checked against the original arXiv records and their latest available full texts. This is a four-work addition, not a recheck of the whole collection. It adds one primary entry each to Real2Sim, Interaction, Foundations and Iterative Improvement, using existing H3 subgroups. All previous 111 entries and the seven-H2 structure are retained.
+
+本批分别补充物理重定向、梯上接触操作、执行模型后训练与行为控制基座。人形仿真、真机部署和遥操作结果分别记录；BFM-Zero 按基础模型贡献收录，不据此声称它直接解决通用移动操作。ASAP、BeyondMimic、H2O、ExBody2 不在维护者确认的这四篇中。此前九篇公告补充仍见[上一批记录](#arxiv-monitor-2026-10-21)。
+
+| Entry / main placement | Primary sources | First release, revision and evidence boundary |
+| :--- | :--- | :--- |
+| **LadderMan** — Interaction / Whole-Body Planning & Skill Learning | [Paper](https://arxiv.org/abs/2606.05873) · [Method / experiments](https://arxiv.org/html/2606.05873v1) · [Project](https://ladderman-robot.github.io/) | First arXiv submission: 2026-06-04; v1 checked; no later revision observed. §3.4, §4.1 and appendix A identify a real 29-DoF Unitree G1, autonomous depth-conditioned climbing, and teleoperated on-ladder painting adjustment, light-bulb replacement and box handover. The manipulation stage is operator-guided, not fully autonomous. CoRL 2026 is stated on the author project page. |
+| **SPIDER** — Real2Sim / Contact-Preserving Motion Retargeting | [Paper](https://arxiv.org/abs/2511.09484) · [Method / experiments](https://arxiv.org/html/2511.09484v3) · [Project](https://facebookresearch.github.io/spider/) | First arXiv submission: 2025-11-12; latest revision checked: 2026-09-26 (v3). v3 §4.1.2, §4.2.2 and appendix A establish humanoid retargeting on G1, H1-2, Fourier N1 and Booster T1 and simulated whole-body box pickup/transport/placement learning. Contact correction distinguishes this from body-only pose matching. Physical deployment in §4.3 uses a Franka Panda with an Allegro hand; it is not evidence of humanoid hardware deployment. The talk transcription “Spatter” is not treated as a separate paper. The released hand dataset is not relabeled as humanoid data. |
+| **FADA** — Iterative Improvement / Planner & Policy Post-Training | [Paper](https://arxiv.org/abs/2606.28476) · [Method / experiments](https://arxiv.org/html/2606.28476v2) · [Project](https://lecar-lab.github.io/FADA-humanoid/) | First arXiv submission: 2026-06-26; latest revision checked: 2026-10-09 (v2). v2 §4.2, §5.1 and appendix A.1 confirm retained IDM weight updates from approximately two minutes of target rollouts, with a frozen planner. Hardware tasks include G1 asymmetric grocery carrying and Booster T1 pulling a loaded laundry basket, beyond locomotion/tracking. No reward or expert demonstration is required for the adaptation objective. This is supervised execution-model post-training, not online RL, test-time command search or strict recursive self-improvement. |
+| **BFM-Zero** — Foundations / Generalist Whole-Body Control | [Paper](https://arxiv.org/abs/2511.04131) · [Method / experiments](https://arxiv.org/html/2511.04131v2) · [Project](https://lecar-lab.github.io/BFM-Zero/) | First arXiv submission: 2025-11-06; latest revision checked: 2026-10-16 (v2). v2 §2 and §3.2 establish a shared motion/goal/reward latent representation and real Unitree G1 validation. It is included as a reusable behavior/control foundation, not an independently validated general-purpose object-manipulation policy. It is distinct from I-BFM and from FIBER, whose primary contribution is latent planning. The first-release month remains 2025-11 despite the October 2026 revision. |
+
+No new full-dataset, code-completeness or performance-superiority claim is made. Revision dates are not used as first-release months.
 
 ## Current core entries
 

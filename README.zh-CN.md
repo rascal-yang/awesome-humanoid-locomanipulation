@@ -16,17 +16,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-111-4263eb?style=flat-square" alt="111 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-115-4263eb?style=flat-square" alt="115 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **111 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **115 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-21（公告检索新增 9 篇 arXiv 论文，见[本批范围与证据](docs/SOURCES.md#arxiv-monitor-2026-10-21)）。**
+**最新收录：2026-10-21（报告线索核验新增 4 项，见[本批范围与证据](docs/SOURCES.md#talk-audit-2026-10-21)）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
@@ -102,6 +102,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体示教 → 机器人与物体联合参考轨迹 | 利用最优传输匹配表面交互，联合优化机器人与物体位姿，在形态变化后保留接触关系。<br><sub>标签: Contact preservation · Joint robot–object optimization</sub> | [论文](https://arxiv.org/abs/2609.36602) |
 | [**HOI-Retarget**](https://arxiv.org/abs/2609.34674)<br><sub>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体交互动作与物体系接触标注 → 人形交互参考轨迹 | 以滑动窗口轨迹优化在人体形态变化与机器人运动学约束下保留物体系接触，同时兼顾身体跟踪、足部支撑和平滑性。<br><sub>标签: Object-frame contacts · Trajectory optimization · Motion augmentation</sub> | [论文](https://arxiv.org/abs/2609.34674) · [项目](https://shinben0327.github.io/hoi-retarget/) |
 | [**UMR**](https://arxiv.org/abs/2609.02134)<br><sub>Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence</sub> | 2026-09<br><sub>arXiv</sub> | 人体表面动作与接触图 → 人形机器人参考动作 | 学习人体与机器人表面的稠密对应，将其用于受约束姿态匹配和接触图迁移，统一处理不同动作来源。<br><sub>标签: Dense correspondence · Surface matching · Contact transfer</sub> | [论文](https://arxiv.org/abs/2609.02134) |
+| [**SPIDER**](https://arxiv.org/abs/2511.09484)<br><sub>SPIDER: Scalable Physics-Informed Dexterous Retargeting</sub> | 2025-11<br><sub>arXiv</sub> | 人体运动学示教与机器人物理约束 → 动力学可行的人形动作与交互参考 | 用基于采样的物理优化修正接触与动作伪影，包含多种人形重定向及仿真中的拾箱、搬运和放置策略训练。 | [Paper](https://arxiv.org/abs/2511.09484) · [Project](https://facebookresearch.github.io/spider/) |
 | [**OmniRetarget**](https://arxiv.org/abs/2509.26633)<br><sub>OmniRetarget: Interaction-Preserving Data Generation for Humanoid Whole-Body Loco-Manipulation and Scene Interaction</sub> | 2025-09<br><sub>ICRA 2026</sub> | 人体交互动捕 → 交互保持的参考轨迹 | 利用交互网格保留主体、物体与地形的关系，支持动作重定向与扩增。<br><sub>标签: Contact preservation · Motion augmentation</sub> | [论文](https://arxiv.org/abs/2509.26633) · [项目](https://omniretarget.github.io/) · [代码](https://github.com/amazon-far/holosoma) · [数据](https://huggingface.co/datasets/omniretarget/OmniRetarget_Dataset) |
 
 **跨方向阅读：** [HumanX 与 HDMI](#interaction-learning-from-human-videos) 从视频恢复交互参考；[Weave](#dexterous-whole-body-interaction) 与 [InterMimicGen](#execution-guided-data-policy-co-improvement) 也包含接触感知重定向。
@@ -350,6 +351,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**FIBER**](https://arxiv.org/abs/2610.24675)<br><sub>Action-Aligned Latent Planning for Versatile Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 任务专家的动作响应与视觉观测 → 冻结行为模型潜空间中的计划 | 将任务专家对齐到冻结行为基础模型并离线训练统一视觉潜空间规划器，在仿真与真实 G1 上评测开门、拾取和搬运。 | [Paper](https://arxiv.org/abs/2610.24675) |
 | [**BOPI**](https://arxiv.org/abs/2610.13087)<br><sub>Belief-Overlap Partial Inversion: Object-Centric Flow Replanning for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 交互观测与目标 → 信念条件化规划 | G1 仿真及真机推车；信念更新与流模型重规划处理未知交互动力学。 | [论文](https://arxiv.org/abs/2610.13087) |
 | [**MotionDisco**](https://arxiv.org/abs/2606.06139)<br><sub>MotionDisco: Motion Discovery for Extreme Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | 场景几何与任务目标 → 接触规划与全身动作 | G1 接触规划与运动求解；将环境支撑接触和物体交互纳入全身运动发现，区分求解与策略训练。 | [论文](https://arxiv.org/abs/2606.06139) |
+| [**LadderMan**](https://arxiv.org/abs/2606.05873)<br><sub>LadderMan: Learning Humanoid Perceptive Ladder Climbing</sub> | 2026-06<br><sub>CoRL 2026</sub> | 单条攀爬示教、深度观测与操作员目标 → 感知攀爬与稳定的梯上操作 | 将攀爬专家蒸馏为基于深度观测的 G1 策略，并将下肢稳定与遥操作上肢控制分离，实现梯上操作。 | [Paper](https://arxiv.org/abs/2606.05873) · [Project](https://ladderman-robot.github.io/) |
 | [**DreamControl**](https://arxiv.org/abs/2509.14353)<br><sub>DreamControl: Human-Inspired Whole-Body Humanoid Control for Scene Interaction via Guided Diffusion</sub> | 2025-09<br><sub>arXiv</sub> | 人体动作扩散先验与任务奖励 → 交互策略 | G1 实验；人类动作扩散先验引导强化学习完成抽屉、拾取等身体与物体交互。 | [论文](https://arxiv.org/abs/2509.14353) |
 | [**SkillBlender**](https://arxiv.org/abs/2506.09366)<br><sub>SkillBlender: Towards Versatile Humanoid Whole-Body Loco-Manipulation via Skill Blending</sub> | 2025-06<br><sub>arXiv</sub> | 预训练低层技能与任务目标 → 组合行为 | 明确采用 H1、G1、H1-2 机器人模型；复用低层技能组合完成操作，标注仿真证据。 | [论文](https://arxiv.org/abs/2506.09366) |
 | [**Whole-Body Dynamic Throwing**](https://arxiv.org/abs/2410.05681)<br><sub>Whole-Body Dynamic Throwing with Legged Manipulators</sub> | 2024-10<br><sub>arXiv</sub> | 目标位置与机器人状态 → 动态全身投掷 | Chuck 双足双臂人形真机；通过全身动量提升投掷。论文同时含四足实验，只描述人形部分。 | [论文](https://arxiv.org/abs/2410.05681) |
@@ -417,6 +419,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**OMG**](https://arxiv.org/abs/2606.10340)<br><sub>OMG: Omni-Modal Motion Generation for Generalist Humanoid Control</sub> | 2026-06<br><sub>arXiv</sub> | 语言、音频或动作条件 → 人形动作生成 | G1 运动表示与生成基础；可解释已收录 HumanoidTTT 所使用的底层生成能力。 | [论文](https://arxiv.org/abs/2606.10340) |
 | [**ULTRA**](https://arxiv.org/abs/2603.03279)<br><sub>ULTRA: Unified Multimodal Control for Autonomous Humanoid Whole-Body Loco-Manipulation</sub> | 2026-03<br><sub>IROS 2026</sub> | 动作参考或稀疏目标 → 全身控制 | 将动作跟踪技能蒸馏为多模态控制器，支持从稀疏目标和第一视角感知产生自主行为。<br><sub>标签: Multimodal control · Sparse goals · Motion tracking</sub> | [论文](https://arxiv.org/abs/2603.03279) |
 | [**SONIC**](https://arxiv.org/abs/2511.07820)<br><sub>SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control</sub> | 2025-11<br><sub>arXiv</sub> | 多模态运动指令 → 统一 G1 控制 | G1 通用运动与多模态控制基础；具有移动操作接口，和当前高层方法的依赖关系明确。 | [论文](https://arxiv.org/abs/2511.07820) |
+| [**BFM-Zero**](https://arxiv.org/abs/2511.04131)<br><sub>BFM-Zero: A Promptable Behavioral Foundation Model for Humanoid Control Using Unsupervised Reinforcement Learning</sub> | 2025-11<br><sub>arXiv</sub> | 动作、目标或奖励提示 → 共享潜变量条件化的全身策略 | 用无监督前向–后向表征统一真实 G1 上的动作跟踪、目标触达与奖励条件行为，提供可复用的控制基座。 | [Paper](https://arxiv.org/abs/2511.04131) · [Project](https://lecar-lab.github.io/BFM-Zero/) |
 | [**ULC**](https://arxiv.org/abs/2507.06905)<br><sub>ULC: A Unified and Fine-Grained Controller for Humanoid Loco-Manipulation</sub> | 2025-07<br><sub>arXiv</sub> | 根部速度与高度、躯干姿态及手臂目标 → 单一全身策略 | 通过渐进式指令课程与手臂残差动作，以统一人形控制器跟踪移动、躯干及双臂指令。<br><sub>标签: 统一控制 · 指令跟踪 · 负载随机化</sub> | [论文](https://arxiv.org/abs/2507.06905) · [项目](https://hellod035.github.io/ULC/) |
 | [**AMO**](https://arxiv.org/abs/2505.03738)<br><sub>AMO: Adaptive Motion Optimization for Hyper-Dexterous Humanoid Whole-Body Control</sub> | 2025-05<br><sub>arXiv</sub> | 动作目标与机器人状态 → 自适应全身控制 | G1 全身控制与数据接口；底层控制器服务遥操作和自主操作，补齐基础控制路线。 | [论文](https://arxiv.org/abs/2505.03738) |
 | [**HOVER**](https://arxiv.org/abs/2410.21229)<br><sub>HOVER: Versatile Neural Whole-Body Controller for Humanoid Robots</sub> | 2024-10<br><sub>ICRA 2025</sub> | 多种指令空间 → 单一全身控制器 | 以运动学动作模仿为共同基础，将多种控制模式蒸馏到同一策略中。<br><sub>标签: Multi-mode control · Policy distillation</sub> | [论文](https://arxiv.org/abs/2410.21229) · [项目](https://hover-versatile-humanoid.github.io/) |
@@ -595,6 +598,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | :--- | :--- | :--- | :--- | :--- |
 | [**DiPLO**](https://arxiv.org/abs/2610.24847)<br><sub>DiPLO: Self-distilled Diffusion Planning for Loco-manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 预训练扩散规划器与跟踪器 → 后训练规划器 | G1 真机；扩散规划器经过自蒸馏与强化学习后训练，并对齐冻结跟踪器的执行能力。 | [论文](https://arxiv.org/abs/2610.24847) |
 | [**HAF**](https://arxiv.org/abs/2608.16837)<br><sub>HAF: Adapting Generalist VLAs to Humanoid Whole-Body Loco-manipulation via Hierarchical Action Flow and Spectral Latent RL</sub> | 2026-08<br><sub>arXiv</sub> | 通用 VLA 与离线/在线经验 → 适配后的全身策略 | Tienkung 2.0/3.0 真机；分层动作流加冻结 VLA 潜空间的离线到在线强化学习。 | [论文](https://arxiv.org/abs/2608.16837) |
+| [**FADA**](https://arxiv.org/abs/2606.28476)<br><sub>FADA: Few-Shot Domain Adaptation via Dynamics Alignment for Humanoid Control</sub> | 2026-06<br><sub>arXiv</sub> | 规划器–逆动力学模型策略与短时目标域轨迹 → 动力学适配的执行模型 | 冻结规划器，仅用执行轨迹进行监督微调逆动力学模型，在真实 G1 搬运杂货和 Booster T1 拉筐任务中评测。 | [Paper](https://arxiv.org/abs/2606.28476) · [Project](https://lecar-lab.github.io/FADA-humanoid/) |
 
 <p align="right"><a href="#top">↑ 回到顶部</a></p>
 

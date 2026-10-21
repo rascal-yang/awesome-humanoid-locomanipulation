@@ -1,19 +1,19 @@
 # Reading-list growth / 收录增长图
 
-The chart in both READMEs shows **cumulative core works by first public release month**, with one line for each of the seven H2 sections. It counts the current reading list, including papers and explicitly labeled reports; it is not a field-wide publication statistic or a history of when entries were added to GitHub.
+The chart in both READMEs shows **cumulative core works by first public release month**, with five lines: **Simulation & Transfer**, **Interaction**, **Foundations**, **Harness**, and **Iterative Improvement**. The first line sums Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training; the seven H2 sections in the reading list remain separate. It counts the current reading list, including papers and explicitly labeled reports; it is not a field-wide publication statistic or a history of when entries were added to GitHub.
 
-图表按**首次公开月份**累计当前核心条目，每个 H2 一条线，包含已明确标注的论文与报告。它反映当前清单的时间分布，不是全领域发文量，也不是仓库历次添加条目的历史。
+图表按**首次公开月份**累计当前核心条目，用五条曲线展示，包含已明确标注的论文与报告。前三类 Real2Sim、Real2Sim2Real、Sim2Real & Sim–Real Co-Training 汇总为 **Simulation & Transfer（仿真与迁移）**；其余四类各一条线，正文的七个 H2 保持独立。它反映当前清单的时间分布，不是全领域发文量，也不是仓库历次添加条目的历史。
 
 ## Counting / 统计口径
 
 - `README.md` is the data source; only primary paper/project table rows count. Cross-links and related reading do not count again.
-- Each work belongs to its main H2. Moving a work changes that category's curve. Removing a work removes it from the current retrospective counts.
+- Each work belongs to its main H2 and is counted once. The chart sums the first three H2 counts month by month into Simulation & Transfer. Moving a work within those three categories changes the CSV breakdown but not the combined curve; moving it between chart groups changes their curves. Removing a work removes it from the current retrospective counts.
 - English and Chinese primary URLs, categories, and release dates must agree. Duplicate arXiv versions and invalid dates fail validation instead of being silently counted.
 - Months without new works retain the previous cumulative value. A verified year without a month is placed at December of that year, and the chart displays a note when such entries exist; December is a counting convention, not an inferred publication month.
-- Blue shades and distinct line styles group Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training. Other H2 sections have distinct colors.
+- Simulation & Transfer uses one blue curve; the other four chart groups retain distinct colors. The legend and the note below it explain the aggregation. The [monthly CSV](paper-growth.csv) retains all seven original H2 columns and the total, so the individual simulation routes can still be inspected.
 - The legend totals and headline count come from the data, rather than fixed numbers. The time axis ends at the latest listed release month.
 
-统计只读取英文 README 的主表格条目，跨方向引用与关联阅读不重复计数；中文版本用于一致性核验。条目移类或删除后，累计值会按当前清单重算。仅有年份时统一放到当年年末，并在图上注明该约定，不伪造月份。
+统计只读取英文 README 的主表格条目，跨方向引用与关联阅读不重复计数；中文版本用于一致性核验。条目移类或删除后，累计值会按当前清单重算；前三类之间的移类只改变 CSV 明细，不改变合并曲线。CSV 仍保留七个 H2 的逐月累计值与总数。仅有年份时统一放到当年年末，并在图上注明该约定，不伪造月份。
 
 ## Automatic refresh / 自动更新
 

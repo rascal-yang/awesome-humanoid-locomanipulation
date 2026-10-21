@@ -14,8 +14,11 @@ SECTIONS = (
     'Real2Sim', 'Real2Sim2Real', 'Sim2Real & Sim–Real Co-Training',
     'Interaction', 'Foundations', 'Harness', 'Iterative Improvement',
 )
-COLORS = ('#264E86', '#527EB5', '#87A6CC', '#168578', '#8056AE', '#CB8A2E', '#BC526B')
-STYLES = ('solid', (0, (6, 2)), (0, (1, 2)), 'solid', 'solid', 'solid', 'solid')
+CHART_GROUPS = {
+    'Simulation & Transfer': SECTIONS[:3],
+    **{section: (section,) for section in SECTIONS[3:]},
+}
+COLORS = ('#264E86', '#168578', '#8056AE', '#CB8A2E', '#BC526B')
 
 
 @dataclass(frozen=True)
@@ -95,6 +98,10 @@ def render(entries: list[Entry], output: Path, csv_path: Path, preview: Path | N
     from matplotlib.ticker import MaxNLocator
 
     months, counts = cumulative_counts(entries)
+    series = {
+        label: [sum(values) for values in zip(*(counts[section] for section in sections))]
+        for label, sections in CHART_GROUPS.items()
+    }
     dates = [date.fromisoformat(m + '-01') for m in months]
     prior = date(dates[0].year - 1, 12, 1) if dates[0].month == 1 else date(dates[0].year, dates[0].month - 1, 1)
     dates = [prior] + dates
@@ -102,11 +109,11 @@ def render(entries: list[Entry], output: Path, csv_path: Path, preview: Path | N
     fig = plt.figure(figsize=(14, 8), facecolor='#FFFFFF')
     ax = fig.add_axes((0.075, 0.335, 0.86, 0.445))
     ax.set_facecolor('#FAFBFD')
-    for i, section in enumerate(SECTIONS):
-        values = [0] + counts[section]
-        ax.step(dates, values, where='post', color=COLORS[i], linestyle=STYLES[i], linewidth=2.6, zorder=3)
+    for i, label in enumerate(CHART_GROUPS):
+        values = [0] + series[label]
+        ax.step(dates, values, where='post', color=COLORS[i], linewidth=2.6, zorder=3)
         ax.plot(dates[-1], values[-1], 'o', color=COLORS[i], markersize=5.5, markeredgecolor='white', markeredgewidth=1, zorder=4)
-    ax.set_ylim(0, max(c[-1] for c in counts.values()) * 1.12 + 1)
+    ax.set_ylim(0, max(c[-1] for c in series.values()) * 1.12 + 1)
     end = dates[-1]
     next_month = date(end.year + 1, 1, 1) if end.month == 12 else date(end.year, end.month + 1, 1)
     ax.set_xlim(dates[0], next_month)
@@ -125,12 +132,13 @@ def render(entries: list[Entry], output: Path, csv_path: Path, preview: Path | N
     fig.text(0.075, 0.874, f'Core reading list  /  cumulative by first public release  /  through {months[-1]}', fontsize=12, color='#64748B')
     fig.text(0.935, 0.925, str(len(entries)), fontsize=27, weight='bold', color='#172B49', ha='right')
     fig.text(0.935, 0.885, 'CORE WORKS', fontsize=9, color='#64748B', ha='right')
-    for i, section in enumerate(SECTIONS):
-        column, row = divmod(i, 4)
+    for i, label in enumerate(CHART_GROUPS):
+        column, row = divmod(i, 3)
         x, y = 0.08 + column * 0.46, 0.24 - row * 0.047
-        fig.add_artist(Line2D((x, x + 0.028), (y, y), transform=fig.transFigure, color=COLORS[i], linestyle=STYLES[i], linewidth=2.6))
-        fig.text(x + 0.04, y, section, va='center', fontsize=11, color='#334155')
-        fig.text(x + 0.405, y, str(counts[section][-1]), va='center', ha='right', fontsize=11, weight='bold', color=COLORS[i])
+        fig.add_artist(Line2D((x, x + 0.028), (y, y), transform=fig.transFigure, color=COLORS[i], linewidth=2.6))
+        fig.text(x + 0.04, y, label, va='center', fontsize=11, color='#334155')
+        fig.text(x + 0.405, y, str(series[label][-1]), va='center', ha='right', fontsize=11, weight='bold', color=COLORS[i])
+    fig.text(0.075, 0.075, 'Simulation & Transfer = Real2Sim + Real2Sim2Real + Sim2Real & Sim–Real Co-Training.', fontsize=8.8, color='#64748B')
     footnote = 'Source: README primary entries. One work, one main category. Includes papers and reports; not a field-wide publication count.'
     if any(e.year_only for e in entries):
         footnote += ' Year-only releases are placed at year-end.'
@@ -161,7 +169,7 @@ def main() -> None:
     entries = parse_entries(args.readme.read_text('utf-8'))
     validate_translation(entries, parse_entries(args.translated_readme.read_text('utf-8')))
     render(entries, args.output, args.csv, args.preview)
-    print(f'Generated {args.output}: {len(entries)} works across {len(SECTIONS)} H2 sections')
+    print(f'Generated {args.output}: {len(entries)} works in {len(CHART_GROUPS)} chart groups; CSV retains {len(SECTIONS)} H2 sections')
 
 
 if __name__ == '__main__':

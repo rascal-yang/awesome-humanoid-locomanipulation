@@ -31,10 +31,10 @@
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 <p align="center">
-  <img src="assets/paper-growth.svg" alt="按首次公开月份累计的核心条目增长趋势，每个 H2 一条曲线" width="100%">
+  <img src="assets/paper-growth.svg?v=5-curves" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
 </p>
 
-<sub>按首次公开月份累计收录的论文与报告；前三个仿真相关方向使用相近蓝色。[逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
+<sub>按首次公开月份累计收录的论文与报告；蓝色 Simulation & Transfer（仿真与迁移）曲线合并 Real2Sim、Real2Sim2Real 和 Sim2Real & Sim–Real Co-Training，正文仍保留七个独立分类。[按 H2 拆分的逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
 
 **固定 H2 结构：** 保持以下七个 H2 的名称、顺序与层级不变：**Real2Sim**、**Real2Sim2Real**、**Sim2Real & Sim–Real Co-Training**、**Interaction**、**Foundations**、**Harness**、**Iterative Improvement**。后续新增或细化 H3、调整论文位置，并用交叉链接与标签呈现重叠贡献；只有维护者明确要求时，才调整 H2。
 

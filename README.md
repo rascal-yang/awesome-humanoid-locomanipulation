@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-115-4263eb?style=flat-square" alt="115 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-118-4263eb?style=flat-square" alt="118 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **115 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **118 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-21 (4 works selected from the talk audit; see [batch scope and evidence](docs/SOURCES.md#talk-audit-2026-10-21)).**
+**Latest additions: 2026-10-22 (3 works; see [batch scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-22)).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=5-curves" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
+  <img src="assets/paper-growth.svg?v=20261022-118" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
 </p>
 
 <sub>Growth of the curated reading list by first public release month; includes papers and reports. The blue Simulation & Transfer curve combines Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training; the seven README categories remain separate. [Monthly data by H2](docs/paper-growth.csv) · [Counting and automatic updates](docs/CHART.md).</sub>
@@ -386,6 +386,7 @@ Learn whole-body vision-language-action policies through human-video pretraining
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**SP-HLM**](https://arxiv.org/abs/2610.30044)<br><sub>SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Multimodal observations and language → sparse poses, motion priors, and whole-body actions | Connects a VLA, motion generator, and whole-body tracker through five sparse poses and a latent motion prior, evaluated on eight simulated tasks and four real G1 loco-manipulation tasks. | [Paper](https://arxiv.org/abs/2610.30044) |
 | [**λ₀**](https://arxiv.org/abs/2610.00438)<br><sub>Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining</sub> | 2026-09<br><sub>arXiv</sub> | Egocentric body/hand data → whole-body VLA | Uses staged human-data pretraining and embodiment adaptation to learn a policy coordinating whole-body and hand actions.<br><sub>Tags: VLA · Human-data pretraining · Embodiment adaptation</sub> | [Paper](https://arxiv.org/abs/2610.00438) |
 | [**OpenHLM**](https://arxiv.org/abs/2606.22174)<br><sub>OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | Whole-body teleoperation and heterogeneous demonstrations → humanoid-native VLA | Studies joint-level teleoperation, VLA action design, and heterogeneous co-training to command the humanoid's full body through one learned policy.<br><sub>Tags: Whole-body VLA · Heterogeneous co-training · Action interface</sub> | [Paper](https://arxiv.org/abs/2606.22174) · [Project](https://openhlm-project.github.io/) |
 | [**HEX**](https://arxiv.org/abs/2604.07993)<br><sub>HEX: Humanoid-Aligned Experts for Cross-Embodiment Whole-Body Manipulation</sub> | 2026-04<br><sub>arXiv</sub> | Heterogeneous embodiment data → humanoid-aligned expert policy | Uses predictive state conditioning and embodiment-aware experts, with whole-body manipulation evaluated on the legged Tienkung 2.0 and 3.0 platforms. | [Paper](https://arxiv.org/abs/2604.07993) |
@@ -484,6 +485,7 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**HuMiT**](https://arxiv.org/abs/2610.29903)<br><sub>HuMiT: Low-Latency Whole-Body Humanoid Teleoperation via Compact Reference Tracking</sub> | 2026-10<br><sub>arXiv</sub> | Live operator motion → compact references and unified whole-body teleoperation | Tracks current-frame root commands and four keypoint poses without online optimization-based retargeting or future frames, demonstrating real G1 load carrying, chair pushing, sitting, and coat hanging under teleoperation. | [Paper](https://arxiv.org/abs/2610.29903) |
 | [**TWIST2**](https://arxiv.org/abs/2511.02832)<br><sub>TWIST2: Scalable, Portable, and Holistic Humanoid Data Collection System</sub> | 2025-11<br><sub>arXiv</sub> | VR whole-body motion and egocentric feedback → humanoid demonstrations and visuomotor policy | Combines portable whole-body VR teleoperation, an actuated neck, and a hierarchical visuomotor learner for coordinated G1 data collection and autonomous skills.<br><sub>Tags: Whole-body teleoperation · Active vision · Demonstration collection</sub> | [Paper](https://arxiv.org/abs/2511.02832) · [Project](https://yanjieze.com/projects/TWIST2/) |
 | [**HOMIE**](https://arxiv.org/abs/2502.13013)<br><sub>HOMIE: Humanoid Loco-Manipulation with Isomorphic Exoskeleton Cockpit</sub> | 2025-02<br><sub>arXiv</sub> | Exoskeleton, gloves, and pedal commands → humanoid teleoperation and demonstrations | Integrates joint-matched arm control and finger sensing with an RL walking-and-squatting controller to collect humanoid loco-manipulation demonstrations.<br><sub>Tags: Teleoperation · Exoskeleton · Data collection</sub> | [Paper](https://arxiv.org/abs/2502.13013) · [Project](https://homietele.github.io/) |
 | [**Mobile-TeleVision**](https://arxiv.org/abs/2412.07773)<br><sub>Mobile-TeleVision: Predictive Motion Priors for Humanoid Whole-Body Control</sub> | 2024-12<br><sub>arXiv</sub> | Teleoperated upper-body targets → coordinated walking and manipulation | Conditions locomotion on predictive upper-body motion priors while using retargeting and inverse kinematics for precise manipulation. | [Paper](https://arxiv.org/abs/2412.07773) |
@@ -515,6 +517,7 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**GPT-6-Astra Embodied Evaluation**](https://arxiv.org/abs/2610.22471)<br><sub>Has GPT-6-Astra Achieved Embodied Intelligence?</sub> | 2026-10<br><sub>arXiv</sub> | Observations, demonstrations, and feedback → model-issued actions through execution interfaces | Studies in-context learning, interaction budgets, and execution interfaces, including simulated G1 loco-manipulation in SIMPLE; real G1 manipulation and walking are evaluated separately. | [Paper](https://arxiv.org/abs/2610.22471) |
 | [**Inertially Significant Humanoid Teleoperation**](https://arxiv.org/abs/2610.22176)<br><sub>Inertially Significant Humanoid Teleoperation via Whole Body Model Predictive Control and Online Parameter Estimation</sub> | 2026-10<br><sub>arXiv</sub> | VR pose commands and robot feedback → payload-adaptive whole-body MPC commands | Combines whole-body MPC with EKF-based online inertial estimation on a 23-DoF bipedal humanoid, with hardware payload tests using manually mounted forearm weights. | [Paper](https://arxiv.org/abs/2610.22176) |
 | [**iGPC**](https://arxiv.org/abs/2610.08120)<br><sub>iGPC: Generative Motion Priors for Object-Aware Humanoid Interaction</sub> | 2026-10<br><sub>arXiv</sub> | Geometry observations and goals → grounded whole-body execution | Combines geometry-aware planning with existing motor priors on G1 for rail grasping, box pushing, and sitting or standing. | [Paper](https://arxiv.org/abs/2610.08120) |
 | [**Praxis**](https://arxiv.org/abs/2609.30735)<br><sub>Praxis: Distilling Physical Interaction Priors from Egocentric Videos for Generalizable Whole-Body Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Perception and task requests → coordinated skill execution | Integrates navigation, calibration, and manipulation into a real G1 EDU system equipped with Revo2 hands. | [Paper](https://arxiv.org/abs/2609.30735) |
@@ -609,4 +612,5 @@ Retain successful executions to seed further data augmentation and tracking-poli
 **Inspired by:** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation).
 
 **License:** Original curation text and assets use the [MIT License](LICENSE). Linked research and resources retain their respective licenses.
+
 

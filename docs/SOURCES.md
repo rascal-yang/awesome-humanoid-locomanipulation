@@ -39,6 +39,22 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="arxiv-additions-2026-10-22"></a>
+
+## arXiv additions: 2026-10-22 / 增量核验收录
+
+Three verified additions; 118 core works. This batch does not recheck the entire list or change the seven H2 sections. Dates below are UTC submission/version dates; announcement dates are recorded separately.
+
+| Work | Primary placement | Verified evidence and boundaries |
+| :--- | :--- | :--- |
+| [SP-HLM](https://arxiv.org/abs/2610.30044) | Foundations / Whole-Body VLA & Human-Data Pretraining | First submitted 2026-10-21 17:03:34 UTC, v1; no later revision observed. [Full text, IV-C](https://arxiv.org/html/2610.30044v1): Unitree G1, eight simulated loco-manipulation tasks and four real tasks. Real cabinet opening uses a single-leg squat; trash-bin opening uses foot-pedal contact. The primary contribution connects SP-VLA, SP-MGM, and SP-GMT through sparse poses and a latent motion prior. |
+| [HuMiT](https://arxiv.org/abs/2610.29903) | Harness / Whole-Body Teleoperation & Data Collection | First submitted 2026-10-21 15:45:03 UTC, v1; no later revision observed. [Full text, V-C and Table IV](https://arxiv.org/html/2610.29903v1): real G1 teleoperation, carrying a water jug 9/10, pushing a chair 5/10, sitting 7/10, hanging a coat 6/10; reactive catching 2/10. These are teleoperated demonstrations, not autonomous task-policy results. Tracking also has simulation evaluation. |
+| [Has GPT-6-Astra Achieved Embodied Intelligence?](https://arxiv.org/abs/2610.22471) | Harness / Planning & Control Interfaces | First submitted 2026-10-15 18:00:00 UTC; v2 submitted 2026-10-19 17:20:19 UTC. Recent list records 10-19; 10-21 RSS contains a replacement announcement. [v2, §9.9 SIMPLE](https://arxiv.org/html/2610.22471v2): simulated G1 with Dex3 hands, six loco-manipulation tasks including moving/bending to pick and picking between tables; comparisons concern ICL and interaction budgets. §10 studies the harness. Real G1 arm manipulation and walking are separate evaluations, not demonstrated autonomous real-world loco-manipulation. This is not TTCO-style command optimization of a frozen behavior foundation model. |
+
+公告源在本轮检索时仍截至 2026-10-21；SP-HLM 和 HuMiT 由补充主题 API 发现，首次公告日期尚未从列表观察到，不能把 v1 提交日期写成公告日期。GPT-6-Astra 评测是旧文补核后收录，不是 10-22 首次提交的新论文。首页统一按首次公开月份排序；本批均记 2026-10。
+
+Both language versions preserve identical paper titles, URLs, dates, and main categories. Official project URLs appear in the SP-HLM/HuMiT papers, but live-page verification was unavailable in this pass, so no project/code availability is claimed. The growth SVG and seven-category CSV are generated from the README; the overview retains five curves. TaskWAM, Agent2Act, and the unresolved second λ₀ ID are not included in this batch.
+
 ## arXiv announcement scan: 2026-10-21 / 公告检索补充
 
 Nine additions were approved by the maintainer on 2026-10-21. The scan used recent/new cs.RO announcements, related cross-lists and RSS feeds, plus topic queries across cs.RO, cs.CV, cs.AI and cs.LG; it was not a one-day submitted-date filter. An observed announcement date is distinct from the arXiv v1 submission and revision dates below. For topic-query discoveries without a dated announcement observation, no announcement date is inferred. This batch adds 1 Real2Sim, 5 Interaction, 2 Foundations and 1 Harness entries, preserving all seven H2 directions and existing H3 subgroups. Only these nine candidates are included; optional foundation candidates and unresolved identities remain outside this update.
@@ -320,4 +336,5 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 

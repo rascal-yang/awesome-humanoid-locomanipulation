@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-115-4263eb?style=flat-square" alt="115 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-118-4263eb?style=flat-square" alt="118 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **115 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **118 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-21（报告线索核验新增 4 项，见[本批范围与证据](docs/SOURCES.md#talk-audit-2026-10-21)）。**
+**最新收录：2026-10-22（新增 3 项，见[本批范围与证据](docs/SOURCES.md#arxiv-additions-2026-10-22)）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=5-curves" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
+  <img src="assets/paper-growth.svg?v=20261022-118" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
 </p>
 
 <sub>按首次公开月份累计收录的论文与报告；蓝色 Simulation & Transfer（仿真与迁移）曲线合并 Real2Sim、Real2Sim2Real 和 Sim2Real & Sim–Real Co-Training，正文仍保留七个独立分类。[按 H2 拆分的逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
@@ -386,6 +386,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**SP-HLM**](https://arxiv.org/abs/2610.30044)<br><sub>SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 多模态观测与语言 → 稀疏位姿、运动先验及全身动作 | 以五点稀疏位姿和潜在运动先验连接 VLA、运动生成与全身跟踪，在八项仿真任务和四项真实 G1 移动操作任务中评测。 | [论文](https://arxiv.org/abs/2610.30044) |
 | [**λ₀**](https://arxiv.org/abs/2610.00438)<br><sub>Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining</sub> | 2026-09<br><sub>arXiv</sub> | 第一视角身体与手部数据 → 全身 VLA | 通过分阶段人体数据预训练与形态适配，学习协调全身和手部动作的策略。<br><sub>标签: VLA · Human-data pretraining · Embodiment adaptation</sub> | [论文](https://arxiv.org/abs/2610.00438) |
 | [**OpenHLM**](https://arxiv.org/abs/2606.22174)<br><sub>OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | 全身遥操作与异构示教 → 面向人形全身的 VLA | 系统研究关节级遥操作、VLA 动作设计与异构数据联合训练，以单一学习策略指挥人形全身。<br><sub>标签: 全身 VLA · 异构联合训练 · 动作接口</sub> | [论文](https://arxiv.org/abs/2606.22174) · [项目](https://openhlm-project.github.io/) |
 | [**HEX**](https://arxiv.org/abs/2604.07993)<br><sub>HEX: Humanoid-Aligned Experts for Cross-Embodiment Whole-Body Manipulation</sub> | 2026-04<br><sub>arXiv</sub> | 异构构型数据 → 人形对齐专家策略 | Tienkung 2.0/3.0 双足人形实验；异构数据及专家模型学习协调身体、腰腿和操作。 | [论文](https://arxiv.org/abs/2604.07993) |
@@ -484,6 +485,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**HuMiT**](https://arxiv.org/abs/2610.29903)<br><sub>HuMiT: Low-Latency Whole-Body Humanoid Teleoperation via Compact Reference Tracking</sub> | 2026-10<br><sub>arXiv</sub> | 实时操作者动作 → 紧凑参考与统一全身遥操作 | 以当前帧根部指令和四个关键点位姿驱动统一跟踪，无需在线优化重定向或未来帧，在真实 G1 上遥操作完成搬运、推椅、坐椅和挂衣。 | [论文](https://arxiv.org/abs/2610.29903) |
 | [**TWIST2**](https://arxiv.org/abs/2511.02832)<br><sub>TWIST2: Scalable, Portable, and Holistic Humanoid Data Collection System</sub> | 2025-11<br><sub>arXiv</sub> | VR 全身动作与第一视角反馈 → 人形示教数据及视觉动作策略 | 结合便携式 VR 全身遥操作、主动颈部与分层视觉动作学习，支持 G1 协调示教采集及自主技能。<br><sub>标签: 全身遥操作 · 主动视觉 · 示教采集</sub> | [论文](https://arxiv.org/abs/2511.02832) · [项目](https://yanjieze.com/projects/TWIST2/) |
 | [**HOMIE**](https://arxiv.org/abs/2502.13013)<br><sub>HOMIE: Humanoid Loco-Manipulation with Isomorphic Exoskeleton Cockpit</sub> | 2025-02<br><sub>arXiv</sub> | 外骨骼、手套与踏板指令 → 人形全身遥操作及示教数据 | 将同构手臂控制、手指感知与支持行走和下蹲的 RL 控制器集成，采集人形移动操作示教。<br><sub>标签: 遥操作 · 外骨骼 · 数据采集</sub> | [论文](https://arxiv.org/abs/2502.13013) · [项目](https://homietele.github.io/) |
 | [**Mobile-TeleVision**](https://arxiv.org/abs/2412.07773)<br><sub>Mobile-TeleVision: Predictive Motion Priors for Humanoid Whole-Body Control</sub> | 2024-12<br><sub>arXiv</sub> | 遥操作上身目标 → 协调行走与操作 | 预测上身运动先验与下身运动控制解耦，支持人形机器人边行走边操作。 | [论文](https://arxiv.org/abs/2412.07773) |
@@ -515,6 +517,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**GPT-6-Astra Embodied Evaluation**](https://arxiv.org/abs/2610.22471)<br><sub>Has GPT-6-Astra Achieved Embodied Intelligence?</sub> | 2026-10<br><sub>arXiv</sub> | 观测、示教与反馈 → 经执行接口下发的模型动作 | 研究上下文学习、交互预算与执行接口，包含 SIMPLE 中的 G1 仿真移动操作；真机 G1 的操作与行走分别评测。 | [论文](https://arxiv.org/abs/2610.22471) |
 | [**Inertially Significant Humanoid Teleoperation**](https://arxiv.org/abs/2610.22176)<br><sub>Inertially Significant Humanoid Teleoperation via Whole Body Model Predictive Control and Online Parameter Estimation</sub> | 2026-10<br><sub>arXiv</sub> | VR 位姿指令与机器人反馈 → 负载自适应的全身 MPC 指令 | 在 23 自由度双足人形机器人上结合全身 MPC 与基于 EKF 的在线惯性估计，真机负载测试使用手工安装的前臂配重。 | [Paper](https://arxiv.org/abs/2610.22176) |
 | [**iGPC**](https://arxiv.org/abs/2610.08120)<br><sub>iGPC: Generative Motion Priors for Object-Aware Humanoid Interaction</sub> | 2026-10<br><sub>arXiv</sub> | 几何观测与目标 → 几何落地的全身执行 | G1 真机；以几何感知和已有运动先验协调规划与控制，覆盖抓扶手、推箱及坐站。 | [论文](https://arxiv.org/abs/2610.08120) |
 | [**Praxis**](https://arxiv.org/abs/2609.30735)<br><sub>Praxis: Distilling Physical Interaction Priors from Egocentric Videos for Generalizable Whole-Body Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | 感知与任务请求 → 协调技能执行 | G1 EDU 与 Revo2 手的真实系统；将感知、导航、校准和操作连接为可执行任务流程。 | [论文](https://arxiv.org/abs/2609.30735) |
@@ -609,4 +612,5 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 **参考仓库：** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation)。
 
 **许可：** 原创整理文字与资产采用 [MIT 许可](LICENSE)；链接中的研究与资源保留各自许可。
+
 

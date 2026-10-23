@@ -39,6 +39,15 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="extremcontrol-addition-2026-10-23"></a>
+
+## ExtremControl addition: 2026-10-23 / 单篇核验收录
+
+- [ExtremControl: Low-Latency Humanoid Teleoperation with Scaled Velocity Feedforward](https://arxiv.org/abs/2602.11321). First submitted 2026-02-11 19:49:12 UTC; latest observed v4 submitted 2026-10-21 01:10:32 UTC, announced as a replacement in the 2026-10-22 RSS. This is an older work discovered via a revision announcement, not a newly submitted October paper. The README records 2026-02 and places it between HuMiT (2026-10) and TWIST2 (2025-11).
+- [v4 full text](https://arxiv.org/html/2602.11321v4), Fig. 1 and experiments: real Unitree G1, moving catches using a frisbee or handheld basket, cooperative box lifting, and ping-pong return/balancing/juggling under optical MoCap or VR teleoperation. Simulation and hardware experiments evaluate control responsiveness. These are teleoperated behaviors, not autonomous task-policy results. Earlier full versions have not been compared, so these results are not claimed to be newly introduced in v4.
+- Main placement: Harness / Whole-Body Teleoperation & Data Collection. The reusable contribution integrates operator mapping, direct extremity tracking, and scaled velocity feedforward into a low-latency execution system; the underlying controller also relates to Foundations. No duplicate main entry is created.
+- 本批仅新增 ExtremControl；I-BFM 已在 Foundations / Generalist Whole-Body Control。中英文条目一致，核心数量 118 → 119；七个 H2、五条概览曲线和原有自动更新流程保持。全库分类核验日期不因单篇补充而更新。
+
 <a id="arxiv-additions-2026-10-22"></a>
 
 ## arXiv additions: 2026-10-22 / 增量核验收录
@@ -336,5 +345,6 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 

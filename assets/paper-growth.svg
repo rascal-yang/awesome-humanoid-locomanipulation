@@ -630,23 +630,23 @@ L 775.003183 338.267948
 L 790.501038 338.267948 
 L 790.501038 338.267948 
 L 805.998893 338.267948 
-L 805.998893 338.267948 
-L 819.996955 338.267948 
-L 819.996955 338.267948 
-L 835.49481 338.267948 
-L 835.49481 338.267948 
-L 850.492734 338.267948 
-L 850.492734 338.267948 
-L 865.990588 338.267948 
-L 865.990588 338.267948 
-L 880.988512 338.267948 
+L 805.998893 332.671441 
+L 819.996955 332.671441 
+L 819.996955 332.671441 
+L 835.49481 332.671441 
+L 835.49481 332.671441 
+L 850.492734 332.671441 
+L 850.492734 332.671441 
+L 865.990588 332.671441 
+L 865.990588 332.671441 
 L 880.988512 332.671441 
-L 896.486367 332.671441 
-L 896.486367 332.671441 
-L 911.984221 332.671441 
-L 911.984221 310.285415 
-L 926.982145 310.285415 
-L 926.982145 287.899389 
+L 880.988512 327.074934 
+L 896.486367 327.074934 
+L 896.486367 327.074934 
+L 911.984221 327.074934 
+L 911.984221 304.688908 
+L 926.982145 304.688908 
+L 926.982145 282.302882 
 " clip-path="url(#p5ae905d9d2)" style="fill: none; stroke: #cb8a2e; stroke-width: 2.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_37">
@@ -834,7 +834,7 @@ z
 " style="stroke: #ffffff"/>
     </defs>
     <g clip-path="url(#p5ae905d9d2)">
-     <use xlink:href="#m152ec8ed35" x="926.982145" y="287.899389" style="fill: #cb8a2e; stroke: #ffffff"/>
+     <use xlink:href="#m152ec8ed35" x="926.982145" y="282.302882" style="fill: #cb8a2e; stroke: #ffffff"/>
     </g>
    </g>
    <g id="line2d_42">
@@ -888,7 +888,7 @@ L 572.544 464.832
    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="75.6" y="72.576" transform="rotate(-0 75.6 72.576)">Core reading list  /  cumulative by first public release  /  through 2026-10</text>
   </g>
   <g id="text_15">
-   <text style="font-weight: 700; font-size: 27px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #172b49" x="942.48" y="43.2" transform="rotate(-0 942.48 43.2)">118</text>
+   <text style="font-weight: 700; font-size: 27px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #172b49" x="942.48" y="43.2" transform="rotate(-0 942.48 43.2)">119</text>
   </g>
   <g id="text_16">
    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #64748b" x="942.48" y="66.24" transform="rotate(-0 942.48 66.24)">CORE WORKS</text>
@@ -915,7 +915,7 @@ L 572.544 464.832
    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #334155" x="584.64" y="440.795313" transform="rotate(-0 584.64 440.795313)">Harness</text>
   </g>
   <g id="text_24">
-   <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #cb8a2e" x="952.56" y="440.795313" transform="rotate(-0 952.56 440.795313)">17</text>
+   <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #cb8a2e" x="952.56" y="440.795313" transform="rotate(-0 952.56 440.795313)">18</text>
   </g>
   <g id="text_25">
    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #334155" x="584.64" y="467.867313" transform="rotate(-0 584.64 467.867313)">Iterative Improvement</text>

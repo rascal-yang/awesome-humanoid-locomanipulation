@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-119-4263eb?style=flat-square" alt="119 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-123-4263eb?style=flat-square" alt="123 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **119 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **123 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-23 (ExtremControl; see [scope and evidence](docs/SOURCES.md#extremcontrol-addition-2026-10-23)).**
+**Latest additions: 2026-10-24 (4 works; see [batch scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-24)).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261023-119" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
+  <img src="assets/paper-growth.svg?v=20261024-123" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
 </p>
 
 <sub>Growth of the curated reading list by first public release month; includes papers and reports. The blue Simulation & Transfer curve combines Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training; the seven README categories remain separate. [Monthly data by H2](docs/paper-growth.csv) · [Counting and automatic updates](docs/CHART.md).</sub>
@@ -97,6 +97,7 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**STR / STRL**](https://arxiv.org/abs/2610.30540)<br><sub>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Human-object demonstrations → contact-preserving robot references and tracking policies | Allocates retargeting effort by keyframes and body parts, refines contact anchors with an object-wrench approximation, and trains stage-aware interaction policies; evaluated on simulated G1 and real R1 box carrying. | [Paper](https://arxiv.org/abs/2610.30540) |
 | [**FRDV**](https://arxiv.org/abs/2610.28470)<br><sub>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and humanoid constraints → retargeted and optionally dynamics-refined references | Combines constrained inverse kinematics with optional contact-implicit iLQR refinement to address foot floating and sliding, with motion tracking transferred to a real G1. | [Paper](https://arxiv.org/abs/2610.28470) |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and interaction demonstrations → humanoid reference trajectories | Uses an explicit objective hierarchy and gradient projection to preserve foot placement and interaction contacts while optimizing lower-priority pose objectives.<br><sub>Tags: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) |
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | Human–object demonstrations → joint robot–object references | Transfers surface interactions with optimal transport and jointly optimizes robot and object poses to preserve contacts across embodiments.<br><sub>Tags: Contact preservation · Joint robot–object optimization</sub> | [Paper](https://arxiv.org/abs/2609.36602) |
@@ -347,6 +348,7 @@ For actuator-model correction that improves force transfer, see [Contact-UAN](#c
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**Attention-based Contacts**](https://arxiv.org/abs/2610.31608)<br><sub>Humanoid Mobility via Attention-based Contacts</sub> | 2026-10<br><sub>arXiv</sub> | Terrain perception and goals → multi-body contact plans and whole-body control | Learns a contact planner and contact-conditioned tracker for G1 ladder climbing, hand-supported vaulting, box climbing, and sit-stand interaction, with simulated evaluation and onboard real-robot deployment. | [Paper](https://arxiv.org/abs/2610.31608) |
 | [**HS-MoDP / G1Exo**](https://arxiv.org/abs/2610.26169)<br><sub>Compositional Humanoid Manipulation through Isomorphic Teleoperation and Independent Skill Routing</sub> | 2026-10<br><sub>arXiv</sub> | Isomorphic exoskeleton demonstrations and per-arm semantic conditions → compositional manipulation policy | Combines G1Exo demonstrations with independent arm-wise routing through shared policy experts for real G1 manipulation involving arm and torso contacts. | [Paper](https://arxiv.org/abs/2610.26169) |
 | [**FIBER**](https://arxiv.org/abs/2610.24675)<br><sub>Action-Aligned Latent Planning for Versatile Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Task-expert action responses and visual observations → plans in a frozen behavior-model latent space | Aligns task experts with a frozen behavior foundation model and trains a unified perceptive latent planner offline, with simulated and real G1 door opening, pickup, and carrying. | [Paper](https://arxiv.org/abs/2610.24675) |
 | [**BOPI**](https://arxiv.org/abs/2610.13087)<br><sub>Belief-Overlap Partial Inversion: Object-Centric Flow Replanning for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Interaction observations and goals → belief-conditioned plans | Updates a belief over uncertain interaction dynamics and replans with a flow-based model for cart translation and turning on G1. | [Paper](https://arxiv.org/abs/2610.13087) |
@@ -442,6 +444,7 @@ Provide reusable motor control across command interfaces, teleoperation, or task
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**LocoManiLab**](https://arxiv.org/abs/2610.30876)<br><sub>LocoManiLab: A Unified Testbed for Data, Policies, Controllers, and Deployment in Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Humanoid tasks, demonstrations, policies, and controllers → unified evaluation testbed | Provides 234 atomic and compositional tasks with 51.5 hours of simulated teleoperation, evaluates policies and controllers on G1, and compares three tasks with separately trained real-robot counterparts. | [Paper](https://arxiv.org/abs/2610.30876) |
 | [**CoHuB**](https://arxiv.org/abs/2609.34782)<br><sub>CoHuB: A Simulation Benchmark for Multi-Humanoid Collaboration</sub> | 2026-09<br><sub>arXiv · Benchmark</sub> | Multi-robot simulated tasks → cooperative manipulation evaluation | Benchmarks cooperative manipulation with simulated G1 robots and Dex3-1 hands, without claiming physical multi-robot deployment. | [Paper](https://arxiv.org/abs/2609.34782) |
 | [**HumanoidArena**](https://arxiv.org/abs/2606.17833)<br><sub>HumanoidArena: Benchmarking Egocentric Hierarchical Whole-body Learning</sub> | 2026-06<br><sub>arXiv · Benchmark</sub> | Simulated tasks and controller backends → humanoid policy benchmark | Provides G1 manipulation tasks and demonstrations with TWIST2 and SONIC controller backends for standardized simulation evaluation. | [Paper](https://arxiv.org/abs/2606.17833) |
 | [**Mimicking-Bench**](https://arxiv.org/abs/2412.17730)<br><sub>Mimicking-Bench: A Benchmark for Generalizable Humanoid-Scene Interaction Learning via Human Mimicking</sub> | 2024-12<br><sub>arXiv · Benchmark</sub> | Human interaction references and diverse objects → scene-interaction benchmark | Benchmarks retargeting, tracking, and skill learning on six household interaction tasks using a simulated Unitree H1. | [Paper](https://arxiv.org/abs/2412.17730) |
@@ -467,6 +470,7 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**WholeBodyMem / HuMeGo**](https://arxiv.org/abs/2610.31166)<br><sub>Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Object-event history and current observations → memory-conditioned whole-body VLA actions | Selects history frames by object events and reads them with object tokens inside the action expert, retaining cues lost during turning and walking; HuMeGo evaluates six simulated and six real G1 memory-dependent tasks. | [Paper](https://arxiv.org/abs/2610.31166) |
 | [**HomeBody**](https://tml.stanford.edu/homebody/)<br><sub>HomeBody: A Humanoid That Explores, Remembers, and Acts on Its Own</sub> | 2026-09<br><sub>Project report</sub> | Spatial memory + skill library → long-horizon execution | Connects a VLM to navigation and manipulation skills, using spatial memory and execution outcomes to coordinate tasks on a G1.<br><sub>Tags: Spatial memory · Skill orchestration · Execution feedback</sub> | [Report](https://tml.stanford.edu/homebody/) |
 
 **Across directions:** [OmniH2O](#generalist-whole-body-control) connects teleoperation and skill learning; [KPI](#contact-force-control) connects agent-generated references to contact regulation.
@@ -613,6 +617,7 @@ Retain successful executions to seed further data augmentation and tracking-poli
 **Inspired by:** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation).
 
 **License:** Original curation text and assets use the [MIT License](LICENSE). Linked research and resources retain their respective licenses.
+
 
 
 

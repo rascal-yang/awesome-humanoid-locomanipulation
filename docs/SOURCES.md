@@ -39,6 +39,24 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="arxiv-additions-2026-10-24"></a>
+
+## arXiv additions: 2026-10-24 / 增量核验收录
+
+Four additions, 119 → 123 core works; both language versions use identical titles, paper URLs, months, and primary categories. The seven H2 names and order, existing H3 navigation, and five-curve chart grouping are retained. This batch does not change the full-list classification check date.
+
+- [Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.30540) — **Real2Sim / Contact-Preserving Motion Retargeting**. v1 submitted 2026-10-21T23:54:17Z (UTC); latest observed v1, updated 2026-10-21T23:54:17Z. 10-21 23:54:17 UTC首次提交，10-23新公告；不是10-23提交。HTML 404，已通过原始PDF核实。 VLM选关键部位和运动信号，为关键帧分配求解预算；MCA以近似物体力矩模型优化表面接触；STRL按阶段与接触奖励训练下游控制。G1为29DoF仿真，R1为26关节双足真机，搬箱10/10。附录D是拾取/起身/行走/放置四个阶段PPO actor，不能写成单个通用策略，也不能将R1真机写成G1真机。 [Primary evidence](https://arxiv.org/pdf/2610.30540): §IV、Fig.5、Table IV、Appendix D（PDF pp.7–9,14）.
+
+- [LocoManiLab: A Unified Testbed for Data, Policies, Controllers, and Deployment in Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.30876) — **Foundations / Humanoid Simulation Benchmarks**. v1 submitted 2026-10-22T07:56:54Z (UTC); latest observed v1, updated 2026-10-22T07:56:54Z. 10-22 07:56:54 UTC首次提交，10-23新公告。 统一数据、策略、控制器与部署评测：234个原子/组合任务、五类场景、51.5h仿真遥操作；12策略共享控制器评测，另有跨控制器实验。主体为G1仿真，真机G1验证开冰箱、架到桌搬杯、传送带取箱三项。真机另用真实示教训练；传送带仿真与真机成功判据不同，不能称零样本迁移或绝对成功率可比。 [Primary evidence](https://arxiv.org/html/2610.30876v1): §3.5、§4.6、Table6、Appendix11.
+
+- [Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.31166) — **Harness / Spatial Memory & Long-Horizon Skill Orchestration**. v1 submitted 2026-10-22T12:24:25Z (UTC); latest observed v1, updated 2026-10-22T12:24:25Z. 10-22 12:24:25 UTC首次提交，10-23新公告。 SAM3物体事件选择自适应历史关键帧，动作专家以交叉注意力读取帧和物体token，保留转身行走前短暂线索。HuMeGo含6项仿真和6项真实G1记忆依赖移动操作任务；真机53/60成功。实际VLA策略评测与遥操作示教数据应区别。主贡献是物体事件记忆接入执行，而非跨轮次自我改进；H3内注明感知记忆，不宣称技能调度器。 [Primary evidence](https://arxiv.org/html/2610.31166v1): §III–IV、§V-E、TableV.
+
+- [Humanoid Mobility via Attention-based Contacts](https://arxiv.org/abs/2610.31608) — **Interaction / Whole-Body Planning & Skill Learning**. v1 submitted 2026-10-22T17:37:36Z (UTC); latest observed v1, updated 2026-10-22T17:37:36Z. 10-22 17:37:36 UTC首次提交，由API补漏发现；本轮10-23公告/RSS未观察到，首次公告仍待确认。 先预测多部位环境接触，再由接触条件跟踪器执行；动作数据只作训练先验，部署无需运动参考。真实G1机载感知与控制展示扶梯攀爬、手支撑翻越、爬箱和坐站；另有仿真定量评测。全文明确手/膝/肘/骨盆接触，符合与LadderMan相同的主动环境支撑接触边界，不只是足底行走。不宣称抓物/搬物任务。 [Primary evidence](https://arxiv.org/html/2610.31608v1): Fig.1、Results §0.1、Methods接触数据与部署.
+
+LocoManiLab is a benchmark/testbed contribution; simulator and hardware success predicates differ on conveyor handling and the real policies use real demonstrations, so neither direct success-rate equivalence nor zero-shot transfer is claimed. WholeBodyMem is perceptual memory integrated into a VLA action expert, not a skill scheduler or recursive self-improvement method. Attention-based Contacts is included for active multi-body support interaction with the environment, following the same boundary as ladder climbing; object grasping or transport is not claimed. STR hardware uses four stage-specific PPO actors, not one general-purpose policy.
+
+本轮未收录 PhysibleMDM；其优化扩散噪声和足地运动可行性，尚无本仓库范围内的操作或主动多部位支撑接触验证。候选的公告日期与首次提交日期分别记录，不因近期公告改写首次公开月份。SVG and CSV are generated from README primary entries; CSV retains the seven H2 categories.
+
 <a id="extremcontrol-addition-2026-10-23"></a>
 
 ## ExtremControl addition: 2026-10-23 / 单篇核验收录
@@ -345,6 +363,7 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 
 

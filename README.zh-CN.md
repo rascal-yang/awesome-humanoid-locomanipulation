@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-123-4263eb?style=flat-square" alt="123 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-126-4263eb?style=flat-square" alt="126 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **123 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **126 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-24（新增 4 项，见[本批范围与证据](docs/SOURCES.md#arxiv-additions-2026-10-24)）。**
+**最新收录：2026-10-26（新增 3 项，见[本批范围与证据](docs/SOURCES.md#arxiv-additions-2026-10-26)）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261024-123" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
+  <img src="assets/paper-growth.svg?v=20261026-126" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
 </p>
 
 <sub>按首次公开月份累计收录的论文与报告；蓝色 Simulation & Transfer（仿真与迁移）曲线合并 Real2Sim、Real2Sim2Real 和 Sim2Real & Sim–Real Co-Training，正文仍保留七个独立分类。[按 H2 拆分的逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
@@ -97,6 +97,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**CoCarry**](https://arxiv.org/abs/2610.32460)<br><sub>CoCarry: Contact-Support-Structured Retargeting for Dual-Humanoid Cooperative Carrying</sub> | 2026-10<br><sub>arXiv</sub> | 同步双人搬运示教 → 协调的双人形参考动作 | 以共享物体手部锚点和接触支撑结构联合重定向两个人形，提供 A3/G1 参考动作评测，以及双 A3 仿真和真机合作搬运验证。 | [论文](https://arxiv.org/abs/2610.32460) |
 | [**STR / STRL**](https://arxiv.org/abs/2610.30540)<br><sub>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 人物交互示教 → 保持接触的机器人参考与跟踪策略 | 按关键帧和身体部位分配重定向优化预算，以近似物体力矩模型修正接触锚点，并训练阶段感知交互策略；在 G1 仿真与 R1 真机搬箱中评测。 | [论文](https://arxiv.org/abs/2610.30540) |
 | [**FRDV**](https://arxiv.org/abs/2610.28470)<br><sub>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与人形机器人约束 → 重定向及可选动力学修正的参考 | 结合约束逆运动学与可选的接触隐式 iLQR 修正，处理足部浮空与滑步，并将动作跟踪迁移到真实 G1。 | [Paper](https://arxiv.org/abs/2610.28470) |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与交互示教 → 人形机器人参考轨迹 | 通过显式目标优先级与梯度投影，在优化姿态等低优先级目标时保留足部落点和交互接触。<br><sub>标签: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [论文](https://arxiv.org/abs/2610.12642) · [项目](https://nickioan.github.io/primoretarget-page/) |
@@ -335,6 +336,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**HoloBoxing**](https://arxiv.org/abs/2610.32909)<br><sub>HoloBoxing: A Simple Recipe for Humanoid Boxing with 7 Minutes of Single-GPU Training</sub> | 2026-10<br><sub>arXiv</sub> | 机器人实测状态与对手状态 → 冻结全身控制器之上的紧凑规划器 | 以模仿初始化潜动作规划器，再在冻结 HoloMotion v2 之上用 RL 微调拳击决策；G1 接触拳击仅有仿真评测，七分钟预算不含控制器预训练。 | [论文](https://arxiv.org/abs/2610.32909) |
 | [**OmniInteract**](https://arxiv.org/abs/2610.26043)<br><sub>OmniInteract: Towards Unified Whole-Body Interaction Control for Dual Humanoids</sub> | 2026-10<br><sub>arXiv</sub> | 双人交互示教与伙伴状态 → 统一的双人形接触交互策略 | 重定向时保持表面接触，并统一冻结控制器上的伙伴条件残差策略，在两台真实 G1 上实现击掌、拥抱与扶肩。 | [Paper](https://arxiv.org/abs/2610.26043) |
 | [**PingpongDuo**](https://arxiv.org/abs/2610.20579)<br><sub>PingpongDuo: Agile Humanoid Table Tennis Doubles with Safe Team Coordination</sub> | 2026-10<br><sub>arXiv</sub> | 人类动作参考、球状态与队友状态 → 协同步法及击球 | 结合风险筛选的团队规划器、相互初始化的步法与击球技能及持拍臂残差，使两台 G1 协调完成交替双打。<br><sub>标签: 多人形协调 · 动态交互 · 风险感知规划</sub> | [论文](https://arxiv.org/abs/2610.20579) |
 
@@ -604,6 +606,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**ViT-H**](https://arxiv.org/abs/2610.32966)<br><sub>ViT-H: Generative Video-To-Humanoid Control with Motion Tracking Feedback</sub> | 2026-10<br><sub>arXiv</sub> | 单目视频与跟踪结果 → 经偏好后训练的人形动作生成器 | 从视频直接生成 G1 参考动作，以跟踪反馈进行 DPO 后训练；自回归版本支持真机视频遥操作，包括搬箱、扫桌、踢球和坐站交互。 | [论文](https://arxiv.org/abs/2610.32966) |
 | [**DiPLO**](https://arxiv.org/abs/2610.24847)<br><sub>DiPLO: Self-distilled Diffusion Planning for Loco-manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 预训练扩散规划器与跟踪器 → 后训练规划器 | G1 真机；扩散规划器经过自蒸馏与强化学习后训练，并对齐冻结跟踪器的执行能力。 | [论文](https://arxiv.org/abs/2610.24847) |
 | [**HAF**](https://arxiv.org/abs/2608.16837)<br><sub>HAF: Adapting Generalist VLAs to Humanoid Whole-Body Loco-manipulation via Hierarchical Action Flow and Spectral Latent RL</sub> | 2026-08<br><sub>arXiv</sub> | 通用 VLA 与离线/在线经验 → 适配后的全身策略 | Tienkung 2.0/3.0 真机；分层动作流加冻结 VLA 潜空间的离线到在线强化学习。 | [论文](https://arxiv.org/abs/2608.16837) |
 | [**FADA**](https://arxiv.org/abs/2606.28476)<br><sub>FADA: Few-Shot Domain Adaptation via Dynamics Alignment for Humanoid Control</sub> | 2026-06<br><sub>arXiv</sub> | 规划器–逆动力学模型策略与短时目标域轨迹 → 动力学适配的执行模型 | 冻结规划器，仅用执行轨迹进行监督微调逆动力学模型，在真实 G1 搬运杂货和 Booster T1 拉筐任务中评测。 | [Paper](https://arxiv.org/abs/2606.28476) · [Project](https://lecar-lab.github.io/FADA-humanoid/) |
@@ -617,6 +620,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 **参考仓库：** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation)。
 
 **许可：** 原创整理文字与资产采用 [MIT 许可](LICENSE)；链接中的研究与资源保留各自许可。
+
 
 
 

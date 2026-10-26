@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-123-4263eb?style=flat-square" alt="123 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-126-4263eb?style=flat-square" alt="126 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **123 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **126 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-24 (4 works; see [batch scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-24)).**
+**Latest additions: 2026-10-26 (3 works; see [batch scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-26)).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261024-123" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
+  <img src="assets/paper-growth.svg?v=20261026-126" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
 </p>
 
 <sub>Growth of the curated reading list by first public release month; includes papers and reports. The blue Simulation & Transfer curve combines Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training; the seven README categories remain separate. [Monthly data by H2](docs/paper-growth.csv) · [Counting and automatic updates](docs/CHART.md).</sub>
@@ -97,6 +97,7 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**CoCarry**](https://arxiv.org/abs/2610.32460)<br><sub>CoCarry: Contact-Support-Structured Retargeting for Dual-Humanoid Cooperative Carrying</sub> | 2026-10<br><sub>arXiv</sub> | Synchronized two-person carrying demonstrations → coordinated dual-humanoid references | Jointly retargets both humanoids using shared-object hand anchors and contact-support structure, with A3/G1 reference evaluation and cooperative carrying in simulation and on two real A3 robots. | [Paper](https://arxiv.org/abs/2610.32460) |
 | [**STR / STRL**](https://arxiv.org/abs/2610.30540)<br><sub>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Human-object demonstrations → contact-preserving robot references and tracking policies | Allocates retargeting effort by keyframes and body parts, refines contact anchors with an object-wrench approximation, and trains stage-aware interaction policies; evaluated on simulated G1 and real R1 box carrying. | [Paper](https://arxiv.org/abs/2610.30540) |
 | [**FRDV**](https://arxiv.org/abs/2610.28470)<br><sub>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and humanoid constraints → retargeted and optionally dynamics-refined references | Combines constrained inverse kinematics with optional contact-implicit iLQR refinement to address foot floating and sliding, with motion tracking transferred to a real G1. | [Paper](https://arxiv.org/abs/2610.28470) |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and interaction demonstrations → humanoid reference trajectories | Uses an explicit objective hierarchy and gradient projection to preserve foot placement and interaction contacts while optimizing lower-priority pose objectives.<br><sub>Tags: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) |
@@ -335,6 +336,7 @@ For actuator-model correction that improves force transfer, see [Contact-UAN](#c
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**HoloBoxing**](https://arxiv.org/abs/2610.32909)<br><sub>HoloBoxing: A Simple Recipe for Humanoid Boxing with 7 Minutes of Single-GPU Training</sub> | 2026-10<br><sub>arXiv</sub> | Measured robot and opponent states → compact planner over a frozen whole-body controller | Initializes a latent-action planner by imitation and refines boxing decisions with RL above frozen HoloMotion v2; G1 contact-boxing evaluation is simulation-only, and the seven-minute budget excludes controller pretraining. | [Paper](https://arxiv.org/abs/2610.32909) |
 | [**OmniInteract**](https://arxiv.org/abs/2610.26043)<br><sub>OmniInteract: Towards Unified Whole-Body Interaction Control for Dual Humanoids</sub> | 2026-10<br><sub>arXiv</sub> | Paired interaction demonstrations and partner state → unified dual-humanoid contact policy | Preserves surface contacts during retargeting and unifies partner-conditioned residual policies over a frozen controller, with two real G1 robots performing high-fives, hugs, and shoulder holds. | [Paper](https://arxiv.org/abs/2610.26043) |
 | [**PingpongDuo**](https://arxiv.org/abs/2610.20579)<br><sub>PingpongDuo: Agile Humanoid Table Tennis Doubles with Safe Team Coordination</sub> | 2026-10<br><sub>arXiv</sub> | Human motion references, ball state, and teammate state → coordinated footwork and strikes | Combines a risk-filtered team planner, mutually initialized footwork/striking skills, and racket-arm residuals for alternating doubles play with two G1 humanoids.<br><sub>Tags: Multi-humanoid coordination · Dynamic interaction · Risk-aware planning</sub> | [Paper](https://arxiv.org/abs/2610.20579) |
 
@@ -604,6 +606,7 @@ Retain successful executions to seed further data augmentation and tracking-poli
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**ViT-H**](https://arxiv.org/abs/2610.32966)<br><sub>ViT-H: Generative Video-To-Humanoid Control with Motion Tracking Feedback</sub> | 2026-10<br><sub>arXiv</sub> | Monocular videos and tracking outcomes → preference-post-trained humanoid motion generator | Generates G1 reference motions directly from video and uses tracking feedback for DPO post-training; an autoregressive variant enables real-robot video teleoperation including box transport, sweeping, kicking, and sit-stand interaction. | [Paper](https://arxiv.org/abs/2610.32966) |
 | [**DiPLO**](https://arxiv.org/abs/2610.24847)<br><sub>DiPLO: Self-distilled Diffusion Planning for Loco-manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Pretrained diffusion planner and tracker → post-trained planner | Self-distills and reinforcement-fine-tunes a diffusion planner to improve task success and match a frozen tracker, with G1 hardware deployment. | [Paper](https://arxiv.org/abs/2610.24847) |
 | [**HAF**](https://arxiv.org/abs/2608.16837)<br><sub>HAF: Adapting Generalist VLAs to Humanoid Whole-Body Loco-manipulation via Hierarchical Action Flow and Spectral Latent RL</sub> | 2026-08<br><sub>arXiv</sub> | Generalist VLA and offline/online experience → adapted whole-body policy | Combines hierarchical action flow with latent-space reinforcement learning over a frozen VLA on Tienkung 2.0 and 3.0 humanoids. | [Paper](https://arxiv.org/abs/2608.16837) |
 | [**FADA**](https://arxiv.org/abs/2606.28476)<br><sub>FADA: Few-Shot Domain Adaptation via Dynamics Alignment for Humanoid Control</sub> | 2026-06<br><sub>arXiv</sub> | Planner–IDM policy and short target-domain rollouts → dynamics-adapted execution model | Freezes the planner and finetunes only the inverse dynamics model with supervised rollout data, evaluated on real G1 grocery carrying and Booster T1 basket pulling. | [Paper](https://arxiv.org/abs/2606.28476) · [Project](https://lecar-lab.github.io/FADA-humanoid/) |
@@ -617,6 +620,7 @@ Retain successful executions to seed further data augmentation and tracking-poli
 **Inspired by:** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation).
 
 **License:** Original curation text and assets use the [MIT License](LICENSE). Linked research and resources retain their respective licenses.
+
 
 
 

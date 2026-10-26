@@ -39,6 +39,22 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="arxiv-additions-2026-10-26"></a>
+
+## arXiv additions: 2026-10-26 / 增量核验收录
+
+Three additions, 123 → 126 core works. This batch retains the seven H2 headings, existing H3 subgroups, and five overview curves. Both language versions share paper titles, primary categories, first-release months, and paper links; the whole-list classification date is unchanged.
+
+- [CoCarry: Contact-Support-Structured Retargeting for Dual-Humanoid Cooperative Carrying](https://arxiv.org/abs/2610.32460) — **Real2Sim / Contact-Preserving Motion Retargeting**. v1 submitted 2026-10-23T10:24:02Z (UTC), observed in the 2026-10-26 new announcements; latest checked v1, with no subsequent revision observed. 同步双人共享物体示教数据集（220段，21方案）及双人形联合重定向；手部物体局部锚点与上下身接触/支撑结构共同保持四手抓握和支撑。A3/G1重定向评测；两个A3仿真及真机完成接近、抬起、搬运、放置。G1不是本篇真机平台。100%重定向成功不等于100%真机任务成功，真机仅多个动作的下游验证。 [Primary evidence](https://arxiv.org/html/2610.32460v1): §III–IV、§V-D/E、Fig.6.
+
+- [HoloBoxing: A Simple Recipe for Humanoid Boxing with 7 Minutes of Single-GPU Training](https://arxiv.org/abs/2610.32909) — **Interaction / Multi-Humanoid Coordination**. v1 submitted 2026-10-23T17:11:28Z (UTC), observed in the 2026-10-26 new announcements; latest checked v1, with no subsequent revision observed. G1机器人模型上的双人形拳击接触仿真；冻结HoloMotion v2全身控制器，32维解码器与上层规划器以测得状态模仿初始化，再RL微调任务决策。有效手接触及跌倒由裁判分别计分，具实质对抗接触贡献。仅仿真，无真机。约7分钟为复用已有控制器后的额外训练，不包括控制器预训练、数据准备、搜索等；小数据与单选定训练种子，不宣传从零7分钟学会拳击或普适最优。 [Primary evidence](https://arxiv.org/html/2610.32909v1): §4–5、§6 limitations、Appendix A/D.
+
+- [ViT-H: Generative Video-To-Humanoid Control with Motion Tracking Feedback](https://arxiv.org/abs/2610.32966) — **Iterative Improvement / Planner & Policy Post-Training**. v1 submitted 2026-10-23T17:54:09Z (UTC), observed in the 2026-10-26 new announcements; latest checked v1, with no subsequent revision observed. 单目视频直接生成G1参考动作；仿真跟踪结果构造偏好对，DPO持久更新生成器，不只是rollout内调指令。29DoF G1仿真与真机。正文Fig.1原图已目视核验，在线遥操作包含Box transport、Tabletop sweeping、Kicking football、Sitting & standing，确有真实机器人接触操作，不能仅凭摘要当作舞蹈/步行排除。§B.7为RGB遥操作设置；§E说明不建模灵巧手，小物体精细操作未验证，不称自主VLA。 [Primary evidence](https://arxiv.org/html/2610.32966v1): §3.2、Fig.1、§B.7、§C、§E；原图papers/vith-teaser.png.
+
+CoCarry's contact-preserving joint retargeting is its main placement; dual-humanoid cooperation is a secondary contribution, without a duplicate full entry. Its reported retargeting success is not a real-robot task success rate. HoloBoxing demonstrates simulated interaction between robot embodiments, not pure human animation, but does not establish hardware transfer. Its additional-training budget excludes controller pretraining, preparation, evaluation, and search; league results are not a universally controlled method ranking. ViT-H retains generator updates through preference post-training from tracking feedback; this differs from within-rollout command optimization and does not establish strict recursive self-improvement. Its hardware interaction examples are video teleoperation, not autonomous VLA task execution.
+
+本批首次提交均为 2026-10-23，首页按首次公开月份记 2026-10；10-26 是公告和本次收录日期。LocoManiLab 与 Attention-based Contacts 已于 10-24 收录，不重复计数。Curve SVG and monthly CSV are regenerated from the README, retaining seven H2 columns in the CSV.
+
 <a id="arxiv-additions-2026-10-24"></a>
 
 ## arXiv additions: 2026-10-24 / 增量核验收录
@@ -363,6 +379,7 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 
 

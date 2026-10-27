@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-126-4263eb?style=flat-square" alt="126 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-127-4263eb?style=flat-square" alt="127 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **126 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **127 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-26 (3 works; see [batch scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-26)).**
+**Latest additions: 2026-10-27 (MOTIO; see [scope and evidence](docs/SOURCES.md#motio-addition-2026-10-27)).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261026-126" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
+  <img src="assets/paper-growth.svg?v=20261027-127" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
 </p>
 
 <sub>Growth of the curated reading list by first public release month; includes papers and reports. The blue Simulation & Transfer curve combines Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training; the seven README categories remain separate. [Monthly data by H2](docs/paper-growth.csv) · [Counting and automatic updates](docs/CHART.md).</sub>
@@ -568,6 +568,7 @@ Retain successful executions to seed further data augmentation and tracking-poli
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**MOTIO**](https://arxiv.org/abs/2610.33446)<br><sub>MOTIO: Agentic Skill Engineering for Reality-Grounded Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Human videos, metric assets, and execution feedback → revised staged humanoid skill programs | Revises body, hand, and contact programs using physics execution, multi-frame inspection, and human approval, with real G1 bottle disposal and door/cart transport plus a distilled shared reference policy evaluated on 18 simulated tasks. | [Paper](https://arxiv.org/abs/2610.33446) |
 | [**InterEvolve**](https://arxiv.org/abs/2610.02196)<br><sub>InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Task requests, simulated feedback, and a skill library → revised reward programs | Revises staged reward programs with an LLM and numerical search, verifying them on a fixed controller and retaining successful programs for later tasks.<br><sub>Tags: Reward programs · Test-time search · Persistent skill library</sub> | [Paper](https://arxiv.org/abs/2610.02196) · [Project](https://sirui-xu.github.io/InterEvolve/) |
 | [**CoEvolve**](https://arxiv.org/abs/2610.23288)<br><sub>CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots</sub> | 2026-10<br><sub>arXiv</sub> | Fixed motor skills and verification feedback → evolved coordination code | Revises executable team coordination from verified checkpoints and retains experience for two simulated G1 robots carrying a shared payload. | [Paper](https://arxiv.org/abs/2610.23288) |
 | [**HuGo**](https://arxiv.org/abs/2609.30594)<br><sub>HuGo: LLMs as Whole-Body Policy Code Designers for Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | Task requests and execution rollouts → revised control programs | Generates and revises executable G1 control code using verified rollout and hardware feedback; cross-task skill memory remains future work. | [Paper](https://arxiv.org/abs/2609.30594) |
@@ -620,6 +621,7 @@ Retain successful executions to seed further data augmentation and tracking-poli
 **Inspired by:** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation).
 
 **License:** Original curation text and assets use the [MIT License](LICENSE). Linked research and resources retain their respective licenses.
+
 
 
 

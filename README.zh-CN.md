@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-126-4263eb?style=flat-square" alt="126 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-127-4263eb?style=flat-square" alt="127 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **126 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **127 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-26（新增 3 项，见[本批范围与证据](docs/SOURCES.md#arxiv-additions-2026-10-26)）。**
+**最新收录：2026-10-27（新增 MOTIO，见[来源与证据](docs/SOURCES.md#motio-addition-2026-10-27)）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261026-126" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
+  <img src="assets/paper-growth.svg?v=20261027-127" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
 </p>
 
 <sub>按首次公开月份累计收录的论文与报告；蓝色 Simulation & Transfer（仿真与迁移）曲线合并 Real2Sim、Real2Sim2Real 和 Sim2Real & Sim–Real Co-Training，正文仍保留七个独立分类。[按 H2 拆分的逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
@@ -568,6 +568,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**MOTIO**](https://arxiv.org/abs/2610.33446)<br><sub>MOTIO: Agentic Skill Engineering for Reality-Grounded Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 人体视频、实尺度资产与执行反馈 → 经修订的分阶段人形技能程序 | 根据物理执行、多帧检查与人工验收修订身体、手部及接触程序，在真实 G1 上完成搬瓶投放和开门推车；另将技能蒸馏为执行 18 项仿真任务的共享参考策略。 | [论文](https://arxiv.org/abs/2610.33446) |
 | [**InterEvolve**](https://arxiv.org/abs/2610.02196)<br><sub>InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 任务请求、仿真反馈与技能库 → 修订后的奖励程序 | 用 LLM 与数值搜索修订分阶段奖励程序，在固定控制器上验证，并保留成功程序供后续任务复用。<br><sub>标签: 奖励程序 · 测试时搜索 · 持久技能库</sub> | [论文](https://arxiv.org/abs/2610.02196) · [项目](https://sirui-xu.github.io/InterEvolve/) |
 | [**CoEvolve**](https://arxiv.org/abs/2610.23288)<br><sub>CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots</sub> | 2026-10<br><sub>arXiv</sub> | 固定运动技能与验证反馈 → 演化后的协作代码 | 两个仿真 G1 协作搬运；验证失败后修订协调代码并保留经验，没有真机结果声明。 | [论文](https://arxiv.org/abs/2610.23288) |
 | [**HuGo**](https://arxiv.org/abs/2609.30594)<br><sub>HuGo: LLMs as Whole-Body Policy Code Designers for Humanoid Loco-Manipulation</sub> | 2026-09<br><sub>arXiv</sub> | 任务请求与执行回放 → 修订后的控制程序 | G1 真机；利用执行反馈修改并验证控制代码；跨任务技能记忆仍是未来工作，不宣称已实现。 | [论文](https://arxiv.org/abs/2609.30594) |
@@ -620,6 +621,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 **参考仓库：** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation)。
 
 **许可：** 原创整理文字与资产采用 [MIT 许可](LICENSE)；链接中的研究与资源保留各自许可。
+
 
 
 

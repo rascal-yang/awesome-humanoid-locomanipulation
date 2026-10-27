@@ -39,6 +39,16 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="motio-addition-2026-10-27"></a>
+
+## MOTIO addition: 2026-10-27 / 单篇核验收录
+
+- [MOTIO: Agentic Skill Engineering for Reality-Grounded Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.33446). First submitted 2026-10-24 04:55:00 UTC; latest checked v1, with no later revision observed. The README records first-release month 2026-10. At discovery, announcement/RSS sources still showed 10-26 and did not contain this ID; the first announcement date remains unverified and is not inferred from the submission or inclusion date.
+- **Primary placement: Iterative Improvement / Execution-Guided Program Refinement.** The agent writes staged body, hand, phase-transition, and contact programs from human-action videos, metric assets, reusable skills, and embodiment constraints. MuJoCo state feedback, multi-frame inspection, and human approval guide changes to targets, timing, and contact logic; the revised programs persist. The whole-body ScaleBFM remains frozen. Harness and reality-grounded scene reconstruction are secondary contributions, without duplicate full entries.
+- [Original full text](https://arxiv.org/html/2610.33446v1), §3.2–3.4, §4.1, Fig.6, and supplementary S4/S6/S7: physical Unitree G1 with Revo2 hands completes a continuous 101.75-second bottle pickup, loaded walking, bin disposal, and retreat sequence, plus a 98.41-second door-opening/cart-transport sequence. These are demonstrated executions rather than a multi-trial success rate. Program execution also supervises BC/DAgger distillation into a shared reference policy evaluated on 18 simulated tasks; those are not 18 real-robot tasks.
+- 本方法包含人工验收，不描述为全自主 agent；跨轮程序修订也不等同严格递归自我改进。真实办公室重建、仿真变化与真机执行支持其环境落地，但首页主位置按技能程序改进机制确定。WorldFailBench 与 RoboWorM 仍待核验，未随本篇加入。
+- Both language versions preserve the same original title, paper link, date, and category. Core works increase 126 → 127. Seven H2 sections, 29 H3 subgroups, five overview curves, and the existing automatic chart workflow are retained; SVG and seven-category CSV are regenerated from the primary README rows. This single-paper addition does not redate the full-list classification check.
+
 <a id="arxiv-additions-2026-10-26"></a>
 
 ## arXiv additions: 2026-10-26 / 增量核验收录
@@ -379,6 +389,7 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 
 

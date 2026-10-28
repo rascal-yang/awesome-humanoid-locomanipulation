@@ -39,6 +39,30 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="arxiv-additions-2026-10-28"></a>
+
+## arXiv additions: 2026-10-28 / 增量核验与修订说明
+
+Six additions increase core works 127 → 133. The four October v1 papers were observed in the 2026-10-27 new announcements; the two August papers were discovered in replacement announcements and retain first-release month 2026-08. Submission, revision, announcement, and inclusion dates are distinct. No new conference acceptance is inferred.
+
+- [Zero-HLM: Generalizable Humanoid Loco-Manipulation without Real Robot Data](https://arxiv.org/abs/2610.35075) — **Real2Sim2Real / Scene Reconstruction & Synthetic Demonstrations**. v1 submitted 2026-10-26T09:20:31Z; latest checked v1, updated 2026-10-26T09:20:31Z. 手机场景和物体捕获→Gaussian引导的agentic物理场景重建→动作/环境共同调整→4800条通过物理执行检查的仿真示范→GR00T等视觉策略真机迁移。G1 29DoF+Inspire RH56E2；三项真机任务包括步行取放香蕉、蹲取帽子并搬运、双手搬篮并用脚关柜门。无真实机器人示范是训练数据限定，不等于不使用真实场景捕获、不需要仿真遥操作源示范或全流程无人参与。主贡献为重建场景中的示范扩增和返回现实，Real2Sim2Real路线证据明确，不因使用agent就归Harness。 [Original evidence](https://arxiv.org/html/2610.35075v1): §3、§4.1–4.3、Tasks A/B/C.
+
+- [Learning Force-Reactive Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.35862) — **Interaction / Contact & Force Control**. v1 submitted 2026-10-26T17:59:11Z; latest checked v1, updated 2026-10-26T17:59:11Z. 原题Learning Force-Reactive Humanoid Loco-Manipulation。带力传感UMI手持夹爪和身体tracker记录位姿与接触力；扩散策略根据视觉/本体/测得wrench预测动作和双手力指令；混合柔顺全身控制器在保持平衡时跟踪力。G1仿真和真机推载有第二机器人之龙门架、双手旋箱、擦板；推架含行走。三任务每任务独立策略、各10次实验，总24/30；不是单通用策略。力/力矩传感不能随意写成皮肤触觉。 [Original evidence](https://arxiv.org/html/2610.35862v1): §III–V、实验设置、三个真机任务.
+
+- [HuGe: Scaling Humanoid Generalist Vision-Language-Action Models with Egocentric Experience](https://arxiv.org/abs/2610.34186) — **Foundations / Whole-Body VLA & Human-Data Pretraining**. v1 submitted 2026-10-25T09:46:41Z; latest checked v1, updated 2026-10-25T09:46:41Z. 2000余小时混合第一人称/机器人数据，三种VLA架构的预训练→人形适配→下游微调；输出SONIC motion latent与手信号，仿真回放提供伪本体状态，并重绘人手外观。HumanoidArena仿真；G1+Inspire真机接近桌面、抓瓶、转身走至垃圾桶并蹲放。真机仅其中π风格架构和一个完整任务，不能泛化成三架构多任务真机成功。 [Original evidence](https://arxiv.org/html/2610.34186v1): §3、§4.1、§4.2、Figure3.
+
+- [HumanoidNDM: Closing the Training-Deployment Gap of Motion Tracking via Humanoid Neural Dynamics Model](https://arxiv.org/abs/2610.34126) — **Iterative Improvement / Planner & Policy Post-Training**. v1 submitted 2026-10-25T07:51:22Z; latest checked v1, updated 2026-10-25T07:51:22Z. 部署数据训练history-based神经动力学模型，经模型梯度持续微调全身运动跟踪策略；FENCE低频扰动用于可行探索，无需mocap。G1仿真与真机；Appendix D明确行走时右手提2kg水桶（水晃动），另有双手笔/笔帽精对齐及负载/弹性干扰，不是仅靠标题motion tracking判相关。主要位置为持久策略后训练；不称测试时指令搜索或严格RSI。笔帽任务指标是端点最小距离，不擅自写100%实际套帽。 [Original evidence](https://arxiv.org/html/2610.34126v1): §3–4、Appendix D.1/D.2.
+
+- [Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL](https://arxiv.org/abs/2608.12063) — **Sim2Real & Sim–Real Co-Training / Whole-Body Policy Transfer**. v1 submitted 2026-08-12T13:48:56Z; latest checked v2, updated 2026-10-26T11:46:26Z. SMPC在仿真生成离线专家数据，混合在线仿真交互，以稀疏奖励训练off-policy RL高层，再配低层稳定控制器部署。确有真实G1推箱与相应仿真；Spot导航/轮胎直立/滚动等是四足实验，不能算G1任务。“offline-to-online”的online发生在仿真，不是持续真机在线训练。 [Original evidence](https://arxiv.org/html/2608.12063v2): Figure2、§3、§4、Appendix部署设置.
+
+- [Shooting for Contact: Contact-Implicit Multiple Shooting for Dynamic Motion Retargeting](https://arxiv.org/abs/2608.03116) — **Real2Sim / Contact-Preserving Motion Retargeting**. v1 submitted 2026-08-04T04:38:34Z; latest checked v2, updated 2026-10-25T23:39:59Z. 可微仿真嵌入contact-implicit多重射击优化，把运动参考变为满足动力学/接触/执行器约束的轨迹，再训练RL跟踪。G1真机有手、肘、膝、脚支撑的爬行（含高度限制空间/粗糙地形），非仅足底步行；因此按主动身体—环境支撑接触边界收录，不宣称有物体抓搬。另有动画/四足实验不混为人形证据。 [Original evidence](https://arxiv.org/html/2608.03116v2): §III、§IV-A Gait Synthesis、§IV-D、§V.
+
+### HoloBoxing v2 / 已收录论文的重要修订
+
+[HoloBoxing](https://arxiv.org/abs/2610.32909) remains under Interaction / Multi-Humanoid Coordination and is not counted again. v1 submitted 2026-10-23T17:11:28Z; v2 submitted 2026-10-26T15:14:59Z, observed in 10-27 replacement announcements. Comparing the original versions shows two changed configuration descriptions: the final-stage opponent is now each run's own frozen standing-warmup checkpoint rather than a shared external standing actor, and the 21.4-minute long version is now described as using a single RTX 4090 rather than RTX 5090 stage runs. See [v2 §4.3, §5.5, Appendix A](https://arxiv.org/html/2610.32909v2). The paper does not establish whether these are textual corrections or retraining; no such inference is made. It remains simulation-only, with one task-training seed, and the seven-minute budget is additional training above an available controller, excluding pretraining, preparation, evaluation, and search. The earlier dated source note records the previous v1 check; this note supersedes its latest-version status. The README's method summary remains valid.
+
+Both language versions preserve identical titles, paper URLs, first-release months, and main placements. Seven H2 sections, 29 H3 subgroups, and back-to-top links are unchanged. Five chart curves retain the combined Simulation & Transfer group, with seven separate H2 columns in the regenerated CSV. The full-list classification check date is unchanged. ThinkLocoManip is excluded because its platform is a wheeled quadruped with an arm; DEX-PHD and X-WBC remain pending whole-body interaction evidence and are not included in these six additions.
+
 <a id="motio-addition-2026-10-27"></a>
 
 ## MOTIO addition: 2026-10-27 / 单篇核验收录
@@ -389,6 +413,7 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 
 

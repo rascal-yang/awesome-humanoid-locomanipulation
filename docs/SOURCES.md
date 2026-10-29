@@ -39,6 +39,24 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="arxiv-additions-2026-10-29"></a>
+
+## arXiv additions: 2026-10-29 / 增量核验收录
+
+Four additions increase core works 133 → 137. Three new October papers were observed in 2026-10-28 new announcements; the September handover paper was discovered in the same day's v2 replacement announcements and retains first-release month 2026-09. Submission, revision, announcement, and inclusion dates are distinct; the first announcement of the September paper was not retrospectively verified in this run.
+
+- [Learning Multi-Phase Robot Loco-Manipulation via Phase-Conditioned Policy Optimization](https://arxiv.org/abs/2610.36270) — **Interaction / Whole-Body Planning & Skill Learning**. v1 submitted 2026-10-26T20:44:05Z; latest checked v1, updated 2026-10-26T20:44:05Z. 阶段条件critic、分阶段奖励与重置课程训练单个高层PPO actor，执行时不读取人工阶段标签。G1仿真及真机单/双箱推移、蹲下抬箱和搬运，包含前臂持续接触；另有Spot轮胎任务，不能并入人形结果。主要为多阶段技能学习，Sim2Real为次要交叉方向；不与已收录的SMPC离线数据+off-policy RL工作混同。 [Original evidence](https://arxiv.org/html/2610.36270v1): §III、§IV-A Hardware Deployments、§IV-B ablations.
+
+- [REACH: An RL-based Hierarchical Humanoid Crawling Framework for Adaptable Confined Space Traversal](https://arxiv.org/abs/2610.36546) — **Interaction / Whole-Body Planning & Skill Learning**. v1 submitted 2026-10-27T02:59:37Z; latest checked v1, updated 2026-10-27T02:59:37Z. REACH将G1双足屈身行走、手/腕/膝等支撑爬行、双向转姿策略与LiDAR规划器连接。仿真和真实未改装G1均有主动多部位环境接触；实机低通道40cm，0.20m是爬行高度命令范围下界，不能称20cm实机通道。转姿真机蹲到爬25/25，爬到蹲23/25；不是物体搬运。arXiv comments注明To appear at IEEE Humanoids 2026，若写会议信息应明确作者原始标注来源。 [Original evidence](https://arxiv.org/html/2610.36546v1): §III、§IV、Fig.3、TableII/硬件转姿实验.
+
+- [Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos](https://arxiv.org/abs/2610.36615) — **Real2Sim / Contact-Preserving Motion Retargeting**. v1 submitted 2026-10-27T04:18:31Z; latest checked v1, updated 2026-10-27T04:18:31Z. HumiTransfer从双人视频重建交互，用关节相对方向/解剖偏移及后处理保持跨身体接触、平衡和碰撞约束；HumiMimic为1200段视频、约50万帧。R1 Edu与Mini-hi均有仿真/重定向评测；真实平台仅R1 Edu，Fig.8拥抱与握手。不把Mini-hi写成真机验证；真实执行是预定义动作，不是在线感知人类并自适应响应。 [Original evidence](https://arxiv.org/html/2610.36615v1): §III、§IV-C、Fig.7/8、limitations.
+
+- [Temporal Tactile Encoding and Compliance for Intent-Aware Robot-to-Human Bimanual Handover](https://arxiv.org/abs/2609.05282) — **Interaction / Tactile-Guided Whole-Body Manipulation**. v1 submitted 2026-09-04T15:34:47Z; latest checked v2, updated 2026-10-27T08:19:31Z. ergoCub真实双手持箱交接，GR00T1.5微调结合RGB、Xela指尖触觉历史、本体状态，触觉驱动释放决策；独立柔顺层与躯干/双臂IK控制协同让出外力。§III-D显式计算躯干和双臂参考，示教含躯干弯转及头部协调，非独立双臂。8人收集示范，10人评测。收录限于人形上身接触/交接贡献，不宣称双足行走或腿控。旧文v2修订公告中补发现，不能计作10月首发。 [Original evidence](https://arxiv.org/html/2609.05282v2): §III-A/D/E、Fig.2、§IV human-subject evaluation.
+
+The multi-phase PPO contribution differs from the already included SMPC demonstrations plus off-policy RL pipeline: task-phase structure guides training, but the actor executes without privileged phase labels. Spot experiments are not counted as humanoid results. REACH includes active hand/knee support contact, beyond feet-only terrain traversal; the 0.20 m lower height-command bound is not a demonstrated 20 cm real passage. HumiTransfer's R1 hardware examples are predefined sequences, not reactive online human tracking, and Mini-hi hardware is not claimed. The ergoCub handover contribution coordinates torso and arm compliance using tactile evidence; it establishes upper-body humanoid contact interaction, not locomotion.
+
+Both language versions preserve identical original titles, paper URLs, months, and placements. All 133 existing primary rows are retained. Seven H2 sections, 29 H3 subgroups, back-to-top links, five chart curves, and the seven-category CSV remain in place. SVG and CSV are regenerated from the primary README; the whole-list classification check date is unchanged. Tokens of Motion remains pending because abstract/full-text content conflicts and whole-body task evidence is incomplete; it is not included in this batch.
+
 <a id="arxiv-additions-2026-10-28"></a>
 
 ## arXiv additions: 2026-10-28 / 增量核验与修订说明
@@ -413,6 +431,7 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 
 

@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-133-4263eb?style=flat-square" alt="133 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-137-4263eb?style=flat-square" alt="137 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **133 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **137 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-28（新增 Zero-HLM、FLoRe、HuGe、HumanoidNDM、SMPC-to-RL、Shooting for Contact，见[来源与证据](docs/SOURCES.md#arxiv-additions-2026-10-28)）。**
+**最新收录：2026-10-29（新增 Multi-Phase Loco-Manipulation、REACH、HumiTransfer、Temporal Tactile Handover，见[来源与证据](docs/SOURCES.md#arxiv-additions-2026-10-29)）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261028-133" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
+  <img src="assets/paper-growth.svg?v=20261029-137" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
 </p>
 
 <sub>按首次公开月份累计收录的论文与报告；蓝色 Simulation & Transfer（仿真与迁移）曲线合并 Real2Sim、Real2Sim2Real 和 Sim2Real & Sim–Real Co-Training，正文仍保留七个独立分类。[按 H2 拆分的逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
@@ -101,6 +101,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**STR / STRL**](https://arxiv.org/abs/2610.30540)<br><sub>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 人物交互示教 → 保持接触的机器人参考与跟踪策略 | 按关键帧和身体部位分配重定向优化预算，以近似物体力矩模型修正接触锚点，并训练阶段感知交互策略；在 G1 仿真与 R1 真机搬箱中评测。 | [论文](https://arxiv.org/abs/2610.30540) |
 | [**FRDV**](https://arxiv.org/abs/2610.28470)<br><sub>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与人形机器人约束 → 重定向及可选动力学修正的参考 | 结合约束逆运动学与可选的接触隐式 iLQR 修正，处理足部浮空与滑步，并将动作跟踪迁移到真实 G1。 | [Paper](https://arxiv.org/abs/2610.28470) |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与交互示教 → 人形机器人参考轨迹 | 通过显式目标优先级与梯度投影，在优化姿态等低优先级目标时保留足部落点和交互接触。<br><sub>标签: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [论文](https://arxiv.org/abs/2610.12642) · [项目](https://nickioan.github.io/primoretarget-page/) |
+| [**HumiTransfer**](https://arxiv.org/abs/2610.36615)<br><sub>Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos</sub> | 2026-10<br><sub>arXiv</sub> | 双人交互视频 → 保持接触关系的人—人形动作 | 通过构型迁移及平衡、接触优化保持跨身体交互关系，为 R1 Edu 和 Mini-hi 构建 HumiMimic，并在真实 R1 Edu 上执行预定义的拥抱、握手序列。 | [论文](https://arxiv.org/abs/2610.36615) |
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体示教 → 机器人与物体联合参考轨迹 | 利用最优传输匹配表面交互，联合优化机器人与物体位姿，在形态变化后保留接触关系。<br><sub>标签: Contact preservation · Joint robot–object optimization</sub> | [论文](https://arxiv.org/abs/2609.36602) |
 | [**HOI-Retarget**](https://arxiv.org/abs/2609.34674)<br><sub>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体交互动作与物体系接触标注 → 人形交互参考轨迹 | 以滑动窗口轨迹优化在人体形态变化与机器人运动学约束下保留物体系接触，同时兼顾身体跟踪、足部支撑和平滑性。<br><sub>标签: Object-frame contacts · Trajectory optimization · Motion augmentation</sub> | [论文](https://arxiv.org/abs/2609.34674) · [项目](https://shinben0327.github.io/hoi-retarget/) |
 | [**UMR**](https://arxiv.org/abs/2609.02134)<br><sub>Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence</sub> | 2026-09<br><sub>arXiv</sub> | 人体表面动作与接触图 → 人形机器人参考动作 | 学习人体与机器人表面的稠密对应，将其用于受约束姿态匹配和接触图迁移，统一处理不同动作来源。<br><sub>标签: Dense correspondence · Surface matching · Contact transfer</sub> | [论文](https://arxiv.org/abs/2609.02134) |
@@ -327,6 +328,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | 论文 / 项目 | 首次公开 / 发表信息 | 输入 → 输出 | 一句话概括 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
 | [**PanTact**](https://arxiv.org/abs/2610.12558)<br><sub>PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface</sub> | 2026-10<br><sub>arXiv</sub> | 可穿戴接触示教 → 身体接触目标与控制 | G1 真机；可穿戴接触接口学习身体支撑、推扫和负载分担，不局限于双手接触。 | [论文](https://arxiv.org/abs/2610.12558) |
+| [**Temporal Tactile Handover**](https://arxiv.org/abs/2609.05282)<br><sub>Temporal Tactile Encoding and Compliance for Intent-Aware Robot-to-Human Bimanual Handover</sub> | 2026-09<br><sub>arXiv</sub> | RGB、触觉历史与机器人状态 → 释放决策及柔顺人形交接 | 利用时序指尖触觉微调 VLA，并协调躯干—双臂柔顺控制，在真实 ergoCub 双手交箱中判断人类接取意图；贡献限于上身交互，不宣称行走或腿部控制。 | [论文](https://arxiv.org/abs/2609.05282) |
 | [**WT-UMI**](https://arxiv.org/abs/2606.13232)<br><sub>WT-UMI: Tactile-based Whole-Body Manipulation via Force-Supervised Contact-Aware Planning</sub> | 2026-06<br><sub>arXiv</sub> | 可穿戴位姿与触觉示教 → 力感知执行 | G1 真机；可穿戴触觉示范提供位姿和接触力监督，由顺应控制执行。 | [论文](https://arxiv.org/abs/2606.13232) |
 | [**TACT**](https://arxiv.org/abs/2506.15146)<br><sub>TACT: Humanoid Whole-body Contact Manipulation through Deep Imitation Learning with Tactile Modality</sub> | 2025-06<br><sub>RA-L 2025</sub> | 视觉、关节状态与分布式触觉 → 接触密集操作动作 | 为 ACT 加入上半身触觉输入，并与基于模型的双足控制结合，实现利用大面积身体接触的搬运。<br><sub>标签: 触觉反馈 · 模仿学习 · 身体接触</sub> | [论文](https://arxiv.org/abs/2506.15146) |
 
@@ -358,6 +360,8 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**HS-MoDP / G1Exo**](https://arxiv.org/abs/2610.26169)<br><sub>Compositional Humanoid Manipulation through Isomorphic Teleoperation and Independent Skill Routing</sub> | 2026-10<br><sub>arXiv</sub> | 同构外骨骼示教与分臂语义条件 → 组合式操作策略 | 结合 G1Exo 示教与两臂独立路由的共享策略专家，在真实 G1 上完成利用手臂和躯干接触的操作。 | [Paper](https://arxiv.org/abs/2610.26169) |
 | [**FIBER**](https://arxiv.org/abs/2610.24675)<br><sub>Action-Aligned Latent Planning for Versatile Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 任务专家的动作响应与视觉观测 → 冻结行为模型潜空间中的计划 | 将任务专家对齐到冻结行为基础模型并离线训练统一视觉潜空间规划器，在仿真与真实 G1 上评测开门、拾取和搬运。 | [Paper](https://arxiv.org/abs/2610.24675) |
 | [**BOPI**](https://arxiv.org/abs/2610.13087)<br><sub>Belief-Overlap Partial Inversion: Object-Centric Flow Replanning for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 交互观测与目标 → 信念条件化规划 | G1 仿真及真机推车；信念更新与流模型重规划处理未知交互动力学。 | [论文](https://arxiv.org/abs/2610.13087) |
+| [**Multi-Phase Loco-Manipulation**](https://arxiv.org/abs/2610.36270)<br><sub>Learning Multi-Phase Robot Loco-Manipulation via Phase-Conditioned Policy Optimization</sub> | 2026-10<br><sub>arXiv</sub> | 任务阶段与仿真交互 → 单个多阶段任务策略 | 通过阶段条件价值网络、分阶段奖励和重置课程训练策略，执行时无需阶段标签；真实 G1 完成推箱、蹲下抬箱和搬运，包含前臂持续接触。 | [论文](https://arxiv.org/abs/2610.36270) |
+| [**REACH**](https://arxiv.org/abs/2610.36546)<br><sub>REACH: An RL-based Hierarchical Humanoid Crawling Framework for Adaptable Confined Space Traversal</sub> | 2026-10<br><sub>arXiv</sub> | LiDAR 几何与本体状态历史 → 变高度行走、爬行与转姿 | 结合高度条件运动、多接触爬行、双向转姿策略及 LiDAR 规划器，在仿真和未改装的真实 G1 上通过低矮通道。 | [论文](https://arxiv.org/abs/2610.36546) |
 | [**MotionDisco**](https://arxiv.org/abs/2606.06139)<br><sub>MotionDisco: Motion Discovery for Extreme Humanoid Loco-Manipulation</sub> | 2026-06<br><sub>arXiv</sub> | 场景几何与任务目标 → 接触规划与全身动作 | G1 接触规划与运动求解；将环境支撑接触和物体交互纳入全身运动发现，区分求解与策略训练。 | [论文](https://arxiv.org/abs/2606.06139) |
 | [**LadderMan**](https://arxiv.org/abs/2606.05873)<br><sub>LadderMan: Learning Humanoid Perceptive Ladder Climbing</sub> | 2026-06<br><sub>CoRL 2026</sub> | 单条攀爬示教、深度观测与操作员目标 → 感知攀爬与稳定的梯上操作 | 将攀爬专家蒸馏为基于深度观测的 G1 策略，并将下肢稳定与遥操作上肢控制分离，实现梯上操作。 | [Paper](https://arxiv.org/abs/2606.05873) · [Project](https://ladderman-robot.github.io/) |
 | [**DreamControl**](https://arxiv.org/abs/2509.14353)<br><sub>DreamControl: Human-Inspired Whole-Body Humanoid Control for Scene Interaction via Guided Diffusion</sub> | 2025-09<br><sub>arXiv</sub> | 人体动作扩散先验与任务奖励 → 交互策略 | G1 实验；人类动作扩散先验引导强化学习完成抽屉、拾取等身体与物体交互。 | [论文](https://arxiv.org/abs/2509.14353) |
@@ -627,6 +631,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 **参考仓库：** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation)。
 
 **许可：** 原创整理文字与资产采用 [MIT 许可](LICENSE)；链接中的研究与资源保留各自许可。
+
 
 
 

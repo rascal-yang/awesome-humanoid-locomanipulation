@@ -39,6 +39,17 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="str-v2-verification-2026-10-30"></a>
+
+## STR / STRL v2 verification: 2026-10-30 / 修订核验
+
+[Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.30540) remains under **Real2Sim / Contact-Preserving Motion Retargeting**. v1 was submitted 2026-10-21T23:54:17Z; v2 was submitted 2026-10-24T13:06:38Z and observed in the 2026-10-27 replacement announcements. The verification date is not a new paper or revision date. Original [v1 PDF](https://arxiv.org/pdf/2610.30540v1) and [v2 PDF](https://arxiv.org/pdf/2610.30540v2) were compared, resolving the earlier v1 HTML availability limitation. This note supersedes the earlier dated source note's latest-version status while retaining its historical check.
+
+- **Reward description / 奖励表述:** The v2 abstract describes STRL's contact-position reward based on target proximity, replacing the v1 abstract's reference to object contact forces. The v1 method already expresses Eq. (12) using contact-position error; this wording change alone does not establish that a force-reward term was added or removed. v2摘要明确为基于目标接近度的接触位置奖励；不能仅凭摘要改写推断算法变化。
+- **Evaluation protocol / 评测口径:** The v1 downstream evaluation description averages six sequences, while v2 describes evaluation over the same ten tasks used for retargeting. Table III's reported success rates remain 32.97%, 81.25%, and 86.56%. This is a change in the documented evaluation scope, not independently verified evidence of rerun experiments or improved scores. 下游汇总口径由六条序列改为十项任务，但表中数值未变；保留这一版本差异，不推断作者未说明的实验过程。
+- **Training and reporting / 训练与报告:** v1 includes archived-checkpoint selection and training-budget qualifications; v2 replaces those passages with a shared G1 PPO training configuration. The comparison records what the documents state rather than inferring equivalence of the underlying runs. Original locations: abstracts, §III-D, §IV-A, Table III, and Appendices A–B; [v2 HTML](https://arxiv.org/html/2610.30540v2).
+- **Scope retained / 收录边界:** G1 simulation and R1 hardware box carrying still support the existing README summary. The primary category, first-release month 2026-10, both README entries, 137-work count, and growth-chart data remain unchanged. 本次仅补充来源与修订说明，不新增论文计数。
+
 <a id="arxiv-additions-2026-10-29"></a>
 
 ## arXiv additions: 2026-10-29 / 增量核验收录

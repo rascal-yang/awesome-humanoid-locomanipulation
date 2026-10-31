@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-137-4263eb?style=flat-square" alt="137 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-138-4263eb?style=flat-square" alt="138 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **137 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
+人形移动操作将**移动、平衡与操作**协同起来。本清单按七个研究方向组织 **138 项核心工作**，每项设一个主条目，并用交叉链接呈现重叠贡献；另提供 [13 项关联方法](docs/RELATED_READING.md#中文)，说明机械臂、仿真人体与通用学习方法对本主题的参考价值。
 
 **收录范围：** 优先选择直接研究人形全身操作、接触交互、重定向、训练迁移或执行系统的工作。论文与项目报告明确区分，分类属于编辑判断。
 
 **分类核对：2026-10-16。** 表中为首次公开月份与单独核实的发表信息，不是阅读日期。资源链接不保证完整实现已发布，见 [来源与收录说明](docs/SOURCES.md)。
 
-**最新收录：2026-10-29（新增 Multi-Phase Loco-Manipulation、REACH、HumiTransfer、Temporal Tactile Handover，见[来源与证据](docs/SOURCES.md#arxiv-additions-2026-10-29)）。**
+**最新收录：2026-10-31（新增 METATRON；同步 HumiMimic 题名与项目链接，见[来源与证据](docs/SOURCES.md#arxiv-additions-2026-10-31)）。**
 
 H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的具体方法，小节可以只有一项工作；交叉链接与标签呈现重叠贡献。
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261029-137" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
+  <img src="assets/paper-growth.svg?v=20261031-138" alt="按首次公开月份累计的核心条目增长趋势，共五条曲线，前三个仿真相关方向合并展示" width="100%">
 </p>
 
 <sub>按首次公开月份累计收录的论文与报告；蓝色 Simulation & Transfer（仿真与迁移）曲线合并 Real2Sim、Real2Sim2Real 和 Sim2Real & Sim–Real Co-Training，正文仍保留七个独立分类。[按 H2 拆分的逐月数据](docs/paper-growth.csv) · [统计口径与自动更新](docs/CHART.md)。</sub>
@@ -101,7 +101,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 | [**STR / STRL**](https://arxiv.org/abs/2610.30540)<br><sub>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | 人物交互示教 → 保持接触的机器人参考与跟踪策略 | 按关键帧和身体部位分配重定向优化预算，以近似物体力矩模型修正接触锚点，并训练阶段感知交互策略；在 G1 仿真与 R1 真机搬箱中评测。 | [论文](https://arxiv.org/abs/2610.30540) |
 | [**FRDV**](https://arxiv.org/abs/2610.28470)<br><sub>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与人形机器人约束 → 重定向及可选动力学修正的参考 | 结合约束逆运动学与可选的接触隐式 iLQR 修正，处理足部浮空与滑步，并将动作跟踪迁移到真实 G1。 | [Paper](https://arxiv.org/abs/2610.28470) |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | 人体动作与交互示教 → 人形机器人参考轨迹 | 通过显式目标优先级与梯度投影，在优化姿态等低优先级目标时保留足部落点和交互接触。<br><sub>标签: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [论文](https://arxiv.org/abs/2610.12642) · [项目](https://nickioan.github.io/primoretarget-page/) |
-| [**HumiTransfer**](https://arxiv.org/abs/2610.36615)<br><sub>Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos</sub> | 2026-10<br><sub>arXiv</sub> | 双人交互视频 → 保持接触关系的人—人形动作 | 通过构型迁移及平衡、接触优化保持跨身体交互关系，为 R1 Edu 和 Mini-hi 构建 HumiMimic，并在真实 R1 Edu 上执行预定义的拥抱、握手序列。 | [论文](https://arxiv.org/abs/2610.36615) |
+| [**HumiTransfer / HumiMimic**](https://arxiv.org/abs/2610.36615)<br><sub>HumiMimic: Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos</sub> | 2026-10<br><sub>arXiv</sub> | 双人交互视频 → 保持接触关系的人—人形动作 | 通过构型迁移及平衡、接触优化保持跨身体交互关系，为 R1 Edu 和 Mini-hi 构建 HumiMimic，并在真实 R1 Edu 上执行预定义的拥抱、握手序列。 | [论文](https://arxiv.org/abs/2610.36615) · [项目](https://aioznetwork.github.io/HumiMimic/) |
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体示教 → 机器人与物体联合参考轨迹 | 利用最优传输匹配表面交互，联合优化机器人与物体位姿，在形态变化后保留接触关系。<br><sub>标签: Contact preservation · Joint robot–object optimization</sub> | [论文](https://arxiv.org/abs/2609.36602) |
 | [**HOI-Retarget**](https://arxiv.org/abs/2609.34674)<br><sub>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</sub> | 2026-09<br><sub>arXiv</sub> | 人体物体交互动作与物体系接触标注 → 人形交互参考轨迹 | 以滑动窗口轨迹优化在人体形态变化与机器人运动学约束下保留物体系接触，同时兼顾身体跟踪、足部支撑和平滑性。<br><sub>标签: Object-frame contacts · Trajectory optimization · Motion augmentation</sub> | [论文](https://arxiv.org/abs/2609.34674) · [项目](https://shinben0327.github.io/hoi-retarget/) |
 | [**UMR**](https://arxiv.org/abs/2609.02134)<br><sub>Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence</sub> | 2026-09<br><sub>arXiv</sub> | 人体表面动作与接触图 → 人形机器人参考动作 | 学习人体与机器人表面的稠密对应，将其用于受约束姿态匹配和接触图迁移，统一处理不同动作来源。<br><sub>标签: Dense correspondence · Surface matching · Contact transfer</sub> | [论文](https://arxiv.org/abs/2609.02134) |
@@ -533,6 +533,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 
 | 论文 / 项目 | 首次公开 / 发表 | 输入 → 产出 | 一句话简介 | 资源 |
 | :--- | :--- | :--- | :--- | :--- |
+| [**METATRON**](https://arxiv.org/abs/2610.38027)<br><sub>METATRON: A Promptable Whole-Body Execution Layer for Humanoids</sub> | 2026-10<br><sub>arXiv</sub> | 身体目标、速度、风格与技能程序 → 冻结策略执行的全身动作 | 通过可编程技能逐步设置部分身体目标，由冻结生成式策略协调执行；同一真实 G1 策略支持遥操作拾物、坐家具、人机交互与起身恢复，无需逐任务重训策略。 | [论文](https://arxiv.org/abs/2610.38027) · [项目](https://research.nvidia.com/labs/par/projects/metatron/) |
 | [**GPT-6-Astra Embodied Evaluation**](https://arxiv.org/abs/2610.22471)<br><sub>Has GPT-6-Astra Achieved Embodied Intelligence?</sub> | 2026-10<br><sub>arXiv</sub> | 观测、示教与反馈 → 经执行接口下发的模型动作 | 研究上下文学习、交互预算与执行接口，包含 SIMPLE 中的 G1 仿真移动操作；真机 G1 的操作与行走分别评测。 | [论文](https://arxiv.org/abs/2610.22471) |
 | [**Inertially Significant Humanoid Teleoperation**](https://arxiv.org/abs/2610.22176)<br><sub>Inertially Significant Humanoid Teleoperation via Whole Body Model Predictive Control and Online Parameter Estimation</sub> | 2026-10<br><sub>arXiv</sub> | VR 位姿指令与机器人反馈 → 负载自适应的全身 MPC 指令 | 在 23 自由度双足人形机器人上结合全身 MPC 与基于 EKF 的在线惯性估计，真机负载测试使用手工安装的前臂配重。 | [Paper](https://arxiv.org/abs/2610.22176) |
 | [**iGPC**](https://arxiv.org/abs/2610.08120)<br><sub>iGPC: Generative Motion Priors for Object-Aware Humanoid Interaction</sub> | 2026-10<br><sub>arXiv</sub> | 几何观测与目标 → 几何落地的全身执行 | G1 真机；以几何感知和已有运动先验协调规划与控制，覆盖抓扶手、推箱及坐站。 | [论文](https://arxiv.org/abs/2610.08120) |
@@ -631,6 +632,7 @@ H2 表示宏观研究方向、技术路线或系统范式，H3 表示其中的�
 **参考仓库：** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation)。
 
 **许可：** 原创整理文字与资产采用 [MIT 许可](LICENSE)；链接中的研究与资源保留各自许可。
+
 
 
 

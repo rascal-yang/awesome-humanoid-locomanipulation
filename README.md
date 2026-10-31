@@ -16,22 +16,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Loco--Manipulation-087f8c?style=flat-square" alt="Focus: Loco-Manipulation">
-  <img src="https://img.shields.io/badge/Core_entries-137-4263eb?style=flat-square" alt="137 core entries">
+  <img src="https://img.shields.io/badge/Core_entries-138-4263eb?style=flat-square" alt="138 core entries">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square" alt="MIT license"></a>
 </p>
 
-Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **137 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
+Humanoid loco-manipulation coordinates **locomotion, balance, and manipulation**. This list organizes **138 core works** across seven directions, with a primary entry for each work and cross-links for overlapping contributions. A separate [13-entry related reading list](docs/RELATED_READING.md) explains relevant methods from robot arms, simulated humans, and general learning.
 
 **Scope:** direct contributions to humanoid whole-body manipulation, contact interaction, retargeting, training and transfer, or execution systems. Papers and project reports are distinguished; category assignments are editorial judgments.
 
 **Classification checked: 2026-10-16.** Dates are first public release months, with independently verified venues recorded separately—not reading dates. Resource links do not promise a complete implementation; see [source and selection notes](docs/SOURCES.md).
 
-**Latest additions: 2026-10-29 (Multi-Phase Loco-Manipulation, REACH, HumiTransfer, Temporal Tactile Handover; see [scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-29)).**
+**Latest additions: 2026-10-31 (METATRON; HumiMimic title and project link refreshed; see [scope and evidence](docs/SOURCES.md#arxiv-additions-2026-10-31)).**
 
 H2 sections describe broad research directions, technical routes, or system paradigms; H3 subgroups describe concrete methods within them and may contain a single work. Cross-links and tags identify overlapping contributions.
 
 <p align="center">
-  <img src="assets/paper-growth.svg?v=20261029-137" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
+  <img src="assets/paper-growth.svg?v=20261031-138" alt="Cumulative core works by first public release, with five curves and the three simulation routes combined" width="100%">
 </p>
 
 <sub>Growth of the curated reading list by first public release month; includes papers and reports. The blue Simulation & Transfer curve combines Real2Sim, Real2Sim2Real, and Sim2Real & Sim–Real Co-Training; the seven README categories remain separate. [Monthly data by H2](docs/paper-growth.csv) · [Counting and automatic updates](docs/CHART.md).</sub>
@@ -101,7 +101,7 @@ Preserve robot–object and environment contacts while adapting demonstrated mot
 | [**STR / STRL**](https://arxiv.org/abs/2610.30540)<br><sub>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</sub> | 2026-10<br><sub>arXiv</sub> | Human-object demonstrations → contact-preserving robot references and tracking policies | Allocates retargeting effort by keyframes and body parts, refines contact anchors with an object-wrench approximation, and trains stage-aware interaction policies; evaluated on simulated G1 and real R1 box carrying. | [Paper](https://arxiv.org/abs/2610.30540) |
 | [**FRDV**](https://arxiv.org/abs/2610.28470)<br><sub>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and humanoid constraints → retargeted and optionally dynamics-refined references | Combines constrained inverse kinematics with optional contact-implicit iLQR refinement to address foot floating and sliding, with motion tracking transferred to a real G1. | [Paper](https://arxiv.org/abs/2610.28470) |
 | [**PriMoRetarget**](https://arxiv.org/abs/2610.12642)<br><sub>PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</sub> | 2026-10<br><sub>arXiv</sub> | Human motion and interaction demonstrations → humanoid reference trajectories | Uses an explicit objective hierarchy and gradient projection to preserve foot placement and interaction contacts while optimizing lower-priority pose objectives.<br><sub>Tags: Prioritized optimization · Contact preservation · Multi-character interactions</sub> | [Paper](https://arxiv.org/abs/2610.12642) · [Project](https://nickioan.github.io/primoretarget-page/) |
-| [**HumiTransfer**](https://arxiv.org/abs/2610.36615)<br><sub>Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos</sub> | 2026-10<br><sub>arXiv</sub> | Human–human interaction videos → contact-preserving human–humanoid motion | Preserves inter-body relationships through embodiment transfer and balance/contact optimization, producing HumiMimic for R1 Edu and Mini-hi with predefined hugging and handshaking sequences deployed on real R1 Edu. | [Paper](https://arxiv.org/abs/2610.36615) |
+| [**HumiTransfer / HumiMimic**](https://arxiv.org/abs/2610.36615)<br><sub>HumiMimic: Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos</sub> | 2026-10<br><sub>arXiv</sub> | Human–human interaction videos → contact-preserving human–humanoid motion | Preserves inter-body relationships through embodiment transfer and balance/contact optimization, producing HumiMimic for R1 Edu and Mini-hi with predefined hugging and handshaking sequences deployed on real R1 Edu. | [Paper](https://arxiv.org/abs/2610.36615) · [Project](https://aioznetwork.github.io/HumiMimic/) |
 | [**OTRetarget**](https://arxiv.org/abs/2609.36602)<br><sub>OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</sub> | 2026-09<br><sub>arXiv</sub> | Human–object demonstrations → joint robot–object references | Transfers surface interactions with optimal transport and jointly optimizes robot and object poses to preserve contacts across embodiments.<br><sub>Tags: Contact preservation · Joint robot–object optimization</sub> | [Paper](https://arxiv.org/abs/2609.36602) |
 | [**HOI-Retarget**](https://arxiv.org/abs/2609.34674)<br><sub>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</sub> | 2026-09<br><sub>arXiv</sub> | HOI motion and object-frame contact labels → humanoid interaction references | Uses windowed trajectory optimization to preserve object-frame contacts under humanoid kinematic limits while balancing body tracking, foot support, and smoothness.<br><sub>Tags: Object-frame contacts · Trajectory optimization · Motion augmentation</sub> | [Paper](https://arxiv.org/abs/2609.34674) · [Project](https://shinben0327.github.io/hoi-retarget/) |
 | [**UMR**](https://arxiv.org/abs/2609.02134)<br><sub>Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence</sub> | 2026-09<br><sub>arXiv</sub> | Human surface motion and contact maps → humanoid reference motion | Learns dense human–robot surface correspondences and reuses them for constrained pose matching and contact-map transfer across motion sources.<br><sub>Tags: Dense correspondence · Surface matching · Contact transfer</sub> | [Paper](https://arxiv.org/abs/2609.02134) |
@@ -533,6 +533,7 @@ Use remembered spatial context and skill outcomes to plan and revise long-horizo
 
 | Paper / project | First release / venue | Input → output | One-sentence takeaway | Resources |
 | :--- | :--- | :--- | :--- | :--- |
+| [**METATRON**](https://arxiv.org/abs/2610.38027)<br><sub>METATRON: A Promptable Whole-Body Execution Layer for Humanoids</sub> | 2026-10<br><sub>arXiv</sub> | Body goals, velocity, style, and skill programs → whole-body execution by a frozen policy | Exposes partial motion goals to programmable skills above a frozen generative controller, with one real G1 policy supporting teleoperated pickup, furniture sitting, physical guidance, and recovery without task-specific policy retraining. | [Paper](https://arxiv.org/abs/2610.38027) · [Project](https://research.nvidia.com/labs/par/projects/metatron/) |
 | [**GPT-6-Astra Embodied Evaluation**](https://arxiv.org/abs/2610.22471)<br><sub>Has GPT-6-Astra Achieved Embodied Intelligence?</sub> | 2026-10<br><sub>arXiv</sub> | Observations, demonstrations, and feedback → model-issued actions through execution interfaces | Studies in-context learning, interaction budgets, and execution interfaces, including simulated G1 loco-manipulation in SIMPLE; real G1 manipulation and walking are evaluated separately. | [Paper](https://arxiv.org/abs/2610.22471) |
 | [**Inertially Significant Humanoid Teleoperation**](https://arxiv.org/abs/2610.22176)<br><sub>Inertially Significant Humanoid Teleoperation via Whole Body Model Predictive Control and Online Parameter Estimation</sub> | 2026-10<br><sub>arXiv</sub> | VR pose commands and robot feedback → payload-adaptive whole-body MPC commands | Combines whole-body MPC with EKF-based online inertial estimation on a 23-DoF bipedal humanoid, with hardware payload tests using manually mounted forearm weights. | [Paper](https://arxiv.org/abs/2610.22176) |
 | [**iGPC**](https://arxiv.org/abs/2610.08120)<br><sub>iGPC: Generative Motion Priors for Object-Aware Humanoid Interaction</sub> | 2026-10<br><sub>arXiv</sub> | Geometry observations and goals → grounded whole-body execution | Combines geometry-aware planning with existing motor priors on G1 for rail grasping, box pushing, and sitting or standing. | [Paper](https://arxiv.org/abs/2610.08120) |
@@ -631,6 +632,7 @@ Retain successful executions to seed further data augmentation and tracking-poli
 **Inspired by:** [Awesome Humanoid Robot Learning](https://github.com/YanjieZe/awesome-humanoid-robot-learning) · [Awesome Robotics Manipulation](https://github.com/BaiShuanghao/Awesome-Robotics-Manipulation).
 
 **License:** Original curation text and assets use the [MIT License](LICENSE). Linked research and resources retain their respective licenses.
+
 
 
 

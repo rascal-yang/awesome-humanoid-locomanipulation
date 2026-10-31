@@ -39,6 +39,16 @@ The homepage uses the first arXiv submission month unless another first public r
 
 <a id="arxiv-monitor-2026-10-21"></a>
 
+<a id="arxiv-additions-2026-10-31"></a>
+
+## METATRON addition and HumiMimic update: 2026-10-31 / 新增与版本核验
+
+One new work increases core entries 137 → 138. The existing HumiTransfer / HumiMimic entry is updated in place and is not counted again. Both language versions retain the seven H2 sections, 29 H3 subgroups, and back-to-top navigation. The five-curve SVG and seven-category CSV are regenerated from primary README rows; the full-list classification check date is unchanged.
+
+- [METATRON: A Promptable Whole-Body Execution Layer for Humanoids](https://arxiv.org/abs/2610.38027) — **Harness / Planning & Control Interfaces**. v1 submitted 2026-10-27T22:26:59Z; latest checked v1, with no later revision observed. First observed in the 2026-10-30 new/cross-list announcements; 10-31 is the inclusion date, not submission or announcement. Timed body-part goals, velocity commands, style cues, and goal masks form a programmable interface to a frozen generative whole-body policy. Stateful skill programs supply goals at runtime. Physical G1 demonstrations include teleoperated object pickup, furniture sitting, physical guidance/handshaking, and recovery; SOMA climbing and acrobatics are simulated-character results, not G1 hardware. [Original text](https://arxiv.org/html/2610.38027v1): §IV Skills, §VI-B/C, Fig.6/7. The [official project](https://research.nvidia.com/labs/par/projects/metatron/) was opened and checked: coding agents refine goal-setting code in simulation under human direction, ordinary skill code runs at deployment, and a human decides whether to deploy. These demonstrations support an execution-interface placement; they do not establish autonomous recursive self-improvement. 通过部分身体目标与有状态技能程序复用冻结全身策略；仿真任务、真机遥操作和人机交互分别描述，不将它们统称自主真机任务成功。
+
+- [HumiMimic: Mimetic Embodiment Transfer of Human-Humanoid Interaction from In-the-Wild Videos](https://arxiv.org/abs/2610.36615) — existing **Real2Sim / Contact-Preserving Motion Retargeting** entry, previously displayed as HumiTransfer. v1 submitted 2026-10-27T04:18:31Z; v2 submitted 2026-10-29T14:51:30Z and observed in the 10-30 replacement announcements. Comparing the original readable v1/v2 texts shows the added HumiMimic title prefix and official project URL, with no method or result changes found. HumiTransfer remains the method name; HumiMimic is the dataset/paper identity. The arXiv ID, first-release month 2026-10, category, and paper count are retained. The [author project](https://aioznetwork.github.io/HumiMimic/) was retrieved directly with HTTP 200 and its title/authors/content checked. It labels code **Code (TBD)**; no code link is presented as released, and a dataset link is not treated as a verified complete download. 两版同步原始题名并新增Project资源；保留HumiTransfer方法别名，不重复收录，真机仍仅R1 Edu，Mini-hi为仿真/重定向证据。
+
 <a id="str-v2-verification-2026-10-30"></a>
 
 ## STR / STRL v2 verification: 2026-10-30 / 修订核验
@@ -442,6 +452,7 @@ The seven H2 sections remain fixed. Five H3s separate whole-body skill planning,
 | Sim-to-Real Humanoid Box Loco-Manipulation | 2023-10-04 | [Paper](https://arxiv.org/abs/2310.03191) | Learns box pickup and carrying with balance-aware reinforcement learning and combines the skills for real table-to-table box transport.<br>Digit 真机；拾箱、携带和跨桌搬运，直接匹配 humanoid loco-manipulation。 |
 | TRILL | 2023-09-05 | [Paper](https://arxiv.org/abs/2309.01952) | Learns task-space actions above a stabilizing whole-body controller, with simulated loco-manipulation and real DRACO 3 contact-rich manipulation.<br>人形全身控制将 VR 任务空间指令变为关节力矩，再从示范学习移动操作；包含仿真和真机验证。 |
 | iCub3 Avatar System | 2022-03-14 | [Paper](https://arxiv.org/abs/2203.06972) | Integrates locomotion, manipulation, and sensory feedback on iCub3, including remote public demonstrations with payload carrying.<br>iCub3 远程全身具身遥操作；明确涉及行走、操作、多模态反馈及搬运负载的真实场景。 |
+
 
 
 
